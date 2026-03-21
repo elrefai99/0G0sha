@@ -1,0 +1,12 @@
+.env
+node_modules
+.env.dev
+.env.production
+*dist
+index.html
+SQL
+.DS_Store
+*.log
+logs
+package-lock.json
+CLAUDE.md
