@@ -2,7 +2,7 @@
 
 # 0Gosha
 
-<img src="https://lh3.googleusercontent.com/d/1UDQdpRf_yYgsPMgD-bTTI1QDRk7xB6QE" width="800" alt="0Gosha" />
+<img src="https://lh3.googleusercontent.com/d/1UDQdpRf_yYgsPMgD-bTTI1QDRk7xB6QE" width="200" alt="0Gosha" />
 
 **Pure AI agent engine that optimizes prompts - learns from user feedback.**
 
