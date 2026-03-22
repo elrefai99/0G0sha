@@ -25,9 +25,9 @@ process
     }, 500)
   })
 import express, { type Express, type Request, type Response } from 'express'
-import { mongoDBConfig, redisConfig } from '@/config'
+import { mongoDBConfig, redisConfig } from './config'
 import client from 'prom-client'
-import appConfig from '@/app.config'
+import appConfig from './app.config'
 import { setupSwagger } from './swagger'
 
 const app: Express = express()

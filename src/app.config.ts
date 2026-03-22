@@ -92,17 +92,19 @@ export default (app: Application) => {
   app.use('/v0/public', express.static('cdn'))
   app.use(cors(corsOptions))
   app.use(cookieParser())
-  app.use(
-    morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'combined', {
-      stream: {
-        write: (message) => {
-          process.env.NODE_ENV === 'development'
-            ? process.stdout.write(message)
-            : process.stdout.write(message) && logger.info(message.trim())
+  if (process.env.NODE_ENV !== 'test') {
+    app.use(
+      morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'combined', {
+        stream: {
+          write: (message) => {
+            process.env.NODE_ENV === 'development'
+              ? process.stdout.write(message)
+              : process.stdout.write(message) && logger.info(message.trim())
+          },
         },
-      },
-    }),
-  )
+      }),
+    )
+  }
   app.use(useragent.express())
   app.set('trust proxy', true)
 
