@@ -1,4 +1,5 @@
 import type { Document, Types } from 'mongoose'
+import { USER_PLAN } from '../../../Shared/enum';
 
 interface Tokens {
      used: number;
@@ -13,7 +14,7 @@ export interface IUser extends Document {
      password: string
      avatar: string;
      apiKey: string;
-     plan: 'free' | 'starter' | 'pro' | 'enterprise';
+     plan: USER_PLAN;
      tokens: Tokens;
      subscription: Types.ObjectId;
 }
