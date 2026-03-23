@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { RegisterDTO, authlimiter, validateDTO } from "../../the-import";
 import { logoutController, refreshController, registerController } from "./auth.controller";
+import { RegisterDTO, authlimiter, validateDTO } from "../../gen-import";
 
 const router: Router = Router();
 

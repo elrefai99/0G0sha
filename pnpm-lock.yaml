@@ -86,12 +86,30 @@ catalogs:
       specifier: ^3.2.0
       version: 3.2.4
   tools:
+    '@eslint/js':
+      specifier: ^10.0.1
+      version: 10.0.1
+    '@typescript-eslint/eslint-plugin':
+      specifier: ^8.57.1
+      version: 8.57.1
+    '@typescript-eslint/parser':
+      specifier: ^8.57.1
+      version: 8.57.1
     bull-arena:
       specifier: ^4.9.2
       version: 4.9.2
     bullmq:
       specifier: ^5.71.0
       version: 5.71.0
+    eslint:
+      specifier: ^10.1.0
+      version: 10.1.0
+    gen-import:
+      specifier: ^0.1.0
+      version: 0.1.0
+    globals:
+      specifier: ^17.4.0
+      version: 17.4.0
     node-cron:
       specifier: ^4.2.1
       version: 4.2.1
@@ -107,12 +125,18 @@ catalogs:
     redis:
       specifier: ^5.11.0
       version: 5.11.0
+    reflect-metadata:
+      specifier: ^0.2.2
+      version: 0.2.2
     ts-node:
       specifier: ^10.9.2
       version: 10.9.2
     tsconfig-paths:
       specifier: ^4.2.0
       version: 4.2.0
+    tsx:
+      specifier: ^4.21.0
+      version: 4.21.0
     typescript:
       specifier: ^5.9.3
       version: 5.9.3
@@ -260,7 +284,7 @@ importers:
         version: 13.0.0
     devDependencies:
       '@eslint/js':
-        specifier: ^10.0.1
+        specifier: catalog:tools
         version: 10.0.1(eslint@10.1.0)
       '@mohamed-elrefai/tsconfigs':
         specifier: catalog:types
@@ -332,10 +356,10 @@ importers:
         specifier: catalog:types
         version: 11.0.0
       '@typescript-eslint/eslint-plugin':
-        specifier: ^8.57.1
+        specifier: catalog:tools
         version: 8.57.1(@typescript-eslint/parser@8.57.1(eslint@10.1.0)(typescript@5.9.3))(eslint@10.1.0)(typescript@5.9.3)
       '@typescript-eslint/parser':
-        specifier: ^8.57.1
+        specifier: catalog:tools
         version: 8.57.1(eslint@10.1.0)(typescript@5.9.3)
       bull-arena:
         specifier: catalog:tools
@@ -350,13 +374,16 @@ importers:
         specifier: catalog:validation
         version: 0.14.4
       eslint:
-        specifier: ^10.1.0
+        specifier: catalog:tools
         version: 10.1.0
       express-useragent:
         specifier: catalog:runtime
         version: 2.1.0
+      gen-import:
+        specifier: catalog:tools
+        version: 0.1.0
       globals:
-        specifier: ^17.4.0
+        specifier: catalog:tools
         version: 17.4.0
       node-cron:
         specifier: catalog:tools
@@ -374,7 +401,7 @@ importers:
         specifier: catalog:tools
         version: 5.11.0
       reflect-metadata:
-        specifier: ^0.2.2
+        specifier: catalog:tools
         version: 0.2.2
       request-ip:
         specifier: catalog:runtime
@@ -389,7 +416,7 @@ importers:
         specifier: catalog:tools
         version: 4.2.0
       tsx:
-        specifier: ^4.21.0
+        specifier: catalog:tools
         version: 4.21.0
       typescript:
         specifier: catalog:tools
@@ -1802,6 +1829,11 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
+  gen-import@0.1.0:
+    resolution: {integrity: sha512-y9meyxe5vD9LJHNC7/PufhSaI/tbDgJxIw+uoxhvvlLUujv1etGOW3o1G2WT0XLG0K2HLda0DC4Q8JmrNdtnvw==}
+    engines: {node: '>=16'}
+    hasBin: true
+
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -2705,6 +2737,11 @@ packages:
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -4277,6 +4314,10 @@ snapshots:
 
   function-bind@1.1.2: {}
 
+  gen-import@0.1.0:
+    dependencies:
+      typescript: 6.0.2
+
   get-caller-file@2.0.5: {}
 
   get-intrinsic@1.3.0:
@@ -5237,6 +5278,8 @@ snapshots:
   typedarray@0.0.6: {}
 
   typescript@5.9.3: {}
+
+  typescript@6.0.2: {}
 
   uglify-js@3.19.3:
     optional: true

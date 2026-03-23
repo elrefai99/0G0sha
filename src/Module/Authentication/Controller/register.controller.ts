@@ -1,6 +1,6 @@
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
 import { asyncHandler } from '../../../utils/api-requesthandler'
-import { AppError, BasedAuthService } from '../../../the-import'
+import { AppError, BasedAuthService } from '../../../gen-import'
 import type { RegisterDTO } from '../DTO/index.dto'
 
 export const registerController: RequestHandler = asyncHandler(

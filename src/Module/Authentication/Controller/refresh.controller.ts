@@ -2,7 +2,7 @@ import { NextFunction, Request, Response, RequestHandler } from "express"
 import { createPublicKey } from "node:crypto"
 import { V4 } from "paseto"
 import { asyncHandler } from "../../../utils/api-requesthandler"
-import { AppError, UserModel, token_PASETO } from "../../../the-import"
+import { AppError, UserModel, token_PASETO } from "../../../gen-import"
 
 export const refreshController: RequestHandler = asyncHandler(
      async (req: Request, res: Response, next: NextFunction) => {

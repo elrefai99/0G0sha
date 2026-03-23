@@ -1,11 +1,14 @@
 /**
- * the-import.ts — AUTO-GENERATED, do not edit manually.
- * Regenerate: pnpm gen:imports
+ * gen-import.ts — AUTO-GENERATED, do not edit manually.
+ * Regenerate: npx gen-import
  */
 
 export type { PaginationParams, PaginationMeta, PaginatedResult, PaginateOptions, IUserRequest } from './@types';
 export { addJobToQueue, queue } from './MessageQueue/Queue/queue.email';
 export { sendEmail, jobProcessor } from './MessageQueue/jobs/job.process.emails';
+export { logoutController } from './Module/Authentication/Controller/logout.controller';
+export { refreshController } from './Module/Authentication/Controller/refresh.controller';
+export { registerController } from './Module/Authentication/Controller/register.controller';
 export { RegisterDTO } from './Module/Authentication/DTO/index.dto';
 export { OauthService } from './Module/Authentication/Service/0Auth.service';
 export { BasedAuthService } from './Module/Authentication/Service/based-auth.service';
@@ -28,9 +31,12 @@ export { USER_PLAN, TOKEN_LEDGER_ACTION, PLAN_PROVIDER, PAYMENT_STATUS, PAYMENT_
 export { AppError } from './Shared/errors/app-error';
 export { errorHandler } from './Shared/errors/errorHandler';
 export type { TargetModel, PromptCategory, PromptComplexity, PromptElement, Token, PromptGap, AnalysisResult, TransformRule, LearnedWeight, SimilarPrompt, AgentInput, AgentOutput } from './agent/@types';
+export { allowedOrigins } from './app.config';
+export { default as app_config } from './app.config';
+export { default as app } from './app';
 export { default as cloudinary } from './config/cloudinary';
-export { mongoDBConfig } from './config/mongoDB';
-export { redisConfig } from './config/redis';
+export { default as dotenv } from './config/dotenv';
+export { mongoDBConfig, redisConfig } from './config';
 export { default as redis } from './config/redis';
 export { validateDTO } from './middleware/validateDTO';
 export { setupSwagger } from './swagger';
@@ -40,3 +46,4 @@ export { limiter, authlimiter } from './utils/limit-request';
 export { logger, createLogger } from './utils/logger';
 export { normalizePagination, paginate } from './utils/pagination';
 export { default as auth_module } from './Module/Authentication/auth.module';
+export { default as app_module } from './app.module';
