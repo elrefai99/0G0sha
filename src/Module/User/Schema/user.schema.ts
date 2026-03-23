@@ -2,6 +2,7 @@ import { model, Schema } from 'mongoose'
 import type { IUser } from '../@types'
 import { v4 as uuidv4 } from 'uuid'
 import bcrypt from 'bcryptjs'
+import { USER_PLAN } from '../../../Shared/enum'
 
 const userSchema = new Schema<IUser>({
   fullname: {
@@ -34,8 +35,8 @@ const userSchema = new Schema<IUser>({
   },
   plan: {
     type: String,
-    enum: ['free', 'starter', 'pro', 'enterprise'],
-    default: 'free',
+    enum: USER_PLAN,
+    default: USER_PLAN.FREE,
   },
   tokens: {
     type: Object,

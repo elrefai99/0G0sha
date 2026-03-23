@@ -1,4 +1,4 @@
-import { RegisterDTO, UserModel, token_PASETO } from "../../../the-import";
+import { RegisterDTO, UserModel, token_PASETO } from "../../../gen-import";
 
 export class BasedAuthService {
      constructor() { }
