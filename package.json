@@ -4,10 +4,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "dev": "concurrently \"NODE_ENV=development nodemon -L\" \"NODE_ENV=development npx ts-node ./src/Queue/index.ts\"",
-    "dev:local": "concurrently \"nodemon -L\" \"npx ts-node ./src/Queue/index.ts\"",
+    "dev": "concurrently \"NODE_ENV=development nodemon -L\" \"NODE_ENV=development npx ts-node ./src/MessageQueue/index.ts\"",
+    "dev:local": "concurrently \"nodemon -L\" \"npx ts-node ./src/MessageQueue/index.ts\"",
     "build": "tsc",
-    "start": "concurrently \"node ./dist/app.js\" \"node ./dist/Queue/worker.js\"",
+    "start": "concurrently \"node ./dist/app.js\" \"node ./dist/MessageQueue/index.js\"",
     "test": "jest --detectOpenHandles --runInBand",
     "test:local": "NODE_ENV=development jest",
     "test:e2e": "vitest run --reporter=verbose",
@@ -90,6 +90,7 @@
     "reflect-metadata": "^0.2.2",
     "request-ip": "catalog:runtime",
     "ts-node": "catalog:tools",
+    "tsconfig-paths": "catalog:tools",
     "typescript": "catalog:tools"
   }
 }
