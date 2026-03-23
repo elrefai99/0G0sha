@@ -26,7 +26,13 @@ const SKIP_PATTERNS = [
   'src/app.config.ts', // entry-point config — would create circular deps
   'src/app.module.ts', // entry-point router — would create circular deps
   'src/config/dotenv', // side-effect only
+  '.controller.ts', // module-internal controllers (both individual files and module-level barrels) — not shared across modules
 ]
+
+// Feature module routers (*.module.ts) are deferred to the end of the barrel so
+// that all utilities, models, and services they depend on (via their controllers)
+// are already exported before the circular require fires.
+const MODULE_FILE_PATTERN = '.module.ts'
 
 function walk(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
@@ -40,6 +46,10 @@ function shouldSkip(file: string): boolean {
   const rel = relative(ROOT, file).replace(/\\/g, '/')
   if (PURE_REEXPORTS.has(rel)) return true
   return SKIP_PATTERNS.some((p) => rel.includes(p))
+}
+
+function isModuleFile(file: string): boolean {
+  return file.includes(MODULE_FILE_PATTERN)
 }
 
 interface FileInfo {
@@ -131,8 +141,12 @@ function buildOutput(infos: FileInfo[]): string {
 }
 
 export function genTheImport(): void {
-  const files = walk(SRC).filter((f) => !shouldSkip(f)).sort()
-  const infos = analyzeFiles(files)
+  const allFiles = walk(SRC).filter((f) => !shouldSkip(f)).sort()
+  // Module router files go last — they must be emitted after everything they
+  // transitively depend on so that circular requires see fully-initialised exports.
+  const regularFiles = allFiles.filter((f) => !isModuleFile(f))
+  const moduleFiles  = allFiles.filter((f) =>  isModuleFile(f))
+  const infos = analyzeFiles([...regularFiles, ...moduleFiles])
   const output = buildOutput(infos)
 
   writeFileSync(OUT, output, 'utf-8')
