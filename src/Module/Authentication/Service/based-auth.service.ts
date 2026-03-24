@@ -1,10 +1,12 @@
-import { RegisterDTO, UserModel, token_PASETO } from "../../../gen-import";
+import { UserModel } from "../../User/Schema/user.schema"
+import { RegisterDTO } from "../DTO/index.dto"
+import { token_PASETO } from "../utils/paseto.utils"
 
 export class BasedAuthService {
      constructor() { }
 
      public async check_account(payload: string) {
-          const user = await UserModel.findOne({ email: payload.toLowerCase() }, { _id: 1 })
+          const user = await UserModel.findOne({ email: payload.toLowerCase() }, { _id: 1, password: 1 })
 
           return user
      }
