@@ -101,12 +101,15 @@ catalogs:
     bullmq:
       specifier: ^5.71.0
       version: 5.71.0
+    concurrently:
+      specifier: ^9.2.1
+      version: 9.2.1
     eslint:
       specifier: ^10.1.0
       version: 10.1.0
     gen-import:
-      specifier: ^0.1.0
-      version: 0.1.0
+      specifier: ^0.2.0
+      version: 0.2.0
     globals:
       specifier: ^17.4.0
       version: 17.4.0
@@ -223,7 +226,7 @@ importers:
         specifier: catalog:runtime
         version: 2.9.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: catalog:tools
         version: 9.2.1
       cookie-parser:
         specifier: catalog:runtime
@@ -369,7 +372,7 @@ importers:
         version: 2.1.0
       gen-import:
         specifier: catalog:tools
-        version: 0.1.0
+        version: 0.2.0
       globals:
         specifier: catalog:tools
         version: 17.4.0
@@ -1808,8 +1811,8 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  gen-import@0.1.0:
-    resolution: {integrity: sha512-y9meyxe5vD9LJHNC7/PufhSaI/tbDgJxIw+uoxhvvlLUujv1etGOW3o1G2WT0XLG0K2HLda0DC4Q8JmrNdtnvw==}
+  gen-import@0.2.0:
+    resolution: {integrity: sha512-z+vJ2x3J4P2Lg1NcSofiDvASzHC+huRdl1ozxZLoTG+rWiJIpXbSXgwMEyyV9Ed3W5bOcfDzNiaAdKajs1LsTw==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -4280,7 +4283,7 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  gen-import@0.1.0:
+  gen-import@0.2.0:
     dependencies:
       typescript: 6.0.2
 

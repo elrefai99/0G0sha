@@ -27,7 +27,7 @@
     "axios": "catalog:runtime",
     "bcryptjs": "catalog:runtime",
     "cloudinary": "catalog:runtime",
-    "concurrently": "^9.2.1",
+    "concurrently": "catalog:tools",
     "cookie-parser": "catalog:runtime",
     "cors": "catalog:runtime",
     "crypto-js": "catalog:runtime",
