@@ -19,6 +19,7 @@ export { BasedAuthService } from './Module/Authentication/Service/based-auth.ser
 export { token_PASETO } from './Module/Authentication/utils/paseto.utils';
 export type { Tokens, IUser } from './Module/User/@types';
 export { UserModel } from './Module/User/Schema/user.schema';
+export { profileMiddleware } from './Module/User/middleware/profile.middleware';
 export type { ILearnedWeight } from './Module/agent/@types';
 export { LearnedWeightModel } from './Module/agent/Schema/learned.weight.schema';
 export type { IPromptHistory } from './Module/prompt/@types';
