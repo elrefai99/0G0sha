@@ -83,7 +83,7 @@ src/
 │   └── index.ts              # Re-exports all configs
 │
 ├── middleware/
-│   └── validateDTO.ts        # Generic DTO validation (class-validator)
+│   └── validateDTO.ts        # Generic DTO validation (Zod)
 │
 ├── utils/
 │   ├── logger.ts             # Pino logger factory (createLogger)
@@ -93,9 +93,12 @@ src/
 │   └── hashText.ts           # SHA256 text hasher (normalize → hash)
 │
 ├── Shared/
-│   └── errors/
-│       ├── app-error.ts      # AppError class + static factories
-│       └── errorHandler.ts   # Central Express error middleware
+│   ├── errors/
+│   │   ├── app-error.ts      # AppError class + static factories
+│   │   └── errorHandler.ts   # Central Express error middleware
+│   └── enum/
+│       └── index.ts          # Shared enums (USER_PLAN, TOKEN_LEDGER_ACTION,
+│                             #   PLAN_PROVIDER, PAYMENT_STATUS, PAYMENT_METHOD)
 │
 ├── Providers/
 │   └── cloudinary.provider.ts  # multer upload + uploadToCloudinary()
@@ -106,9 +109,32 @@ src/
 │   ├── worker.emails.ts      # BullMQ worker
 │   └── index.ts              # Worker entrypoint (standalone process)
 │
+├── agent/                    # Pure agent-engine types (no DB dependency)
+│   └── @types/index.d.ts     # TargetModel, PromptCategory, PromptComplexity,
+│                             #   Token, PromptGap, AnalysisResult, TransformRule,
+│                             #   LearnedWeight, SimilarPrompt, AgentInput, AgentOutput
+│
 ├── Module/
-│   ├── Authentication/       # Auth module (register complete, rest planned)
-│   └── User/                 # User schema + types
+│   ├── Authentication/       # Auth module (all endpoints implemented)
+│   ├── User/                 # User schema, service, controller, DTO, middleware
+│   ├── agent/                # Agent module — LearnedWeight schema + types
+│   │   ├── @types/index.d.ts # ILearnedWeight interface
+│   │   └── Schema/learned.weight.schema.ts  # LearnedWeightModel
+│   ├── prompt/               # Prompt history module
+│   │   ├── @types/index.d.ts # IPromptHistory interface
+│   │   └── Schema/prompt.schema.ts          # PromptHistoryModel
+│   ├── subscription/         # Subscription / billing module
+│   │   ├── @types/index.d.ts # IPlan, ITokenLedger, IPaymentHistory interfaces
+│   │   └── Schema/
+│   │       ├── plans.schema.ts              # PlanModel
+│   │       ├── TokenLedger.schema.ts        # TokenLedgerModel (90-day TTL)
+│   │       └── payment.history.schema.ts    # PaymentHistoryModel
+│   └── template/             # Prompt template module
+│       ├── @types/index.d.ts # ITemplate interface
+│       └── Schema/template.schema.ts        # TemplateModel
+│
+├── __tests__/
+│   └── helpers/test-app.ts   # createTestApp() — isolated Express app for e2e tests
 │
 ├── @types/
 │   └── index.d.ts            # Global interfaces (Pagination, IUserRequest)
@@ -195,6 +221,8 @@ router.post('/route', authlimiter, validateDTO(CreateDTO), createController);
 app.use('/api/v1/feature', feature_module);
 ```
 
+`validateDTO` accepts a **Zod schema** (not a class). The middleware calls `schema.safeParse(req.body)` and forwards field-level error messages to `AppError.badRequest()` on failure.
+
 **Import convention:** Never import directly across modules. Always use the auto-generated barrel:
 
 ```typescript
@@ -269,17 +297,17 @@ POST /api/v1/auth/register
              └── Set httpOnly cookies → 201 Created
 ```
 
-### Planned Auth Endpoints
+### Auth Endpoints
 
 | Method | Route | Status |
 |--------|-------|--------|
 | POST | `/api/v1/auth/register` | ✓ Complete |
-| POST | `/api/v1/auth/login` | Planned |
-| POST | `/api/v1/auth/refresh` | Planned |
-| POST | `/api/v1/auth/logout` | Planned |
-| POST | `/api/v1/auth/forget-password` | Planned |
-| POST | `/api/v1/auth/reset-password` | Planned |
-| GET | `/api/v1/auth/google-token` | Planned |
+| POST | `/api/v1/auth/login` | ✓ Complete |
+| POST | `/api/v1/auth/refresh` | ✓ Complete |
+| POST | `/api/v1/auth/logout` | ✓ Complete |
+| POST | `/api/v1/auth/forget-password` | ✓ Complete |
+| POST | `/api/v1/auth/reset-password` | ✓ Complete |
+| POST | `/api/v1/auth/google` | ✓ Complete (Google OAuth token exchange) |
 | GET | `/api/v1/auth/google/callback` | Planned |
 
 ---
@@ -299,27 +327,30 @@ POST /api/v1/auth/register
 | Field | Type | Notes |
 |-------|------|-------|
 | `fullname` | String | Required |
-| `username` | String | Required |
-| `email` | String | Unique, lowercase, trim |
-| `password` | String | bcrypt hashed in pre-save hook |
+| `username` | String | Default `''` |
+| `email` | String | Unique index, lowercase, trim |
+| `password` | String | bcrypt hashed in pre-save hook (salt rounds = 10) |
 | `avatar` | String | Cloudinary URL |
-| `apiKey` | String | UUID v4, unique |
-| `plan` | Enum | `free` \| `starter` \| `pro` \| `enterprise` |
-| `tokens` | Object | `{used, limit, lastResetAt}` |
-| `subscription` | ObjectId | Ref: Subscription (planned) |
+| `apiKey` | String | UUID v4, unique index |
+| `googleId` | String | Google OAuth ID, default `''` |
+| `plan` | Enum | `free` \| `starter` \| `pro` \| `enterprise` (via `USER_PLAN` enum) |
+| `tokens` | Object | `{used, limit, lastResetAt}` — default limit: 10 |
+| `subscription` | ObjectId | Ref: Subscription |
 
 **Instance method:** `comparePassword(candidate)` → `bcrypt.compare()`
 
-### Planned Collections
+### Implemented Collections
 
-| Collection | Purpose |
-|-----------|---------|
-| `prompt_history` | Saved optimizations + ratings |
-| `learned_weights` | Per-category rule weights (0.2–3.0) |
-| `plans` | Subscription tier definitions |
-| `templates` | Reusable prompt structures |
-| `token_ledger` | Daily usage tracking (90-day TTL) |
-| `payment_history` | Stripe + Paymob transaction logs |
+All collections are now scaffolded with Mongoose schemas:
+
+| Collection | Model | Key Fields |
+|-----------|-------|-----------|
+| `prompt_history` | `PromptHistoryModel` | `originalText`, `optimizedText`, `targetModel`, `category`, `rulesApplied`, `score`, `userScore`, `userId`, `keywords`, `tokensCost` — text index on `originalText + keywords` |
+| `learned_weight` | `LearnedWeightModel` | `ruleId`, `category`, `weight`, `totalUses`, `totalScore`, `avgScore` — unique index on `(ruleId, category)` |
+| `Plan` | `PlanModel` | `name`, `displayName`, `price`, `tokensPerDay`, `features`, `limits`, `isActive` |
+| `Template` | `TemplateModel` | `name`, `category`, `description`, `systemPrompt`, `exampleInput`, `exampleOutput`, `isActive` |
+| `TokenLedger` | `TokenLedgerModel` | `userId`, `amount`, `action` (optimize/reset/bonus/refund), `promptId`, `balanceAfter`, `metadata` — 90-day TTL index |
+| `PaymentHistory` | `PaymentHistoryModel` | `userId`, `planId`, `order_id`, `amount`, `currency`, `status`, `provider` (stripe/paymob), `method` (card/wallet), `transaction_id`, `expiresAt` |
 
 ---
 
@@ -473,28 +504,23 @@ Rate limit key: `clientIP` (resolved from Cloudflare/proxy headers).
 
 **`src/middleware/validateDTO.ts`**
 
-Decorator-based validation using `class-validator` + `class-transformer`:
+Schema-based validation using **Zod**. Each DTO exports both the Zod schema and its inferred TypeScript type under the same name:
 
 ```typescript
-// DTO definition
-export class RegisterDTO {
-  @IsString()
-  @MinLength(2)
-  name: string;
+// DTO definition (src/Module/Feature/DTO/index.dto.ts)
+export const RegisterDTO = z.object({
+  name: z.string().min(2).max(50),
+  email: z.string().email().max(100),
+  password: z.string().min(8).max(64)
+    .regex(/[A-Z]/).regex(/[a-z]/).regex(/[0-9]/).regex(/[^a-zA-Z0-9]/),
+});
+export type RegisterDTO = z.infer<typeof RegisterDTO>;
 
-  @IsEmail()
-  @MaxLength(100)
-  email: string;
-
-  @Matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,64}$/)
-  password: string;
-}
-
-// Route wiring
+// Route wiring — pass the Zod schema, not a class
 router.post('/register', validateDTO(RegisterDTO), registerController);
 ```
 
-On validation failure → `AppError.badRequest()` with field-level error messages.
+`validateDTO` calls `schema.safeParse(req.body)`, joins all `error.errors` messages with `'; '`, and passes them to `AppError.badRequest()` on failure. On success it replaces `req.body` with the parsed (typed) data.
 
 ---
 
@@ -530,9 +556,49 @@ const result = await paginate(UserModel, { plan: 'pro' }, {
 
 ---
 
-## 16. The Agent Engine (Core — Planned)
+## 16. The Agent Engine (Core — In Progress)
 
 The core value proposition of Gosha. No external AI involved.
+
+### Type System (`src/agent/@types/index.d.ts`)
+
+All agent-engine types are defined and ready:
+
+```typescript
+// Input/output contracts
+type AgentInput  = { text: string; targetModel: TargetModel; userId?: string }
+type AgentOutput = { promptId: string; original: string; optimized: string;
+                     score: number; suggestions: string[]; analysis: AnalysisResult }
+
+// Classification types
+type TargetModel      = 'claude' | 'gpt' | 'general'
+type PromptCategory   = 'coding' | 'writing' | 'analysis' | 'marketing' | 'general'
+type PromptComplexity = 'simple' | 'medium' | 'complex'
+type PromptElement    = 'role' | 'context' | 'task' | 'constraints' | 'outputFormat' | 'examples'
+
+// Analysis types
+type Token        = { word: string; isKeyword: boolean; weight: number }
+type PromptGap    = { element: PromptElement; severity: 'missing' | 'weak' | 'ok' }
+type AnalysisResult = { tokens, keywords, category, complexity, intent, gaps, rawScore }
+
+// Rule engine types
+type TransformRule  = { id, name, element, condition(text): boolean, apply(text): string }
+type LearnedWeight  = { ruleId, category, weight, totalUses, avgScore }
+type SimilarPrompt  = { originalText, optimizedText, score, category, rulesApplied, similarity }
+```
+
+### Phase 3 Plan (`Docs/phase-3.md`)
+
+The Analyzer is the next component to be implemented:
+
+```
+src/agent/
+├── tokenizer.ts    # Text → Token[] + keyword extraction
+├── classifier.ts   # Token[] → category + complexity + intent
+└── gap-scorer.ts   # Regex pattern matching → PromptGap[] + rawScore
+```
+
+See `Docs/phase-3.md` for detailed implementation plan including word sets, regex patterns, scoring formulas, and test cases.
 
 ### 5-Phase Processing Loop
 
@@ -590,6 +656,12 @@ Storage: learned_weights collection in MongoDB
 | Method | Route | Auth | Description |
 |--------|-------|------|-------------|
 | POST | `/api/v1/auth/register` | None | Create account |
+| POST | `/api/v1/auth/login` | None | Login, set tokens |
+| POST | `/api/v1/auth/refresh` | Cookie | Refresh access token |
+| POST | `/api/v1/auth/logout` | Cookie | Clear token cookies |
+| POST | `/api/v1/auth/google` | None | Google OAuth token exchange |
+| POST | `/api/v1/auth/forget-password` | None | Send password reset token |
+| POST | `/api/v1/auth/reset-password` | None | Reset password with token |
 | GET | `/api-docs` | None | Swagger UI |
 | GET | `/metrics` | None | Prometheus metrics |
 
@@ -645,7 +717,7 @@ Copy `.env.example` → `.env` and fill in all values before running.
 | Database | MongoDB + Mongoose | 9.3.1 |
 | Cache | Redis | 5.11.0 |
 | Auth | PASETO v4 (`paseto`) | 3.1.4 |
-| Validation | class-validator + class-transformer | 0.14.2 / 0.5.1 |
+| Validation | Zod | 3.x |
 | Logging | Pino | 9.7.0 |
 | Metrics | Prometheus (`prom-client`) | 15.1.3 |
 | Queue | BullMQ | 5.71.0 |
@@ -660,4 +732,4 @@ Copy `.env.example` → `.env` and fill in all values before running.
 
 ---
 
-*Last updated: 2026-03-23*
+*Last updated: 2026-03-24*

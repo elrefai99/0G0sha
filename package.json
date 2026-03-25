@@ -1,6 +1,6 @@
 {
   "name": "0gosha",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -17,7 +17,7 @@
     "taze:update": "npx taze major -w",
     "taze:patch": "npx taze patch",
     "compress:ubuntu": "sudo zip -r project.zip .",
-    "gen:imports": "gen-import"
+    "gen:imports": "gen-import --app-config --no-js"
   },
   "keywords": [],
   "author": "Mohammed Elrefai <elrefai99@gmail.com>",
@@ -27,7 +27,7 @@
     "axios": "catalog:runtime",
     "bcryptjs": "catalog:runtime",
     "cloudinary": "catalog:runtime",
-    "concurrently": "^9.2.1",
+    "concurrently": "catalog:tools",
     "cookie-parser": "catalog:runtime",
     "cors": "catalog:runtime",
     "crypto-js": "catalog:runtime",

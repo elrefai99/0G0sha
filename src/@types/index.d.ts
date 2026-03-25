@@ -27,7 +27,7 @@ export interface PaginateOptions<T> {
      params?: PaginationParams;
 }
 
-export interface IUserRequest extends Request {
+export interface IUserRequest {
      _id?: Types.ObjectId | string;
      fullname?: string;
      username?: string;
