@@ -64,7 +64,7 @@ const DETECTORS: ElementDetector[] = [
           element: 'examples',
           strongPatterns: [
                /example:/i, /for example/i, /e\.g\./i, /such as/i,
-               /input:.+output:/is, /here('s| is) (an|a) example/i,
+               /input:[\s\S]+output:/i, /here('s| is) (an|a) example/i,
                /here are (some )?examples/i, /sample (input|output)/i,
                /to illustrate/i, /as follows:/i, /consider this:/i,
           ],
