@@ -1,6 +1,8 @@
+import type { Response as ExpressResponse } from 'express';
+
 export interface SSEClient {
      userId: string;
-     res: Response;
+     res: ExpressResponse;
      lastEventId?: string;
 }
 

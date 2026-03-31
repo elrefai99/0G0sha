@@ -197,6 +197,10 @@ Currently mounted in `app.module.ts`:
 - `/api/v1/users` — User profile module (requires `profileMiddleware`)
 - `/api/v1/agent` — Agent analysis module (`POST /analyze`)
 
+### Notification Module
+
+`Module/Notifications/` provides real-time notifications via SSE (Server-Sent Events) backed by Redis pub/sub. Clients register via `GET /stream` (SSE connection) and services publish via `POST /publish`. The module uses `sseFormat.ts` for event formatting. Not yet mounted in `app.module.ts`.
+
 Prompt, subscription, and template modules have schemas defined but are not yet registered in `app.module.ts`.
 
 ### Planned API Routes
