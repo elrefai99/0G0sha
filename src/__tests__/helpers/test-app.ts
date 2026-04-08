@@ -1,7 +1,5 @@
 import express, { type Express, type Request, type Response } from 'express'
-import appConfig from '../../app.config'
-import appModule from '../../app.module'
-import { errorHandler } from '../../Shared/errors/errorHandler'
+import { app_config as appConfig, app_module as appModule, errorHandler } from '@/gen-import'
 
 /**
  * Creates a fresh Express app with all middleware and routes applied but

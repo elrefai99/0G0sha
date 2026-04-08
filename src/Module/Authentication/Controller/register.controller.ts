@@ -1,8 +1,5 @@
+import { AppError, asyncHandler, BasedAuthService, RegisterDTO } from '@/gen-import'
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
-import { asyncHandler } from '../../../utils/api-requesthandler'
-import type { RegisterDTO } from '../DTO/index.dto'
-import { AppError } from '../../../Shared/errors/app-error'
-import { BasedAuthService } from '../Service/based-auth.service'
 
 export const registerController: RequestHandler = asyncHandler(
      async (req: Request, res: Response, next: NextFunction) => {

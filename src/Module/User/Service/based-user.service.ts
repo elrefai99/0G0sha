@@ -1,4 +1,4 @@
-import { createLogger } from '../../../utils/logger'
+import { createLogger } from '@/gen-import'
 import type { EditProfileDTO } from '../DTO/index.dto'
 import { UserModel } from '../Schema/user.schema'
 

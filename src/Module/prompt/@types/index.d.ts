@@ -7,8 +7,8 @@ export interface IPromptHistory extends Document {
      category: string;
      rulesApplied: string[];
      score: number;
-     userScore: number;
-     userId: Types.ObjectId;
+     userScore: number | null;
+     userId: Types.ObjectId | null;
      keywords: string[];
      tokensCost: number;
 }

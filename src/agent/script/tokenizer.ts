@@ -1,5 +1,5 @@
+import { ACTION_VERBS, DOMAIN_KEYWORDS, STOP_WORDS } from "@/gen-import";
 import { Token } from "../@types";
-import { ACTION_VERBS, DOMAIN_KEYWORDS, STOP_WORDS } from "../data/tokenizer.data";
 
 function calcWeight(word: string): number {
      if (STOP_WORDS.has(word)) return 0;

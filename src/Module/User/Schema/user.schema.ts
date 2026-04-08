@@ -2,7 +2,7 @@ import { model, Schema } from 'mongoose'
 import type { IUser } from '../@types'
 import { v4 as uuidv4 } from 'uuid'
 import bcrypt from 'bcryptjs'
-import { USER_PLAN } from '../../../Shared/enum'
+import { USER_PLAN } from '@/gen-import'
 
 const userSchema = new Schema<IUser>({
   fullname: {

@@ -1,5 +1,5 @@
 import type { Request, RequestHandler, Response } from "express";
-import { asyncHandler } from "../../../utils/api-requesthandler";
+import { asyncHandler } from "@/gen-import";
 
 export const profileController: RequestHandler = asyncHandler(
      async (req: Request, res: Response) => {

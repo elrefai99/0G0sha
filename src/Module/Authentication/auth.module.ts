@@ -1,8 +1,5 @@
+import { authlimiter, forgetPasswordController, googleController, loginController, LoginDTO, logoutController, refreshController, registerController, RegisterDTO, resetPasswordController, validateDTO } from "@/gen-import";
 import { Router } from "express";
-import { forgetPasswordController, googleController, loginController, logoutController, refreshController, registerController, resetPasswordController } from "./auth.controller";
-import { LoginDTO, RegisterDTO } from "./DTO/index.dto";
-import { authlimiter } from "../../utils/limit-request";
-import { validateDTO } from "../../middleware/validateDTO";
 
 const router: Router = Router();
 

@@ -27,9 +27,9 @@ import express, { type Express, type Request, type Response } from 'express'
 import client from 'prom-client'
 import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
-import { allowedOrigins, app_config, mongoDBConfig, redisConfig } from './gen-import'
 import { setupSwagger } from './swagger'
 import appModule from './app.module'
+import { allowedOrigins, app_config, mongoDBConfig, redisConfig } from '@/gen-import'
 const app: Express = express()
 
 const server = http.createServer(app)

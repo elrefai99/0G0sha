@@ -1,8 +1,5 @@
+import { AppError, RegisterDTO, token_PASETO, UserModel } from "@/gen-import"
 import { createPublicKey } from "node:crypto"
-import { AppError } from "../../../Shared/errors/app-error"
-import { UserModel } from "../../User/Schema/user.schema"
-import { RegisterDTO } from "../DTO/index.dto"
-import { token_PASETO } from "../utils/paseto.utils"
 import { V4 } from "paseto"
 
 export class BasedAuthService {

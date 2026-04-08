@@ -1,10 +1,7 @@
+import { AppError, asyncHandler, token_PASETO, UserModel } from "@/gen-import"
 import { NextFunction, Request, Response, RequestHandler } from "express"
 import { createPublicKey } from "node:crypto"
 import { V4 } from "paseto"
-import { asyncHandler } from "../../../utils/api-requesthandler"
-import { AppError } from "../../../Shared/errors/app-error"
-import { UserModel } from "../../User/Schema/user.schema"
-import { token_PASETO } from "../utils/paseto.utils"
 
 export const refreshController: RequestHandler = asyncHandler(
      async (req: Request, res: Response, next: NextFunction) => {

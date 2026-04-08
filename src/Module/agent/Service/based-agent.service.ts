@@ -1,7 +1,5 @@
-import { tokenize, extractKeywords } from '../../../agent/script/tokenizer'
-import { classify, assessComplexity, extractIntent } from '../../../agent/script/classifier'
-import type { AnalysisResult } from '../../../agent/@types'
-import { calcRawScore, detect } from '../../../gen-import'
+import { AnalysisResult } from "@/agent"
+import { assessComplexity, calcRawScore, classify, detect, extractIntent, extractKeywords, tokenize } from "@/gen-import"
 
 export class AgentService {
      public analyze(text: string): AnalysisResult {

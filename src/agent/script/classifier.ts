@@ -1,5 +1,5 @@
+import { ACTION_KEYWORDS, CATEGORY_KEYWORDS } from '@/gen-import.js';
 import type { Token, PromptCategory, PromptComplexity } from '../@types/index.js';
-import { CATEGORY_KEYWORDS, ACTION_KEYWORDS } from '../data/classifier.data.js';
 
 export function classify(tokens: Token[]): PromptCategory {
      const scores: Record<PromptCategory, number> = {

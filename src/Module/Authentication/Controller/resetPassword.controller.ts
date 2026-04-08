@@ -1,6 +1,5 @@
+import { asyncHandler, BasedAuthService } from "@/gen-import";
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { BasedAuthService } from "../auth.service";
-import { asyncHandler } from "../../../utils/api-requesthandler";
 
 export const resetPasswordController: RequestHandler = asyncHandler(
      async (req: Request, res: Response, _next: NextFunction) => {

@@ -1,7 +1,6 @@
-import { BasedAuthService } from "./based-auth.service";
 import axios from "axios";
 import { randomBytes } from "node:crypto";
-import { UserModel } from "../../../gen-import";
+import { BasedAuthService, UserModel } from "@/gen-import";
 
 export class OauthService extends BasedAuthService {
      private readonly google_url: string = ""

@@ -1,7 +1,7 @@
 import type { UploadApiResponse } from 'cloudinary'
 import multer from 'multer'
 import streamifier from 'streamifier'
-import cloudinary from '../config/cloudinary'
+import { cloudinary } from '@/gen-import'
 
 export const upload = multer({ storage: multer.memoryStorage() })
 
