@@ -1,5 +1,4 @@
 import './config/dotenv'
-import './gen-import'
 import { logger } from './utils/logger'
 process
   .on('unhandledRejection', (reason, promise) => {
@@ -30,6 +29,7 @@ import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
 import appModule from './app.module'
+import { allowedOrigins, app_config, mongoDBConfig, redisConfig } from '@/gen-import'
 const app: Express = express()
 
 const server = http.createServer(app)

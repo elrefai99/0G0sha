@@ -1,5 +1,5 @@
 import type { Document, Types } from 'mongoose'
-import { USER_PLAN } from '../../../Shared/enum';
+import { USER_PLAN } from '@/gen-import';
 
 interface Tokens {
      used: number;

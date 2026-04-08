@@ -1,7 +1,6 @@
 import type { Request, RequestHandler, Response } from 'express'
 import { v4 as uuidv4 } from 'uuid'
-import { asyncHandler } from '../../../utils/api-requesthandler'
-import { publishNotification } from '../Service/public.service'
+import { asyncHandler, publishNotification } from '@/gen-import'
 import type { PublishNotificationDTO } from '../DTO/index.dto'
 
 export const publishController: RequestHandler = asyncHandler(

@@ -1,6 +1,5 @@
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
-import { asyncHandler } from '../../../utils/api-requesthandler'
-import { AppError, uploadToCloudinary } from '../../../gen-import'
+import { asyncHandler, AppError, uploadToCloudinary } from '@/gen-import'
 import type { EditProfileDTO } from '../DTO/index.dto'
 import { BasedUserService } from '../Service/based-user.service'
 

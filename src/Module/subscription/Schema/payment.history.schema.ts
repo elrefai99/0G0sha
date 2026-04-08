@@ -1,7 +1,7 @@
 
 import { Schema, model } from "mongoose";
 import { IPaymentHistory } from "../@types";
-import { PAYMENT_METHOD, PAYMENT_STATUS, PLAN_PROVIDER } from "../../../Shared/enum";
+import { PAYMENT_METHOD, PAYMENT_STATUS, PLAN_PROVIDER } from "@/gen-import";
 
 const paymentHistorySchema = new Schema<IPaymentHistory>({
      userId: {

@@ -1,3 +1,4 @@
+import { BASE_CONSTRAINTS, CATEGORY_CONSTRAINTS, MODEL_FORMAT_SUFFIX, OUTPUT_FORMATS, ROLE_TEMPLATES, SPECIFICITY_MAP, wrapSection } from "@/gen-import";
 import { AnalysisResult, LearnedWeight, TargetModel, TransformRule } from "../@types";
 
 const QUALITY_MARKERS: Record<string, string> = {

@@ -1,3 +1,4 @@
+import { ACTION_VERBS, DOMAIN_KEYWORDS, STOP_WORDS } from "@/gen-import";
 import { Token } from "../@types";
 
 function calcWeight(word: string): number {
