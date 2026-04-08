@@ -13,7 +13,7 @@ export class Learner {
      async findSimilar(text: string, category: PromptCategory): Promise<SimilarPrompt | null> {
           const results = await PromptHistoryModel.find(
                { $text: { $search: text }, category, userScore: { $gte: SCORE_BOOST_MIN } },
-               { score: { $meta: 'textScore' } },
+               { score: { $meta: 'textScore' } } as any,
           )
                .sort({ score: { $meta: 'textScore' } })
                .limit(3)
@@ -46,7 +46,7 @@ export class Learner {
 
           return weights.map((w) => ({
                ruleId: w.ruleId,
-               category: w.category,
+               category: w.category as PromptCategory,
                weight: w.weight,
                totalUses: w.totalUses,
                avgScore: w.avgScore,
