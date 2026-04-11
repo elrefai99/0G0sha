@@ -17,7 +17,7 @@
     "taze:update": "npx taze major -w",
     "taze:patch": "npx taze patch",
     "compress:ubuntu": "sudo zip -r project.zip .",
-    "gen:app": "gen-import --app-config --module-pattern"
+    "gen:app": "gen-import --app-config --map --module-pattern"
   },
   "keywords": [],
   "author": "Mohammed Elrefai <elrefai99@gmail.com>",
