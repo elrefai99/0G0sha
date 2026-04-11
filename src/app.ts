@@ -29,8 +29,14 @@ import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
 import appModule from './app.module'
-import { allowedOrigins, app_config, mongoDBConfig, redisConfig } from '@/gen-import'
+import webhook_module from './Module/subscription/webhook.module'
+import { startTokenResetJob } from './jobs/resetTokens.job'
+import { startWeightDecayJob } from './jobs/decayWeights.job'
+import { allowedOrigins, app_config, initAgent, mongoDBConfig, redisConfig } from '@/gen-import'
 const app: Express = express()
+
+// Webhooks need raw body — mount BEFORE json parser (app_config applies json)
+app.use('/api/webhooks', webhook_module)
 
 const server = http.createServer(app)
 export let ioSocket: SocketIOServer = new SocketIOServer(server, {
@@ -42,6 +48,11 @@ export let ioSocket: SocketIOServer = new SocketIOServer(server, {
 app_config(app)
 setupSwagger(app)
 appModule(app)
+
+// Health check
+app.get('/api/health', (_req: Request, res: Response) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() })
+})
 
 app.get('/metrics', async (_req: Request, res: Response) => {
   res.set('Content-Type', client.register.contentType)
@@ -57,7 +68,10 @@ async function startServer() {
   try {
     await Promise.all([
       mongoDBConfig().then(
-        () => {
+        async () => {
+          await initAgent()
+          startTokenResetJob()
+          startWeightDecayJob()
           server.listen(PORT, () => {
             console.log('🌐 Server is running on:', process.env.API_LINK as string)
           })

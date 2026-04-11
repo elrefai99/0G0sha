@@ -128,8 +128,8 @@ export class Learner {
      ): Promise<void> {
           const weightDelta =
                userScore >= SCORE_BOOST_MIN ? WEIGHT_BOOST
-               : userScore < SCORE_PENALIZE_MAX ? -WEIGHT_PENALTY
-               : 0;
+                    : userScore < SCORE_PENALIZE_MAX ? -WEIGHT_PENALTY
+                         : 0;
 
           const clampedWeight =
                weightDelta > 0

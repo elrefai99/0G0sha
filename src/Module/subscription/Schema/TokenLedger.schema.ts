@@ -19,7 +19,7 @@ const tokenLedgerSchema = new Schema<ITokenLedger>({
      promptId: {
           type: Schema.Types.ObjectId,
           ref: 'PromptHistory',
-          required: true,
+          default: null,
      },
      balanceAfter: {
           type: Number,
@@ -27,7 +27,7 @@ const tokenLedgerSchema = new Schema<ITokenLedger>({
      },
      metadata: {
           type: Object,
-          required: true,
+          default: {},
      },
 }, { timestamps: true })
 

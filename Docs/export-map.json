@@ -1,0 +1,3164 @@
+{
+  "totalFiles": 114,
+  "totalExports": 537,
+  "totalImportEdges": 64,
+  "files": [
+    {
+      "file": "src/MessageQueue/Queue/queue.email.ts",
+      "exports": [
+        {
+          "name": "addJobToQueue",
+          "kind": "value"
+        },
+        {
+          "name": "queue",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/MessageQueue/jobs/job.process.emails.ts",
+      "exports": [
+        {
+          "name": "sendEmail",
+          "kind": "value"
+        },
+        {
+          "name": "jobProcessor",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/MessageQueue/worker.emails.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/Login.controller.ts",
+      "exports": [
+        {
+          "name": "loginController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/forgetPassword.controller.ts",
+      "exports": [
+        {
+          "name": "forgetPasswordController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/googleCallBack.controller.ts",
+      "exports": [
+        {
+          "name": "googleController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/logout.controller.ts",
+      "exports": [
+        {
+          "name": "logoutController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/refresh.controller.ts",
+      "exports": [
+        {
+          "name": "refreshController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/register.controller.ts",
+      "exports": [
+        {
+          "name": "registerController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Controller/resetPassword.controller.ts",
+      "exports": [
+        {
+          "name": "resetPasswordController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "RegisterDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LoginDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Service/0Auth.service.ts",
+      "exports": [
+        {
+          "name": "OauthService",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/Service/based-auth.service.ts",
+      "exports": [
+        {
+          "name": "BasedAuthService",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/auth.controller.ts",
+      "exports": [
+        {
+          "name": "registerController",
+          "kind": "value"
+        },
+        {
+          "name": "refreshController",
+          "kind": "value"
+        },
+        {
+          "name": "logoutController",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
+          "kind": "value"
+        },
+        {
+          "name": "googleController",
+          "kind": "value"
+        },
+        {
+          "name": "forgetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "resetPasswordController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/auth.service.ts",
+      "exports": [
+        {
+          "name": "BasedAuthService",
+          "kind": "value"
+        },
+        {
+          "name": "OauthService",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/utils/paseto.utils.ts",
+      "exports": [
+        {
+          "name": "token_PASETO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/Controller/get-notifications.controller.ts",
+      "exports": [
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Module/Notifications/Service/notification-history.service.ts",
+        "src/Module/Notifications/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/Notifications/Controller/mark-seen.controller.ts",
+      "exports": [
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Module/Notifications/Service/notification-history.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/Notifications/Controller/publish.controller.ts",
+      "exports": [
+        {
+          "name": "publishController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Module/Notifications/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/Notifications/Controller/stream.controller.ts",
+      "exports": [
+        {
+          "name": "streamController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "PublishNotificationDTO",
+          "kind": "value"
+        },
+        {
+          "name": "GetNotificationsDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/Notifications/Controller/get-notifications.controller.ts",
+        "src/Module/Notifications/Controller/publish.controller.ts",
+        "src/Module/Notifications/notification.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/Schema/notification.schema.ts",
+      "exports": [
+        {
+          "name": "NotificationModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/Service/notification-history.service.ts",
+      "exports": [
+        {
+          "name": "NotificationHistoryService",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/Notifications/Controller/get-notifications.controller.ts",
+        "src/Module/Notifications/Controller/mark-seen.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/Service/public.service.ts",
+      "exports": [
+        {
+          "name": "publishNotification",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/Service/register.service.ts",
+      "exports": [
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Module/Notifications/Utils/sseFormat.ts"
+      ]
+    },
+    {
+      "file": "src/Module/Notifications/Utils/sseFormat.ts",
+      "exports": [
+        {
+          "name": "formatSSEEvent",
+          "kind": "value"
+        },
+        {
+          "name": "formatHeartbeat",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/Notifications/Service/register.service.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/notification.controller.ts",
+      "exports": [
+        {
+          "name": "streamController",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/Notifications/notification.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/User/Controller/delete.controller.ts",
+      "exports": [
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Module/User/Service/based-user.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/User/Controller/edit.controller.ts",
+      "exports": [
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Module/User/DTO/index.dto.ts",
+        "src/Module/User/Service/based-user.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/User/Controller/profile.controller.ts",
+      "exports": [
+        {
+          "name": "profileController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/User/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "EditProfileDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/User/Controller/edit.controller.ts",
+        "src/Module/User/Service/based-user.service.ts",
+        "src/Module/User/user.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/User/Schema/user.schema.ts",
+      "exports": [
+        {
+          "name": "UserModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/User/Service/based-user.service.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/User/Service/based-user.service.ts",
+      "exports": [
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/User/Controller/delete.controller.ts",
+        "src/Module/User/Controller/edit.controller.ts"
+      ],
+      "importsFrom": [
+        "src/Module/User/DTO/index.dto.ts",
+        "src/Module/User/Schema/user.schema.ts"
+      ]
+    },
+    {
+      "file": "src/Module/User/middleware/index.ts",
+      "exports": [
+        {
+          "name": "profileMiddleware",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/User/middleware/profile.middleware.ts",
+      "exports": [
+        {
+          "name": "profileMiddleware",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/User/user.controller.ts",
+      "exports": [
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "profileController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/User/user.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/agent/Controller/analyze.controller.ts",
+      "exports": [
+        {
+          "name": "analyzeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/agent/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "AnalyzeDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/agent/Schema/learned.weight.schema.ts",
+      "exports": [
+        {
+          "name": "LearnedWeightModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/agent/Service/based-agent.service.ts",
+      "exports": [
+        {
+          "name": "AgentService",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/agent/agent.controller.ts",
+      "exports": [
+        {
+          "name": "analyzeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/agent/index.ts",
+      "exports": [
+        {
+          "name": "ILearnedWeight",
+          "kind": "type"
+        },
+        {
+          "name": "LearnedWeightModel",
+          "kind": "value"
+        },
+        {
+          "name": "AnalyzeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "AgentService",
+          "kind": "value"
+        },
+        {
+          "name": "analyzeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/Controller/getById.controller.ts",
+      "exports": [
+        {
+          "name": "getByIdController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/Controller/history.controller.ts",
+      "exports": [
+        {
+          "name": "historyController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/prompt/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/prompt/Controller/optimize.controller.ts",
+      "exports": [
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/prompt/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/prompt/Controller/rate.controller.ts",
+      "exports": [
+        {
+          "name": "rateController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/prompt/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/prompt/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "OptimizeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "RateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "HistoryQueryDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/Controller/history.controller.ts",
+        "src/Module/prompt/Controller/optimize.controller.ts",
+        "src/Module/prompt/Controller/rate.controller.ts",
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/Schema/prompt.schema.ts",
+      "exports": [
+        {
+          "name": "PromptHistoryModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/Service/based-prompt.service.ts",
+      "exports": [
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "optimizePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "getHistory",
+          "kind": "value"
+        },
+        {
+          "name": "getPromptById",
+          "kind": "value"
+        },
+        {
+          "name": "ratePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "estimateTokenCost",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/index.ts",
+      "exports": [
+        {
+          "name": "PromptHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Controller/cancel.controller.ts",
+      "exports": [
+        {
+          "name": "cancelController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/Controller/plans.controller.ts",
+      "exports": [
+        {
+          "name": "plansController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/Controller/upgrade.controller.ts",
+      "exports": [
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/DTO/index.dto.ts",
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/Controller/usage.controller.ts",
+      "exports": [
+        {
+          "name": "usageController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/token.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/Controller/upgrade.controller.ts",
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Schema/TokenLedger.schema.ts",
+      "exports": [
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Schema/payment.history.schema.ts",
+      "exports": [
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Schema/plans.schema.ts",
+      "exports": [
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Service/based-subscription.service.ts",
+      "exports": [
+        {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/Controller/cancel.controller.ts",
+        "src/Module/subscription/Controller/plans.controller.ts",
+        "src/Module/subscription/Controller/upgrade.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Service/token.service.ts",
+      "exports": [
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/Controller/usage.controller.ts",
+        "src/jobs/resetTokens.job.ts",
+        "src/middleware/tokenGuard.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/index.ts",
+      "exports": [
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        },
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        },
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/Controller/detail.controller.ts",
+      "exports": [
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/template.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/template/Service/based-template.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/template/Controller/list.controller.ts",
+      "exports": [
+        {
+          "name": "listController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/template.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/template/DTO/index.dto.ts",
+        "src/Module/template/Service/based-template.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/template/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "TemplateQueryDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/Controller/list.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/Schema/template.schema.ts",
+      "exports": [
+        {
+          "name": "TemplateModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/Service/based-template.service.ts",
+      "exports": [
+        {
+          "name": "listTemplates",
+          "kind": "value"
+        },
+        {
+          "name": "getTemplateById",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/Controller/detail.controller.ts",
+        "src/Module/template/Controller/list.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/index.ts",
+      "exports": [
+        {
+          "name": "TemplateModel",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Providers/cloudinary.provider.ts",
+      "exports": [
+        {
+          "name": "uploadToCloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "upload",
+          "kind": "value"
+        },
+        {
+          "name": "UploadOptions",
+          "kind": "type"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Shared/enum/index.ts",
+      "exports": [
+        {
+          "name": "USER_PLAN",
+          "kind": "value"
+        },
+        {
+          "name": "TOKEN_LEDGER_ACTION",
+          "kind": "value"
+        },
+        {
+          "name": "PLAN_PROVIDER",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_STATUS",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_METHOD",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Shared/errors/app-error.ts",
+      "exports": [
+        {
+          "name": "AppError",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Shared/errors/errorHandler.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Shared/errors/errorHandler.ts",
+      "exports": [
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts"
+      ]
+    },
+    {
+      "file": "src/agent/data/classifier.data.ts",
+      "exports": [
+        {
+          "name": "CATEGORY_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ACTION_KEYWORDS",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/data/rules-template.ts",
+      "exports": [
+        {
+          "name": "ROLE_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "BASE_CONSTRAINTS",
+          "kind": "value"
+        },
+        {
+          "name": "CATEGORY_CONSTRAINTS",
+          "kind": "value"
+        },
+        {
+          "name": "OUTPUT_FORMATS",
+          "kind": "value"
+        },
+        {
+          "name": "MODEL_FORMAT_SUFFIX",
+          "kind": "value"
+        },
+        {
+          "name": "SPECIFICITY_MAP",
+          "kind": "value"
+        },
+        {
+          "name": "QUALITY_MARKERS",
+          "kind": "value"
+        },
+        {
+          "name": "CONTEXT_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "TASK_STRUCTURE_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "COMPLEXITY_MODIFIERS",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/data/tokenizer.data.ts",
+      "exports": [
+        {
+          "name": "STOP_WORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ACTION_VERBS",
+          "kind": "value"
+        },
+        {
+          "name": "DOMAIN_KEYWORDS",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/index.ts",
+      "exports": [
+        {
+          "name": "AgentEngine",
+          "kind": "value"
+        },
+        {
+          "name": "TargetModel",
+          "kind": "type"
+        },
+        {
+          "name": "PromptCategory",
+          "kind": "type"
+        },
+        {
+          "name": "PromptComplexity",
+          "kind": "type"
+        },
+        {
+          "name": "PromptElement",
+          "kind": "type"
+        },
+        {
+          "name": "Token",
+          "kind": "type"
+        },
+        {
+          "name": "PromptGap",
+          "kind": "type"
+        },
+        {
+          "name": "AnalysisResult",
+          "kind": "type"
+        },
+        {
+          "name": "TransformRule",
+          "kind": "type"
+        },
+        {
+          "name": "LearnedWeight",
+          "kind": "type"
+        },
+        {
+          "name": "SimilarPrompt",
+          "kind": "type"
+        },
+        {
+          "name": "AgentInput",
+          "kind": "type"
+        },
+        {
+          "name": "AgentOutput",
+          "kind": "type"
+        },
+        {
+          "name": "ElementDetector",
+          "kind": "type"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/agent-engine.ts",
+      "exports": [
+        {
+          "name": "AgentEngine",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/agent/script/weight-cache.ts"
+      ]
+    },
+    {
+      "file": "src/agent/script/classifier.ts",
+      "exports": [
+        {
+          "name": "classify",
+          "kind": "value"
+        },
+        {
+          "name": "assessComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "extractIntent",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/gap-scorer.ts",
+      "exports": [
+        {
+          "name": "detect",
+          "kind": "value"
+        },
+        {
+          "name": "calcRawScore",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/learner.ts",
+      "exports": [
+        {
+          "name": "Learner",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/agent/script/weight-cache.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/merger.ts",
+      "exports": [
+        {
+          "name": "Merger",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/modelAdapter.ts",
+      "exports": [
+        {
+          "name": "wrapSection",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/rule-engine.ts",
+      "exports": [
+        {
+          "name": "RuleEngine",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/tokenizer.ts",
+      "exports": [
+        {
+          "name": "tokenize",
+          "kind": "value"
+        },
+        {
+          "name": "extractKeywords",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/agent/script/weight-cache.ts",
+      "exports": [
+        {
+          "name": "WeightCache",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/agent/script/agent-engine.ts"
+      ],
+      "importsFrom": [
+        "src/agent/script/learner.ts"
+      ]
+    },
+    {
+      "file": "src/app.config.ts",
+      "exports": [
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/utils/limit-request.ts"
+      ]
+    },
+    {
+      "file": "src/app.ts",
+      "exports": [
+        {
+          "name": "ioSocket",
+          "kind": "value"
+        },
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/socket.ts"
+      ],
+      "importsFrom": [
+        "src/config/dotenv.ts",
+        "src/utils/logger.ts",
+        "src/swagger.ts",
+        "src/app.module.ts",
+        "src/Module/subscription/webhook.module.ts",
+        "src/jobs/resetTokens.job.ts",
+        "src/jobs/decayWeights.job.ts"
+      ]
+    },
+    {
+      "file": "src/config/cache.ts",
+      "exports": [
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/config/redis.ts"
+      ]
+    },
+    {
+      "file": "src/config/cloudinary.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/config/dotenv.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/MessageQueue/index.ts",
+        "src/MessageQueue/worker.emails.ts",
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/config/index.ts",
+      "exports": [
+        {
+          "name": "cloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "mongoDBConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redisConfig",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/config/mongoDB.ts",
+      "exports": [
+        {
+          "name": "mongoDBConfig",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/config/redis.ts",
+      "exports": [
+        {
+          "name": "redisConfig",
+          "kind": "value"
+        },
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/config/cache.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/gen-app-config.ts",
+      "exports": [
+        {
+          "name": "addJobToQueue",
+          "kind": "value"
+        },
+        {
+          "name": "queue",
+          "kind": "value"
+        },
+        {
+          "name": "sendEmail",
+          "kind": "value"
+        },
+        {
+          "name": "jobProcessor",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
+          "kind": "value"
+        },
+        {
+          "name": "forgetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "googleController",
+          "kind": "value"
+        },
+        {
+          "name": "logoutController",
+          "kind": "value"
+        },
+        {
+          "name": "refreshController",
+          "kind": "value"
+        },
+        {
+          "name": "registerController",
+          "kind": "value"
+        },
+        {
+          "name": "resetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "RegisterDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LoginDTO",
+          "kind": "value"
+        },
+        {
+          "name": "OauthService",
+          "kind": "value"
+        },
+        {
+          "name": "BasedAuthService",
+          "kind": "value"
+        },
+        {
+          "name": "token_PASETO",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "streamController",
+          "kind": "value"
+        },
+        {
+          "name": "PublishNotificationDTO",
+          "kind": "value"
+        },
+        {
+          "name": "GetNotificationsDTO",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationModel",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationHistoryService",
+          "kind": "value"
+        },
+        {
+          "name": "publishNotification",
+          "kind": "value"
+        },
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        },
+        {
+          "name": "formatSSEEvent",
+          "kind": "value"
+        },
+        {
+          "name": "formatHeartbeat",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "profileController",
+          "kind": "value"
+        },
+        {
+          "name": "EditProfileDTO",
+          "kind": "value"
+        },
+        {
+          "name": "UserModel",
+          "kind": "value"
+        },
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        },
+        {
+          "name": "profileMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "analyzeController",
+          "kind": "value"
+        },
+        {
+          "name": "AnalyzeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LearnedWeightModel",
+          "kind": "value"
+        },
+        {
+          "name": "AgentService",
+          "kind": "value"
+        },
+        {
+          "name": "ILearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "getByIdController",
+          "kind": "value"
+        },
+        {
+          "name": "historyController",
+          "kind": "value"
+        },
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        },
+        {
+          "name": "rateController",
+          "kind": "value"
+        },
+        {
+          "name": "OptimizeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "RateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "HistoryQueryDTO",
+          "kind": "value"
+        },
+        {
+          "name": "PromptHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "optimizePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "getHistory",
+          "kind": "value"
+        },
+        {
+          "name": "getPromptById",
+          "kind": "value"
+        },
+        {
+          "name": "ratePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "estimateTokenCost",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
+          "kind": "value"
+        },
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        },
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        },
+        {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        },
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        },
+        {
+          "name": "listController",
+          "kind": "value"
+        },
+        {
+          "name": "TemplateQueryDTO",
+          "kind": "value"
+        },
+        {
+          "name": "TemplateModel",
+          "kind": "value"
+        },
+        {
+          "name": "listTemplates",
+          "kind": "value"
+        },
+        {
+          "name": "getTemplateById",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
+          "kind": "value"
+        },
+        {
+          "name": "UploadOptions",
+          "kind": "value"
+        },
+        {
+          "name": "uploadToCloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "upload",
+          "kind": "value"
+        },
+        {
+          "name": "USER_PLAN",
+          "kind": "value"
+        },
+        {
+          "name": "TOKEN_LEDGER_ACTION",
+          "kind": "value"
+        },
+        {
+          "name": "PLAN_PROVIDER",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_STATUS",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_METHOD",
+          "kind": "value"
+        },
+        {
+          "name": "AppError",
+          "kind": "value"
+        },
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        },
+        {
+          "name": "CATEGORY_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ACTION_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ROLE_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "BASE_CONSTRAINTS",
+          "kind": "value"
+        },
+        {
+          "name": "CATEGORY_CONSTRAINTS",
+          "kind": "value"
+        },
+        {
+          "name": "OUTPUT_FORMATS",
+          "kind": "value"
+        },
+        {
+          "name": "MODEL_FORMAT_SUFFIX",
+          "kind": "value"
+        },
+        {
+          "name": "SPECIFICITY_MAP",
+          "kind": "value"
+        },
+        {
+          "name": "QUALITY_MARKERS",
+          "kind": "value"
+        },
+        {
+          "name": "CONTEXT_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "TASK_STRUCTURE_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "COMPLEXITY_MODIFIERS",
+          "kind": "value"
+        },
+        {
+          "name": "STOP_WORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ACTION_VERBS",
+          "kind": "value"
+        },
+        {
+          "name": "DOMAIN_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "TargetModel",
+          "kind": "value"
+        },
+        {
+          "name": "PromptCategory",
+          "kind": "value"
+        },
+        {
+          "name": "PromptComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "PromptElement",
+          "kind": "value"
+        },
+        {
+          "name": "Token",
+          "kind": "value"
+        },
+        {
+          "name": "PromptGap",
+          "kind": "value"
+        },
+        {
+          "name": "AnalysisResult",
+          "kind": "value"
+        },
+        {
+          "name": "TransformRule",
+          "kind": "value"
+        },
+        {
+          "name": "LearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "SimilarPrompt",
+          "kind": "value"
+        },
+        {
+          "name": "AgentInput",
+          "kind": "value"
+        },
+        {
+          "name": "AgentOutput",
+          "kind": "value"
+        },
+        {
+          "name": "ElementDetector",
+          "kind": "value"
+        },
+        {
+          "name": "AgentEngine",
+          "kind": "value"
+        },
+        {
+          "name": "classify",
+          "kind": "value"
+        },
+        {
+          "name": "assessComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "extractIntent",
+          "kind": "value"
+        },
+        {
+          "name": "detect",
+          "kind": "value"
+        },
+        {
+          "name": "calcRawScore",
+          "kind": "value"
+        },
+        {
+          "name": "Learner",
+          "kind": "value"
+        },
+        {
+          "name": "Merger",
+          "kind": "value"
+        },
+        {
+          "name": "wrapSection",
+          "kind": "value"
+        },
+        {
+          "name": "RuleEngine",
+          "kind": "value"
+        },
+        {
+          "name": "tokenize",
+          "kind": "value"
+        },
+        {
+          "name": "extractKeywords",
+          "kind": "value"
+        },
+        {
+          "name": "WeightCache",
+          "kind": "value"
+        },
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        },
+        {
+          "name": "cloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "dotenv",
+          "kind": "value"
+        },
+        {
+          "name": "mongoDBConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redisConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redis",
+          "kind": "value"
+        },
+        {
+          "name": "startWeightDecayJob",
+          "kind": "value"
+        },
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        },
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
+          "kind": "value"
+        },
+        {
+          "name": "userMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "validateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "socketFunction",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationNamespace",
+          "kind": "value"
+        },
+        {
+          "name": "setupSwagger",
+          "kind": "value"
+        },
+        {
+          "name": "asyncHandler",
+          "kind": "value"
+        },
+        {
+          "name": "hashText",
+          "kind": "value"
+        },
+        {
+          "name": "limiter",
+          "kind": "value"
+        },
+        {
+          "name": "authlimiter",
+          "kind": "value"
+        },
+        {
+          "name": "logger",
+          "kind": "value"
+        },
+        {
+          "name": "createLogger",
+          "kind": "value"
+        },
+        {
+          "name": "normalizePagination",
+          "kind": "value"
+        },
+        {
+          "name": "paginate",
+          "kind": "value"
+        },
+        {
+          "name": "auth_module",
+          "kind": "value"
+        },
+        {
+          "name": "notification_module",
+          "kind": "value"
+        },
+        {
+          "name": "user_module",
+          "kind": "value"
+        },
+        {
+          "name": "agent_module",
+          "kind": "value"
+        },
+        {
+          "name": "app_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/gen-import.ts",
+      "exports": [
+        {
+          "name": "addJobToQueue",
+          "kind": "value"
+        },
+        {
+          "name": "queue",
+          "kind": "value"
+        },
+        {
+          "name": "sendEmail",
+          "kind": "value"
+        },
+        {
+          "name": "jobProcessor",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
+          "kind": "value"
+        },
+        {
+          "name": "forgetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "googleController",
+          "kind": "value"
+        },
+        {
+          "name": "logoutController",
+          "kind": "value"
+        },
+        {
+          "name": "refreshController",
+          "kind": "value"
+        },
+        {
+          "name": "registerController",
+          "kind": "value"
+        },
+        {
+          "name": "resetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "RegisterDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LoginDTO",
+          "kind": "value"
+        },
+        {
+          "name": "OauthService",
+          "kind": "value"
+        },
+        {
+          "name": "BasedAuthService",
+          "kind": "value"
+        },
+        {
+          "name": "token_PASETO",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "streamController",
+          "kind": "value"
+        },
+        {
+          "name": "PublishNotificationDTO",
+          "kind": "value"
+        },
+        {
+          "name": "GetNotificationsDTO",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationModel",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationHistoryService",
+          "kind": "value"
+        },
+        {
+          "name": "publishNotification",
+          "kind": "value"
+        },
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        },
+        {
+          "name": "formatSSEEvent",
+          "kind": "value"
+        },
+        {
+          "name": "formatHeartbeat",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "profileController",
+          "kind": "value"
+        },
+        {
+          "name": "EditProfileDTO",
+          "kind": "value"
+        },
+        {
+          "name": "UserModel",
+          "kind": "value"
+        },
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        },
+        {
+          "name": "profileMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "analyzeController",
+          "kind": "value"
+        },
+        {
+          "name": "AnalyzeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LearnedWeightModel",
+          "kind": "value"
+        },
+        {
+          "name": "AgentService",
+          "kind": "value"
+        },
+        {
+          "name": "ILearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "getByIdController",
+          "kind": "value"
+        },
+        {
+          "name": "historyController",
+          "kind": "value"
+        },
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        },
+        {
+          "name": "rateController",
+          "kind": "value"
+        },
+        {
+          "name": "OptimizeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "RateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "HistoryQueryDTO",
+          "kind": "value"
+        },
+        {
+          "name": "PromptHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "optimizePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "getHistory",
+          "kind": "value"
+        },
+        {
+          "name": "getPromptById",
+          "kind": "value"
+        },
+        {
+          "name": "ratePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "estimateTokenCost",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
+          "kind": "value"
+        },
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        },
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        },
+        {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        },
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        },
+        {
+          "name": "listController",
+          "kind": "value"
+        },
+        {
+          "name": "TemplateQueryDTO",
+          "kind": "value"
+        },
+        {
+          "name": "TemplateModel",
+          "kind": "value"
+        },
+        {
+          "name": "listTemplates",
+          "kind": "value"
+        },
+        {
+          "name": "getTemplateById",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
+          "kind": "value"
+        },
+        {
+          "name": "UploadOptions",
+          "kind": "value"
+        },
+        {
+          "name": "uploadToCloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "upload",
+          "kind": "value"
+        },
+        {
+          "name": "USER_PLAN",
+          "kind": "value"
+        },
+        {
+          "name": "TOKEN_LEDGER_ACTION",
+          "kind": "value"
+        },
+        {
+          "name": "PLAN_PROVIDER",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_STATUS",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_METHOD",
+          "kind": "value"
+        },
+        {
+          "name": "AppError",
+          "kind": "value"
+        },
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        },
+        {
+          "name": "CATEGORY_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ACTION_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ROLE_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "BASE_CONSTRAINTS",
+          "kind": "value"
+        },
+        {
+          "name": "CATEGORY_CONSTRAINTS",
+          "kind": "value"
+        },
+        {
+          "name": "OUTPUT_FORMATS",
+          "kind": "value"
+        },
+        {
+          "name": "MODEL_FORMAT_SUFFIX",
+          "kind": "value"
+        },
+        {
+          "name": "SPECIFICITY_MAP",
+          "kind": "value"
+        },
+        {
+          "name": "QUALITY_MARKERS",
+          "kind": "value"
+        },
+        {
+          "name": "CONTEXT_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "TASK_STRUCTURE_TEMPLATES",
+          "kind": "value"
+        },
+        {
+          "name": "COMPLEXITY_MODIFIERS",
+          "kind": "value"
+        },
+        {
+          "name": "STOP_WORDS",
+          "kind": "value"
+        },
+        {
+          "name": "ACTION_VERBS",
+          "kind": "value"
+        },
+        {
+          "name": "DOMAIN_KEYWORDS",
+          "kind": "value"
+        },
+        {
+          "name": "TargetModel",
+          "kind": "value"
+        },
+        {
+          "name": "PromptCategory",
+          "kind": "value"
+        },
+        {
+          "name": "PromptComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "PromptElement",
+          "kind": "value"
+        },
+        {
+          "name": "Token",
+          "kind": "value"
+        },
+        {
+          "name": "PromptGap",
+          "kind": "value"
+        },
+        {
+          "name": "AnalysisResult",
+          "kind": "value"
+        },
+        {
+          "name": "TransformRule",
+          "kind": "value"
+        },
+        {
+          "name": "LearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "SimilarPrompt",
+          "kind": "value"
+        },
+        {
+          "name": "AgentInput",
+          "kind": "value"
+        },
+        {
+          "name": "AgentOutput",
+          "kind": "value"
+        },
+        {
+          "name": "ElementDetector",
+          "kind": "value"
+        },
+        {
+          "name": "AgentEngine",
+          "kind": "value"
+        },
+        {
+          "name": "classify",
+          "kind": "value"
+        },
+        {
+          "name": "assessComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "extractIntent",
+          "kind": "value"
+        },
+        {
+          "name": "detect",
+          "kind": "value"
+        },
+        {
+          "name": "calcRawScore",
+          "kind": "value"
+        },
+        {
+          "name": "Learner",
+          "kind": "value"
+        },
+        {
+          "name": "Merger",
+          "kind": "value"
+        },
+        {
+          "name": "wrapSection",
+          "kind": "value"
+        },
+        {
+          "name": "RuleEngine",
+          "kind": "value"
+        },
+        {
+          "name": "tokenize",
+          "kind": "value"
+        },
+        {
+          "name": "extractKeywords",
+          "kind": "value"
+        },
+        {
+          "name": "WeightCache",
+          "kind": "value"
+        },
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        },
+        {
+          "name": "cloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "dotenv",
+          "kind": "value"
+        },
+        {
+          "name": "mongoDBConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redisConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redis",
+          "kind": "value"
+        },
+        {
+          "name": "startWeightDecayJob",
+          "kind": "value"
+        },
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        },
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
+          "kind": "value"
+        },
+        {
+          "name": "userMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "validateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "socketFunction",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationNamespace",
+          "kind": "value"
+        },
+        {
+          "name": "setupSwagger",
+          "kind": "value"
+        },
+        {
+          "name": "asyncHandler",
+          "kind": "value"
+        },
+        {
+          "name": "hashText",
+          "kind": "value"
+        },
+        {
+          "name": "limiter",
+          "kind": "value"
+        },
+        {
+          "name": "authlimiter",
+          "kind": "value"
+        },
+        {
+          "name": "logger",
+          "kind": "value"
+        },
+        {
+          "name": "createLogger",
+          "kind": "value"
+        },
+        {
+          "name": "normalizePagination",
+          "kind": "value"
+        },
+        {
+          "name": "paginate",
+          "kind": "value"
+        },
+        {
+          "name": "auth_module",
+          "kind": "value"
+        },
+        {
+          "name": "notification_module",
+          "kind": "value"
+        },
+        {
+          "name": "user_module",
+          "kind": "value"
+        },
+        {
+          "name": "agent_module",
+          "kind": "value"
+        },
+        {
+          "name": "app_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/User/user.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/jobs/decayWeights.job.ts",
+      "exports": [
+        {
+          "name": "startWeightDecayJob",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/jobs/resetTokens.job.ts",
+      "exports": [
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/token.service.ts"
+      ]
+    },
+    {
+      "file": "src/middleware/tokenGuard.ts",
+      "exports": [
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/token.service.ts"
+      ]
+    },
+    {
+      "file": "src/middleware/user.middleware.ts",
+      "exports": [
+        {
+          "name": "userMiddleware",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/Notifications/notification.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/middleware/validateDTO.ts",
+      "exports": [
+        {
+          "name": "validateDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/Notifications/notification.module.ts",
+        "src/Module/User/user.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/socket.ts",
+      "exports": [
+        {
+          "name": "socketFunction",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationNamespace",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/app.ts"
+      ]
+    },
+    {
+      "file": "src/swagger.ts",
+      "exports": [
+        {
+          "name": "setupSwagger",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/utils/api-requesthandler.ts",
+      "exports": [
+        {
+          "name": "asyncHandler",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/utils/hashText.ts",
+      "exports": [
+        {
+          "name": "hashText",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/utils/limit-request.ts",
+      "exports": [
+        {
+          "name": "limiter",
+          "kind": "value"
+        },
+        {
+          "name": "authlimiter",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.config.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/utils/logger.ts",
+      "exports": [
+        {
+          "name": "logger",
+          "kind": "value"
+        },
+        {
+          "name": "createLogger",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/utils/pagination.ts",
+      "exports": [
+        {
+          "name": "normalizePagination",
+          "kind": "value"
+        },
+        {
+          "name": "paginate",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Authentication/auth.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/Notifications/notification.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/middleware/validateDTO.ts",
+        "src/Module/Notifications/DTO/index.dto.ts",
+        "src/Module/Notifications/notification.controller.ts",
+        "src/middleware/user.middleware.ts"
+      ]
+    },
+    {
+      "file": "src/Module/User/user.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/gen-import.ts",
+        "src/Module/User/DTO/index.dto.ts",
+        "src/Module/User/user.controller.ts",
+        "src/middleware/validateDTO.ts"
+      ]
+    },
+    {
+      "file": "src/Module/agent/agent.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/prompt.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/middleware/tokenGuard.ts",
+        "src/Module/prompt/DTO/index.dto.ts",
+        "src/Module/prompt/Controller/optimize.controller.ts",
+        "src/Module/prompt/Controller/history.controller.ts",
+        "src/Module/prompt/Controller/getById.controller.ts",
+        "src/Module/prompt/Controller/rate.controller.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/subscription.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/DTO/index.dto.ts",
+        "src/Module/subscription/Controller/plans.controller.ts",
+        "src/Module/subscription/Controller/upgrade.controller.ts",
+        "src/Module/subscription/Controller/cancel.controller.ts",
+        "src/Module/subscription/Controller/usage.controller.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/webhook.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/template.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/template/Controller/list.controller.ts",
+        "src/Module/template/Controller/detail.controller.ts"
+      ]
+    },
+    {
+      "file": "src/app.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": [
+        "src/Module/Authentication/auth.module.ts",
+        "src/Module/User/user.module.ts",
+        "src/Module/agent/agent.module.ts",
+        "src/Module/Notifications/notification.module.ts",
+        "src/Module/prompt/prompt.module.ts",
+        "src/Module/template/template.module.ts",
+        "src/Module/subscription/subscription.module.ts"
+      ]
+    }
+  ]
+}
