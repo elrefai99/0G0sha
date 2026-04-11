@@ -18,7 +18,7 @@ export interface ITokenLedger extends Document {
      userId: Types.ObjectId;
      amount: number;
      action: string;
-     promptId: Types.ObjectId;
+     promptId: Types.ObjectId | null;
      balanceAfter: number;
      metadata: Record<string, any>;
 }

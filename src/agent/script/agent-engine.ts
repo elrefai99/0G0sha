@@ -1,5 +1,6 @@
 import { tokenize, extractKeywords, classify, assessComplexity, extractIntent, detect, calcRawScore, RuleEngine, Merger, Learner, createLogger, } from '@/gen-import';
 import type { AgentInput, AgentOutput, AnalysisResult, PromptCategory, } from '../@types/index.js';
+import { WeightCache } from './weight-cache.js';
 
 const logger = createLogger('AgentEngine');
 
@@ -9,6 +10,7 @@ export class AgentEngine {
      private readonly ruleEngine = new RuleEngine();
      private readonly merger = new Merger();
      private readonly learner = new Learner();
+     private readonly weightCache = new WeightCache(this.learner);
 
      async init(): Promise<void> {
           const ruleIds = this.ruleEngine.getRuleIds();
@@ -24,7 +26,7 @@ export class AgentEngine {
           let similar: Awaited<ReturnType<Learner['findSimilar']>> = null;
           try {
                [weights, similar] = await Promise.all([
-                    this.learner.getWeights(analysis.category),
+                    this.weightCache.getWeights(analysis.category),
                     this.learner.findSimilar(input.text, analysis.category),
                ]);
           } catch (err) {
@@ -81,6 +83,9 @@ export class AgentEngine {
 
      async feedback(promptId: string, userScore: number): Promise<void> {
           await this.learner.applyFeedback(promptId, userScore);
+          await this.weightCache.invalidateAll().catch((err) => {
+               logger.error({ err }, 'Failed to invalidate weight cache');
+          });
      }
 
      calcTokenCost(text: string): number {

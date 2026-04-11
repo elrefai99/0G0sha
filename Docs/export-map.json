@@ -1,7 +1,7 @@
 {
-  "totalFiles": 85,
-  "totalExports": 395,
-  "totalImportEdges": 29,
+  "totalFiles": 114,
+  "totalExports": 537,
+  "totalImportEdges": 64,
   "files": [
     {
       "file": "src/MessageQueue/Queue/queue.email.ts",
@@ -592,6 +592,88 @@
       "importsFrom": []
     },
     {
+      "file": "src/Module/prompt/Controller/getById.controller.ts",
+      "exports": [
+        {
+          "name": "getByIdController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/Controller/history.controller.ts",
+      "exports": [
+        {
+          "name": "historyController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/prompt/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/prompt/Controller/optimize.controller.ts",
+      "exports": [
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/prompt/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/prompt/Controller/rate.controller.ts",
+      "exports": [
+        {
+          "name": "rateController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/prompt/DTO/index.dto.ts"
+      ]
+    },
+    {
+      "file": "src/Module/prompt/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "OptimizeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "RateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "HistoryQueryDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/Controller/history.controller.ts",
+        "src/Module/prompt/Controller/optimize.controller.ts",
+        "src/Module/prompt/Controller/rate.controller.ts",
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": []
+    },
+    {
       "file": "src/Module/prompt/Schema/prompt.schema.ts",
       "exports": [
         {
@@ -600,6 +682,135 @@
         }
       ],
       "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/Service/based-prompt.service.ts",
+      "exports": [
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "optimizePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "getHistory",
+          "kind": "value"
+        },
+        {
+          "name": "getPromptById",
+          "kind": "value"
+        },
+        {
+          "name": "ratePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "estimateTokenCost",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/prompt/index.ts",
+      "exports": [
+        {
+          "name": "PromptHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Controller/cancel.controller.ts",
+      "exports": [
+        {
+          "name": "cancelController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/Controller/plans.controller.ts",
+      "exports": [
+        {
+          "name": "plansController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/Controller/upgrade.controller.ts",
+      "exports": [
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/DTO/index.dto.ts",
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/Controller/usage.controller.ts",
+      "exports": [
+        {
+          "name": "usageController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/subscription.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/token.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/Controller/upgrade.controller.ts",
+        "src/Module/subscription/subscription.module.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -636,10 +847,164 @@
       "importsFrom": []
     },
     {
+      "file": "src/Module/subscription/Service/based-subscription.service.ts",
+      "exports": [
+        {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/Controller/cancel.controller.ts",
+        "src/Module/subscription/Controller/plans.controller.ts",
+        "src/Module/subscription/Controller/upgrade.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/Service/token.service.ts",
+      "exports": [
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/subscription/Controller/usage.controller.ts",
+        "src/jobs/resetTokens.job.ts",
+        "src/middleware/tokenGuard.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/subscription/index.ts",
+      "exports": [
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        },
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        },
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/Controller/detail.controller.ts",
+      "exports": [
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/template.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/template/Service/based-template.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/template/Controller/list.controller.ts",
+      "exports": [
+        {
+          "name": "listController",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/template.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/template/DTO/index.dto.ts",
+        "src/Module/template/Service/based-template.service.ts"
+      ]
+    },
+    {
+      "file": "src/Module/template/DTO/index.dto.ts",
+      "exports": [
+        {
+          "name": "TemplateQueryDTO",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/Controller/list.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
       "file": "src/Module/template/Schema/template.schema.ts",
       "exports": [
         {
           "name": "TemplateModel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/Service/based-template.service.ts",
+      "exports": [
+        {
+          "name": "listTemplates",
+          "kind": "value"
+        },
+        {
+          "name": "getTemplateById",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/template/Controller/detail.controller.ts",
+        "src/Module/template/Controller/list.controller.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/index.ts",
+      "exports": [
+        {
+          "name": "TemplateModel",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
           "kind": "value"
         }
       ],
@@ -871,7 +1236,9 @@
         }
       ],
       "importedBy": [],
-      "importsFrom": []
+      "importsFrom": [
+        "src/agent/script/weight-cache.ts"
+      ]
     },
     {
       "file": "src/agent/script/classifier.ts",
@@ -915,7 +1282,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/agent/script/weight-cache.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -967,6 +1336,21 @@
       "importsFrom": []
     },
     {
+      "file": "src/agent/script/weight-cache.ts",
+      "exports": [
+        {
+          "name": "WeightCache",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/agent/script/agent-engine.ts"
+      ],
+      "importsFrom": [
+        "src/agent/script/learner.ts"
+      ]
+    },
+    {
       "file": "src/app.config.ts",
       "exports": [
         {
@@ -1002,7 +1386,31 @@
         "src/config/dotenv.ts",
         "src/utils/logger.ts",
         "src/swagger.ts",
-        "src/app.module.ts"
+        "src/app.module.ts",
+        "src/Module/subscription/webhook.module.ts",
+        "src/jobs/resetTokens.job.ts",
+        "src/jobs/decayWeights.job.ts"
+      ]
+    },
+    {
+      "file": "src/config/cache.ts",
+      "exports": [
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": [
+        "src/config/redis.ts"
       ]
     },
     {
@@ -1045,6 +1453,18 @@
         {
           "name": "redisConfig",
           "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
         }
       ],
       "importedBy": [],
@@ -1073,7 +1493,9 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/config/cache.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -1248,7 +1670,87 @@
           "kind": "value"
         },
         {
+          "name": "getByIdController",
+          "kind": "value"
+        },
+        {
+          "name": "historyController",
+          "kind": "value"
+        },
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        },
+        {
+          "name": "rateController",
+          "kind": "value"
+        },
+        {
+          "name": "OptimizeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "RateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "HistoryQueryDTO",
+          "kind": "value"
+        },
+        {
           "name": "PromptHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "optimizePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "getHistory",
+          "kind": "value"
+        },
+        {
+          "name": "getPromptById",
+          "kind": "value"
+        },
+        {
+          "name": "ratePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "estimateTokenCost",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
           "kind": "value"
         },
         {
@@ -1264,7 +1766,67 @@
           "kind": "value"
         },
         {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        },
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        },
+        {
+          "name": "listController",
+          "kind": "value"
+        },
+        {
+          "name": "TemplateQueryDTO",
+          "kind": "value"
+        },
+        {
           "name": "TemplateModel",
+          "kind": "value"
+        },
+        {
+          "name": "listTemplates",
+          "kind": "value"
+        },
+        {
+          "name": "getTemplateById",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
           "kind": "value"
         },
         {
@@ -1468,11 +2030,27 @@
           "kind": "value"
         },
         {
+          "name": "WeightCache",
+          "kind": "value"
+        },
+        {
           "name": "allowedOrigins",
           "kind": "value"
         },
         {
           "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
           "kind": "value"
         },
         {
@@ -1493,6 +2071,22 @@
         },
         {
           "name": "redis",
+          "kind": "value"
+        },
+        {
+          "name": "startWeightDecayJob",
+          "kind": "value"
+        },
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        },
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
           "kind": "value"
         },
         {
@@ -1743,7 +2337,87 @@
           "kind": "value"
         },
         {
+          "name": "getByIdController",
+          "kind": "value"
+        },
+        {
+          "name": "historyController",
+          "kind": "value"
+        },
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        },
+        {
+          "name": "rateController",
+          "kind": "value"
+        },
+        {
+          "name": "OptimizeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "RateDTO",
+          "kind": "value"
+        },
+        {
+          "name": "HistoryQueryDTO",
+          "kind": "value"
+        },
+        {
           "name": "PromptHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "initAgent",
+          "kind": "value"
+        },
+        {
+          "name": "optimizePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "getHistory",
+          "kind": "value"
+        },
+        {
+          "name": "getPromptById",
+          "kind": "value"
+        },
+        {
+          "name": "ratePrompt",
+          "kind": "value"
+        },
+        {
+          "name": "estimateTokenCost",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
           "kind": "value"
         },
         {
@@ -1759,7 +2433,67 @@
           "kind": "value"
         },
         {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        },
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        },
+        {
+          "name": "listController",
+          "kind": "value"
+        },
+        {
+          "name": "TemplateQueryDTO",
+          "kind": "value"
+        },
+        {
           "name": "TemplateModel",
+          "kind": "value"
+        },
+        {
+          "name": "listTemplates",
+          "kind": "value"
+        },
+        {
+          "name": "getTemplateById",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
           "kind": "value"
         },
         {
@@ -1963,11 +2697,27 @@
           "kind": "value"
         },
         {
+          "name": "WeightCache",
+          "kind": "value"
+        },
+        {
           "name": "allowedOrigins",
           "kind": "value"
         },
         {
           "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
           "kind": "value"
         },
         {
@@ -1988,6 +2738,22 @@
         },
         {
           "name": "redis",
+          "kind": "value"
+        },
+        {
+          "name": "startWeightDecayJob",
+          "kind": "value"
+        },
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        },
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
           "kind": "value"
         },
         {
@@ -2067,6 +2833,53 @@
         "src/Module/User/user.module.ts"
       ],
       "importsFrom": []
+    },
+    {
+      "file": "src/jobs/decayWeights.job.ts",
+      "exports": [
+        {
+          "name": "startWeightDecayJob",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/jobs/resetTokens.job.ts",
+      "exports": [
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/token.service.ts"
+      ]
+    },
+    {
+      "file": "src/middleware/tokenGuard.ts",
+      "exports": [
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/Module/prompt/prompt.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/Service/token.service.ts"
+      ]
     },
     {
       "file": "src/middleware/user.middleware.ts",
@@ -2259,6 +3072,74 @@
       "importsFrom": []
     },
     {
+      "file": "src/Module/prompt/prompt.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/middleware/tokenGuard.ts",
+        "src/Module/prompt/DTO/index.dto.ts",
+        "src/Module/prompt/Controller/optimize.controller.ts",
+        "src/Module/prompt/Controller/history.controller.ts",
+        "src/Module/prompt/Controller/getById.controller.ts",
+        "src/Module/prompt/Controller/rate.controller.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/subscription.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/subscription/DTO/index.dto.ts",
+        "src/Module/subscription/Controller/plans.controller.ts",
+        "src/Module/subscription/Controller/upgrade.controller.ts",
+        "src/Module/subscription/Controller/cancel.controller.ts",
+        "src/Module/subscription/Controller/usage.controller.ts"
+      ]
+    },
+    {
+      "file": "src/Module/subscription/webhook.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.ts"
+      ],
+      "importsFrom": []
+    },
+    {
+      "file": "src/Module/template/template.module.ts",
+      "exports": [
+        {
+          "name": "default",
+          "kind": "default"
+        }
+      ],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
+      "importsFrom": [
+        "src/Module/template/Controller/list.controller.ts",
+        "src/Module/template/Controller/detail.controller.ts"
+      ]
+    },
+    {
       "file": "src/app.module.ts",
       "exports": [
         {
@@ -2273,7 +3154,10 @@
         "src/Module/Authentication/auth.module.ts",
         "src/Module/User/user.module.ts",
         "src/Module/agent/agent.module.ts",
-        "src/Module/Notifications/notification.module.ts"
+        "src/Module/Notifications/notification.module.ts",
+        "src/Module/prompt/prompt.module.ts",
+        "src/Module/template/template.module.ts",
+        "src/Module/subscription/subscription.module.ts"
       ]
     }
   ]
