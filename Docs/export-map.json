@@ -1,7 +1,7 @@
 {
   "totalFiles": 114,
   "totalExports": 537,
-  "totalImportEdges": 64,
+  "totalImportEdges": 56,
   "files": [
     {
       "file": "src/MessageQueue/Queue/queue.email.ts",
@@ -44,7 +44,9 @@
         }
       ],
       "importedBy": [],
-      "importsFrom": []
+      "importsFrom": [
+        "src/gen-import.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/Controller/forgetPassword.controller.ts",
@@ -1386,10 +1388,7 @@
         "src/config/dotenv.ts",
         "src/utils/logger.ts",
         "src/swagger.ts",
-        "src/app.module.ts",
-        "src/Module/subscription/webhook.module.ts",
-        "src/jobs/resetTokens.job.ts",
-        "src/jobs/decayWeights.job.ts"
+        "src/app.module.ts"
       ]
     },
     {
@@ -1502,6 +1501,66 @@
       "file": "src/gen-app-config.ts",
       "exports": [
         {
+          "name": "UploadOptions",
+          "kind": "value"
+        },
+        {
+          "name": "ILearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "TargetModel",
+          "kind": "value"
+        },
+        {
+          "name": "PromptCategory",
+          "kind": "value"
+        },
+        {
+          "name": "PromptComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "PromptElement",
+          "kind": "value"
+        },
+        {
+          "name": "Token",
+          "kind": "value"
+        },
+        {
+          "name": "PromptGap",
+          "kind": "value"
+        },
+        {
+          "name": "AnalysisResult",
+          "kind": "value"
+        },
+        {
+          "name": "TransformRule",
+          "kind": "value"
+        },
+        {
+          "name": "LearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "SimilarPrompt",
+          "kind": "value"
+        },
+        {
+          "name": "AgentInput",
+          "kind": "value"
+        },
+        {
+          "name": "AgentOutput",
+          "kind": "value"
+        },
+        {
+          "name": "ElementDetector",
+          "kind": "value"
+        },
+        {
           "name": "addJobToQueue",
           "kind": "value"
         },
@@ -1566,22 +1625,6 @@
           "kind": "value"
         },
         {
-          "name": "getNotificationsController",
-          "kind": "value"
-        },
-        {
-          "name": "markSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "markAllSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "publishController",
-          "kind": "value"
-        },
-        {
           "name": "streamController",
           "kind": "value"
         },
@@ -1606,27 +1649,11 @@
           "kind": "value"
         },
         {
-          "name": "registerClient",
-          "kind": "value"
-        },
-        {
-          "name": "getActiveClients",
-          "kind": "value"
-        },
-        {
           "name": "formatSSEEvent",
           "kind": "value"
         },
         {
           "name": "formatHeartbeat",
-          "kind": "value"
-        },
-        {
-          "name": "deleteAccountController",
-          "kind": "value"
-        },
-        {
-          "name": "editProfileController",
           "kind": "value"
         },
         {
@@ -1639,10 +1666,6 @@
         },
         {
           "name": "UserModel",
-          "kind": "value"
-        },
-        {
-          "name": "BasedUserService",
           "kind": "value"
         },
         {
@@ -1666,23 +1689,7 @@
           "kind": "value"
         },
         {
-          "name": "ILearnedWeight",
-          "kind": "value"
-        },
-        {
           "name": "getByIdController",
-          "kind": "value"
-        },
-        {
-          "name": "historyController",
-          "kind": "value"
-        },
-        {
-          "name": "optimizeController",
-          "kind": "value"
-        },
-        {
-          "name": "rateController",
           "kind": "value"
         },
         {
@@ -1723,26 +1730,6 @@
         },
         {
           "name": "estimateTokenCost",
-          "kind": "value"
-        },
-        {
-          "name": "prompt_module",
-          "kind": "value"
-        },
-        {
-          "name": "cancelController",
-          "kind": "value"
-        },
-        {
-          "name": "plansController",
-          "kind": "value"
-        },
-        {
-          "name": "upgradeController",
-          "kind": "value"
-        },
-        {
-          "name": "usageController",
           "kind": "value"
         },
         {
@@ -1794,22 +1781,6 @@
           "kind": "value"
         },
         {
-          "name": "subscription_module",
-          "kind": "value"
-        },
-        {
-          "name": "webhook_module",
-          "kind": "value"
-        },
-        {
-          "name": "templateDetailController",
-          "kind": "value"
-        },
-        {
-          "name": "listController",
-          "kind": "value"
-        },
-        {
           "name": "TemplateQueryDTO",
           "kind": "value"
         },
@@ -1823,14 +1794,6 @@
         },
         {
           "name": "getTemplateById",
-          "kind": "value"
-        },
-        {
-          "name": "template_module",
-          "kind": "value"
-        },
-        {
-          "name": "UploadOptions",
           "kind": "value"
         },
         {
@@ -1863,10 +1826,6 @@
         },
         {
           "name": "AppError",
-          "kind": "value"
-        },
-        {
-          "name": "errorHandler",
           "kind": "value"
         },
         {
@@ -1930,62 +1889,6 @@
           "kind": "value"
         },
         {
-          "name": "TargetModel",
-          "kind": "value"
-        },
-        {
-          "name": "PromptCategory",
-          "kind": "value"
-        },
-        {
-          "name": "PromptComplexity",
-          "kind": "value"
-        },
-        {
-          "name": "PromptElement",
-          "kind": "value"
-        },
-        {
-          "name": "Token",
-          "kind": "value"
-        },
-        {
-          "name": "PromptGap",
-          "kind": "value"
-        },
-        {
-          "name": "AnalysisResult",
-          "kind": "value"
-        },
-        {
-          "name": "TransformRule",
-          "kind": "value"
-        },
-        {
-          "name": "LearnedWeight",
-          "kind": "value"
-        },
-        {
-          "name": "SimilarPrompt",
-          "kind": "value"
-        },
-        {
-          "name": "AgentInput",
-          "kind": "value"
-        },
-        {
-          "name": "AgentOutput",
-          "kind": "value"
-        },
-        {
-          "name": "ElementDetector",
-          "kind": "value"
-        },
-        {
-          "name": "AgentEngine",
-          "kind": "value"
-        },
-        {
           "name": "classify",
           "kind": "value"
         },
@@ -2030,30 +1933,6 @@
           "kind": "value"
         },
         {
-          "name": "WeightCache",
-          "kind": "value"
-        },
-        {
-          "name": "allowedOrigins",
-          "kind": "value"
-        },
-        {
-          "name": "app_config",
-          "kind": "value"
-        },
-        {
-          "name": "cacheGet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheSet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheDel",
-          "kind": "value"
-        },
-        {
           "name": "cloudinary",
           "kind": "value"
         },
@@ -2075,18 +1954,6 @@
         },
         {
           "name": "startWeightDecayJob",
-          "kind": "value"
-        },
-        {
-          "name": "startTokenResetJob",
-          "kind": "value"
-        },
-        {
-          "name": "tokenGuard",
-          "kind": "value"
-        },
-        {
-          "name": "tokenConsume",
           "kind": "value"
         },
         {
@@ -2146,19 +2013,151 @@
           "kind": "value"
         },
         {
+          "name": "agent_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
+          "name": "app_module",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        },
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        },
+        {
+          "name": "historyController",
+          "kind": "value"
+        },
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        },
+        {
+          "name": "rateController",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        },
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
+          "kind": "value"
+        },
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        },
+        {
+          "name": "listController",
+          "kind": "value"
+        },
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        },
+        {
+          "name": "WeightCache",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        },
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
+          "kind": "value"
+        },
+        {
+          "name": "AgentEngine",
+          "kind": "value"
+        },
+        {
           "name": "notification_module",
           "kind": "value"
         },
         {
           "name": "user_module",
-          "kind": "value"
-        },
-        {
-          "name": "agent_module",
-          "kind": "value"
-        },
-        {
-          "name": "app_module",
           "kind": "value"
         }
       ],
@@ -2169,6 +2168,66 @@
       "file": "src/gen-import.ts",
       "exports": [
         {
+          "name": "UploadOptions",
+          "kind": "value"
+        },
+        {
+          "name": "ILearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "TargetModel",
+          "kind": "value"
+        },
+        {
+          "name": "PromptCategory",
+          "kind": "value"
+        },
+        {
+          "name": "PromptComplexity",
+          "kind": "value"
+        },
+        {
+          "name": "PromptElement",
+          "kind": "value"
+        },
+        {
+          "name": "Token",
+          "kind": "value"
+        },
+        {
+          "name": "PromptGap",
+          "kind": "value"
+        },
+        {
+          "name": "AnalysisResult",
+          "kind": "value"
+        },
+        {
+          "name": "TransformRule",
+          "kind": "value"
+        },
+        {
+          "name": "LearnedWeight",
+          "kind": "value"
+        },
+        {
+          "name": "SimilarPrompt",
+          "kind": "value"
+        },
+        {
+          "name": "AgentInput",
+          "kind": "value"
+        },
+        {
+          "name": "AgentOutput",
+          "kind": "value"
+        },
+        {
+          "name": "ElementDetector",
+          "kind": "value"
+        },
+        {
           "name": "addJobToQueue",
           "kind": "value"
         },
@@ -2233,22 +2292,6 @@
           "kind": "value"
         },
         {
-          "name": "getNotificationsController",
-          "kind": "value"
-        },
-        {
-          "name": "markSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "markAllSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "publishController",
-          "kind": "value"
-        },
-        {
           "name": "streamController",
           "kind": "value"
         },
@@ -2273,27 +2316,11 @@
           "kind": "value"
         },
         {
-          "name": "registerClient",
-          "kind": "value"
-        },
-        {
-          "name": "getActiveClients",
-          "kind": "value"
-        },
-        {
           "name": "formatSSEEvent",
           "kind": "value"
         },
         {
           "name": "formatHeartbeat",
-          "kind": "value"
-        },
-        {
-          "name": "deleteAccountController",
-          "kind": "value"
-        },
-        {
-          "name": "editProfileController",
           "kind": "value"
         },
         {
@@ -2306,10 +2333,6 @@
         },
         {
           "name": "UserModel",
-          "kind": "value"
-        },
-        {
-          "name": "BasedUserService",
           "kind": "value"
         },
         {
@@ -2333,23 +2356,7 @@
           "kind": "value"
         },
         {
-          "name": "ILearnedWeight",
-          "kind": "value"
-        },
-        {
           "name": "getByIdController",
-          "kind": "value"
-        },
-        {
-          "name": "historyController",
-          "kind": "value"
-        },
-        {
-          "name": "optimizeController",
-          "kind": "value"
-        },
-        {
-          "name": "rateController",
           "kind": "value"
         },
         {
@@ -2390,26 +2397,6 @@
         },
         {
           "name": "estimateTokenCost",
-          "kind": "value"
-        },
-        {
-          "name": "prompt_module",
-          "kind": "value"
-        },
-        {
-          "name": "cancelController",
-          "kind": "value"
-        },
-        {
-          "name": "plansController",
-          "kind": "value"
-        },
-        {
-          "name": "upgradeController",
-          "kind": "value"
-        },
-        {
-          "name": "usageController",
           "kind": "value"
         },
         {
@@ -2461,22 +2448,6 @@
           "kind": "value"
         },
         {
-          "name": "subscription_module",
-          "kind": "value"
-        },
-        {
-          "name": "webhook_module",
-          "kind": "value"
-        },
-        {
-          "name": "templateDetailController",
-          "kind": "value"
-        },
-        {
-          "name": "listController",
-          "kind": "value"
-        },
-        {
           "name": "TemplateQueryDTO",
           "kind": "value"
         },
@@ -2490,14 +2461,6 @@
         },
         {
           "name": "getTemplateById",
-          "kind": "value"
-        },
-        {
-          "name": "template_module",
-          "kind": "value"
-        },
-        {
-          "name": "UploadOptions",
           "kind": "value"
         },
         {
@@ -2530,10 +2493,6 @@
         },
         {
           "name": "AppError",
-          "kind": "value"
-        },
-        {
-          "name": "errorHandler",
           "kind": "value"
         },
         {
@@ -2597,62 +2556,6 @@
           "kind": "value"
         },
         {
-          "name": "TargetModel",
-          "kind": "value"
-        },
-        {
-          "name": "PromptCategory",
-          "kind": "value"
-        },
-        {
-          "name": "PromptComplexity",
-          "kind": "value"
-        },
-        {
-          "name": "PromptElement",
-          "kind": "value"
-        },
-        {
-          "name": "Token",
-          "kind": "value"
-        },
-        {
-          "name": "PromptGap",
-          "kind": "value"
-        },
-        {
-          "name": "AnalysisResult",
-          "kind": "value"
-        },
-        {
-          "name": "TransformRule",
-          "kind": "value"
-        },
-        {
-          "name": "LearnedWeight",
-          "kind": "value"
-        },
-        {
-          "name": "SimilarPrompt",
-          "kind": "value"
-        },
-        {
-          "name": "AgentInput",
-          "kind": "value"
-        },
-        {
-          "name": "AgentOutput",
-          "kind": "value"
-        },
-        {
-          "name": "ElementDetector",
-          "kind": "value"
-        },
-        {
-          "name": "AgentEngine",
-          "kind": "value"
-        },
-        {
           "name": "classify",
           "kind": "value"
         },
@@ -2697,30 +2600,6 @@
           "kind": "value"
         },
         {
-          "name": "WeightCache",
-          "kind": "value"
-        },
-        {
-          "name": "allowedOrigins",
-          "kind": "value"
-        },
-        {
-          "name": "app_config",
-          "kind": "value"
-        },
-        {
-          "name": "cacheGet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheSet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheDel",
-          "kind": "value"
-        },
-        {
           "name": "cloudinary",
           "kind": "value"
         },
@@ -2742,18 +2621,6 @@
         },
         {
           "name": "startWeightDecayJob",
-          "kind": "value"
-        },
-        {
-          "name": "startTokenResetJob",
-          "kind": "value"
-        },
-        {
-          "name": "tokenGuard",
-          "kind": "value"
-        },
-        {
-          "name": "tokenConsume",
           "kind": "value"
         },
         {
@@ -2813,24 +2680,158 @@
           "kind": "value"
         },
         {
+          "name": "agent_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
+          "name": "app_module",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        },
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        },
+        {
+          "name": "historyController",
+          "kind": "value"
+        },
+        {
+          "name": "optimizeController",
+          "kind": "value"
+        },
+        {
+          "name": "rateController",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "startTokenResetJob",
+          "kind": "value"
+        },
+        {
+          "name": "tokenGuard",
+          "kind": "value"
+        },
+        {
+          "name": "tokenConsume",
+          "kind": "value"
+        },
+        {
+          "name": "templateDetailController",
+          "kind": "value"
+        },
+        {
+          "name": "listController",
+          "kind": "value"
+        },
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        },
+        {
+          "name": "WeightCache",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        },
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "prompt_module",
+          "kind": "value"
+        },
+        {
+          "name": "template_module",
+          "kind": "value"
+        },
+        {
+          "name": "AgentEngine",
+          "kind": "value"
+        },
+        {
           "name": "notification_module",
           "kind": "value"
         },
         {
           "name": "user_module",
           "kind": "value"
-        },
-        {
-          "name": "agent_module",
-          "kind": "value"
-        },
-        {
-          "name": "app_module",
-          "kind": "value"
         }
       ],
       "importedBy": [
-        "src/Module/User/user.module.ts"
+        "src/Module/Authentication/Controller/Login.controller.ts",
+        "src/Module/User/user.module.ts",
+        "src/app.module.ts"
       ],
       "importsFrom": []
     },
@@ -2842,9 +2843,7 @@
           "kind": "value"
         }
       ],
-      "importedBy": [
-        "src/app.ts"
-      ],
+      "importedBy": [],
       "importsFrom": []
     },
     {
@@ -2855,9 +2854,7 @@
           "kind": "value"
         }
       ],
-      "importedBy": [
-        "src/app.ts"
-      ],
+      "importedBy": [],
       "importsFrom": [
         "src/Module/subscription/Service/token.service.ts"
       ]
@@ -3017,9 +3014,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": []
     },
     {
@@ -3030,9 +3025,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": [
         "src/middleware/validateDTO.ts",
         "src/Module/Notifications/DTO/index.dto.ts",
@@ -3048,9 +3041,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": [
         "src/gen-import.ts",
         "src/Module/User/DTO/index.dto.ts",
@@ -3066,9 +3057,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": []
     },
     {
@@ -3079,9 +3068,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": [
         "src/middleware/tokenGuard.ts",
         "src/Module/prompt/DTO/index.dto.ts",
@@ -3099,9 +3086,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": [
         "src/Module/subscription/DTO/index.dto.ts",
         "src/Module/subscription/Controller/plans.controller.ts",
@@ -3118,9 +3103,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.ts"
-      ],
+      "importedBy": [],
       "importsFrom": []
     },
     {
@@ -3131,9 +3114,7 @@
           "kind": "default"
         }
       ],
-      "importedBy": [
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": [
         "src/Module/template/Controller/list.controller.ts",
         "src/Module/template/Controller/detail.controller.ts"
@@ -3151,13 +3132,7 @@
         "src/app.ts"
       ],
       "importsFrom": [
-        "src/Module/Authentication/auth.module.ts",
-        "src/Module/User/user.module.ts",
-        "src/Module/agent/agent.module.ts",
-        "src/Module/Notifications/notification.module.ts",
-        "src/Module/prompt/prompt.module.ts",
-        "src/Module/template/template.module.ts",
-        "src/Module/subscription/subscription.module.ts"
+        "src/gen-import.ts"
       ]
     }
   ]
