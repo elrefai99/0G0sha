@@ -29,14 +29,10 @@ import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
 import appModule from './app.module'
-import webhook_module from './Module/subscription/webhook.module'
-import { startTokenResetJob } from './jobs/resetTokens.job'
-import { startWeightDecayJob } from './jobs/decayWeights.job'
-import { allowedOrigins, app_config, initAgent, mongoDBConfig, redisConfig } from '@/gen-import'
+import { allowedOrigins, app_config, initAgent, mongoDBConfig, redisConfig, startTokenResetJob, startWeightDecayJob } from '@/gen-import'
 const app: Express = express()
 
 // Webhooks need raw body — mount BEFORE json parser (app_config applies json)
-app.use('/api/webhooks', webhook_module)
 
 const server = http.createServer(app)
 export let ioSocket: SocketIOServer = new SocketIOServer(server, {

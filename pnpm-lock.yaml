@@ -108,8 +108,8 @@ catalogs:
       specifier: ^10.1.0
       version: 10.1.0
     gen-import:
-      specifier: ^1.9.7
-      version: 1.9.8
+      specifier: ^1.10.9
+      version: 1.10.9
     globals:
       specifier: ^17.4.0
       version: 17.4.0
@@ -376,7 +376,7 @@ importers:
         version: 2.1.0
       gen-import:
         specifier: catalog:tools
-        version: 1.9.8
+        version: 1.10.9
       globals:
         specifier: catalog:tools
         version: 17.4.0
@@ -1866,8 +1866,8 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  gen-import@1.9.8:
-    resolution: {integrity: sha512-vb2AQrFXjd/L952TXeQjoL1yHGaqGukSSCPvD+zvyysHxYBrfIN8zfj2dAKMjlJHlEHqPLlBkkxFyWNoBONnVA==}
+  gen-import@1.10.9:
+    resolution: {integrity: sha512-usEMTKkSQ3Hn8I7Xao7/O6f1n9yMvRXe/DMsneEs3TuoB7GPmbwlqNfymjrHGbaikFu2glBneFoH0THoBxLw0g==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -4439,7 +4439,7 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  gen-import@1.9.8:
+  gen-import@1.10.9:
     dependencies:
       boxen: 8.0.1
       chalk: 5.6.2

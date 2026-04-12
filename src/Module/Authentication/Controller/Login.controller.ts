@@ -1,6 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import bcrypt from "bcryptjs"
-import { AppError, asyncHandler, BasedAuthService, LoginDTO } from "@/gen-import";
+import { AppError, asyncHandler, BasedAuthService } from "../../../gen-import";
+import { LoginDTO } from "../DTO/index.dto";
 
 export const loginController: RequestHandler = asyncHandler(
      async (req: Request, res: Response, next: NextFunction) => {
