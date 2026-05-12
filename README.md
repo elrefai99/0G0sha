@@ -577,4 +577,4 @@ docker-compose down             # Stop
 MIT
 
 ---
-## <a herf="https://elrefai.me/projects">. Project .</a> 
+## • <a href="https://elrefai.me/projects">Projects</a> •
