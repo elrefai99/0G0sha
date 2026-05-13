@@ -7,7 +7,7 @@
     "dev": "concurrently \"NODE_ENV=development nodemon -L\" \"NODE_ENV=development npx ts-node ./src/MessageQueue/index.ts\"",
     "dev:local": "concurrently \" nodemon -L\" \"npx ts-node ./src/MessageQueue/index.ts\"",
     "build": "tsc -p tsconfig.build.json",
-    "start": "concurrently \"node ./dist/app.js\" \"node ./dist/MessageQueue/index.js\"",
+    "start": "concurrently \"TS_NODE_BASEURL=./dist node -r tsconfig-paths/register ./dist/src/app.js\" \"TS_NODE_BASEURL=./dist node -r tsconfig-paths/register ./dist/src/MessageQueue/index.js\"",
     "test": "jest --detectOpenHandles --runInBand",
     "test:local": "NODE_ENV=development jest",
     "test:e2e": "vitest run --reporter=verbose",

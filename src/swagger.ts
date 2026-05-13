@@ -4,7 +4,7 @@ import type { Express } from 'express'
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
 
-const packageJson = JSON.parse(readFileSync(resolve(__dirname, '../package.json'), 'utf-8'))
+const packageJson = JSON.parse(readFileSync(resolve(process.cwd(), 'package.json'), 'utf-8'))
 const appVersion = packageJson.version
 
 const options: swaggerJsdoc.Options = {
