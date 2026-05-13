@@ -1,4 +1,5 @@
-import { userMiddleware, validateDTO } from '@/gen-import'
+import { userMiddleware } from '../../middleware/user.middleware'
+import { validateDTO } from '../../middleware/validateDTO'
 import { tokenGuard, tokenConsume } from '../../middleware/tokenGuard.js'
 import { Router } from 'express'
 import { OptimizeDTO, RateDTO } from './DTO/index.dto.js'

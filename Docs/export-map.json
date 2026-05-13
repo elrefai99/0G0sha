@@ -1,7 +1,7 @@
 {
   "totalFiles": 114,
   "totalExports": 537,
-  "totalImportEdges": 56,
+  "totalImportEdges": 57,
   "files": [
     {
       "file": "src/MessageQueue/Queue/queue.email.ts",
@@ -45,7 +45,8 @@
       ],
       "importedBy": [],
       "importsFrom": [
-        "src/gen-import.ts"
+        "src/gen-import.ts",
+        "src/Module/Authentication/DTO/index.dto.ts"
       ]
     },
     {
@@ -126,7 +127,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/Authentication/Controller/Login.controller.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -1577,10 +1580,6 @@
           "kind": "value"
         },
         {
-          "name": "loginController",
-          "kind": "value"
-        },
-        {
           "name": "forgetPasswordController",
           "kind": "value"
         },
@@ -2022,6 +2021,10 @@
         },
         {
           "name": "app_module",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
           "kind": "value"
         },
         {
@@ -2244,10 +2247,6 @@
           "kind": "value"
         },
         {
-          "name": "loginController",
-          "kind": "value"
-        },
-        {
           "name": "forgetPasswordController",
           "kind": "value"
         },
@@ -2689,6 +2688,10 @@
         },
         {
           "name": "app_module",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
           "kind": "value"
         },
         {

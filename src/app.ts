@@ -28,8 +28,9 @@ import client from 'prom-client'
 import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
+import { allowedOrigins, initAgent, mongoDBConfig, redisConfig, startTokenResetJob, startWeightDecayJob } from './gen-import'
+import appConfig from './app.config'
 import appModule from './app.module'
-import { allowedOrigins, app_config, initAgent, mongoDBConfig, redisConfig, startTokenResetJob, startWeightDecayJob } from '@/gen-import'
 const app: Express = express()
 
 // Webhooks need raw body — mount BEFORE json parser (app_config applies json)
@@ -41,7 +42,7 @@ export let ioSocket: SocketIOServer = new SocketIOServer(server, {
   },
 })
 
-app_config(app)
+appConfig(app)
 setupSwagger(app)
 appModule(app)
 

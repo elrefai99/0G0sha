@@ -1,6 +1,7 @@
-import { AppError, RegisterDTO, token_PASETO, UserModel } from "@/gen-import"
+import { AppError, token_PASETO, UserModel } from "@/gen-import"
 import { createPublicKey } from "node:crypto"
 import { V4 } from "paseto"
+import { RegisterDTO } from "../DTO/index.dto"
 
 export class BasedAuthService {
      constructor() { }
