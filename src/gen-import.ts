@@ -1,12 +1,10 @@
-// @ts-nocheck - runtime barrel for lazy CommonJS re-exports
+// @ts-nocheck - runtime bridge for the lazy CommonJS barrel
 /**
  * gen-import.ts - AUTO-GENERATED, do not edit manually.
  * Regenerate: npx gen-import
- *
- * Keep runtime exports in pure CommonJS. Mixing `export declare` with
- * CommonJS getter exports makes tsx expose undefined named values.
  */
 
-const runtime = require('./gen-import.runtime');
+export * from './gen-import.types';
 
-export = runtime;
+const runtime = require('./gen-import.runtime');
+module.exports = runtime;
