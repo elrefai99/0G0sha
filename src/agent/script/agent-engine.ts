@@ -1,6 +1,7 @@
-import { tokenize, extractKeywords, classify, assessComplexity, extractIntent, detect, calcRawScore, RuleEngine, Merger, Learner, createLogger, } from '@/gen-import';
+import { tokenize, extractKeywords, classify, assessComplexity, extractIntent, detect, calcRawScore, RuleEngine, Merger, createLogger, } from '../../gen-import';
 import type { AgentInput, AgentOutput, AnalysisResult, PromptCategory, } from '../@types/index.js';
 import { WeightCache } from './weight-cache.js';
+import { Learner } from './learner.js';
 
 const logger = createLogger('AgentEngine');
 

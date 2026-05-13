@@ -1,4 +1,6 @@
-import { analyzeController, AnalyzeDTO, validateDTO } from '@/gen-import'
+import { validateDTO } from '../../middleware/validateDTO'
+import { AnalyzeDTO } from './DTO/index.dto'
+import { analyzeController } from './Controller/analyze.controller'
 import { Router } from 'express'
 
 const router: Router = Router()

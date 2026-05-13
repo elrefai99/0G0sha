@@ -1,4 +1,5 @@
-import { userMiddleware, validateDTO } from '@/gen-import'
+import { userMiddleware } from '../../middleware/user.middleware'
+import { validateDTO } from '../../middleware/validateDTO'
 import { Router } from 'express'
 import { UpgradeDTO, CancelDTO } from './DTO/index.dto.js'
 import { plansController } from './Controller/plans.controller.js'

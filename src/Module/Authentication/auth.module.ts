@@ -1,5 +1,14 @@
-import { authlimiter, forgetPasswordController, googleController, loginController, LoginDTO, logoutController, refreshController, registerController, RegisterDTO, resetPasswordController, validateDTO } from "@/gen-import";
 import { Router } from "express";
+import { authlimiter } from '../../utils/limit-request'
+import { validateDTO } from '../../middleware/validateDTO'
+import { RegisterDTO, LoginDTO } from './DTO/index.dto'
+import { registerController } from './Controller/register.controller'
+import { loginController } from './Controller/Login.controller'
+import { refreshController } from './Controller/refresh.controller'
+import { logoutController } from './Controller/logout.controller'
+import { googleController } from './Controller/googleCallBack.controller'
+import { forgetPasswordController } from './Controller/forgetPassword.controller'
+import { resetPasswordController } from './Controller/resetPassword.controller'
 
 const router: Router = Router();
 
