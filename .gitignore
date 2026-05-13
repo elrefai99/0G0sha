@@ -3,9 +3,11 @@ node_modules
 .env.dev
 .env.production
 *dist
-index.html
+/index.html
+!frontend/index.html
 SQL
 .DS_Store
 *.log
+*.tsbuildinfo
 logs
 package-lock.json
