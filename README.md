@@ -575,3 +575,6 @@ docker-compose down             # Stop
 ## License
 
 MIT
+
+---
+## • <a href="https://elrefai.me/projects">Projects</a> •
