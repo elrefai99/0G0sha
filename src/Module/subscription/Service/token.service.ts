@@ -32,9 +32,13 @@ export const checkBudget = async (
      if (!user) throw AppError.notFound('User not found')
 
      if (isNewDay(user.tokens.lastResetAt)) {
-          user.tokens.used = 0
-          user.tokens.lastResetAt = new Date()
-          await user.save()
+          const now = new Date()
+          await UserModel.findByIdAndUpdate(userId, {
+               $set: {
+                    'tokens.used': 0,
+                    'tokens.lastResetAt': now,
+               },
+          })
 
           await TokenLedgerModel.create({
                userId,
@@ -43,6 +47,9 @@ export const checkBudget = async (
                promptId: null,
                balanceAfter: user.tokens.limit,
           })
+
+          user.tokens.used = 0
+          user.tokens.lastResetAt = now
 
           logger.debug({ userId }, 'Lazy token reset triggered')
      }

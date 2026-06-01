@@ -62,6 +62,8 @@ userSchema.index({ email: 1 }, { unique: true })
 userSchema.index({ apiKey: 1 }, { unique: true })
 
 userSchema.pre('save', async function () {
+  if (!this.isModified('password') || !this.password) return
+
   const salt = await bcrypt.genSalt(10)
   this.password = await bcrypt.hash(this.password, salt)
 })
