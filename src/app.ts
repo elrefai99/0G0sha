@@ -28,7 +28,7 @@ import client from 'prom-client'
 import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
-import { allowedOrigins, initAgent, mongoDBConfig, redisConfig, startTokenResetJob, startWeightDecayJob } from './gen-import'
+import { allowedOrigins, initAgent, mongoDBConfig, redisConfig, startTokenResetJob, startWeightDecayJob, UserModel, USER_PLAN } from './gen-import'
 import appConfig from './app.config'
 import appModule from './app.module'
 const app: Express = express()
@@ -67,6 +67,7 @@ async function startServer() {
       mongoDBConfig().then(
         async () => {
           await initAgent()
+          await UserModel.updateMany({ plan: { $ne: USER_PLAN.FREE } }, { $set: { plan: USER_PLAN.FREE } })
           startTokenResetJob()
           startWeightDecayJob()
           server.listen(PORT, () => {

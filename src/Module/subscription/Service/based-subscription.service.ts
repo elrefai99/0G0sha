@@ -27,11 +27,11 @@ export const upgrade = async (
      _provider: string,
      _method?: string,
 ): Promise<never> => {
-     throw AppError.internal('Payment integration not implemented yet — Phase 10')
+     throw AppError.badRequest('All subscriptions are free. No paid upgrades are available.')
 }
 
 export const cancel = async (
      _userId: string,
 ): Promise<never> => {
-     throw AppError.internal('Cancel not implemented yet — Phase 10')
+     throw AppError.badRequest('All subscriptions are free. There is nothing to cancel.')
 }
