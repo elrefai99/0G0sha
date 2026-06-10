@@ -33,6 +33,8 @@ jobs:
         run: pnpm install
 
       - name: Generate Prisma client
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
         run: pnpm prisma generate
 
       - name: Run TypeScript build

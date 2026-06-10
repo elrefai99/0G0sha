@@ -1,3 +1,4 @@
+import { UserPlan, UserStatus } from '@/generated/prisma';
 import type { Request } from 'express'
 import type { ProjectionType, QueryOptions, Types } from 'mongoose'
 
@@ -28,15 +29,28 @@ export interface PaginateOptions<T> {
 }
 
 export interface IUserRequest {
-     _id?: Types.ObjectId | string;
-     fullname?: string;
-     username?: string;
-     email?: string;
-     avatar?: string;
-     apiKey?: string;
-     plan?: 'free' | 'starter' | 'pro' | 'enterprise';
-     tokens?: any;
-     subscription?: Types.ObjectId;
+     id?: number | string
+     _id?: number | string | Types.ObjectId
+     fullname?: string
+     username?: string
+     email?: string
+     password?: string
+     code?: string
+     phone?: string
+     avatar?: string
+     status?: UserStatus
+     apiKey?: string
+     googleId?: string
+     plan?: UserPlan
+     tokensUsed?: number
+     tokensLimit?: number
+     tokensLastResetAt?: Date | string | any
+     subscriptionId?: string
+     notifications?: any
+     tokenLedgers?: any
+     paymentHistory?: any
+     createdAt?: Date
+     updatedAt?: Date
 }
 
 export interface Token {

@@ -2,8 +2,9 @@ import { NextFunction, Request, RequestHandler, Response } from "express";
 import { createPublicKey } from "node:crypto";
 import { V4 } from "paseto"
 import { AppError } from "../Shared/errors/app-error";
-import { UserModel } from "../Module/User/Schema/user.schema";
 import { asyncHandler } from "../utils/api-requesthandler";
+import { prisma } from "@/gen-import";
+import { UserStatus } from "@/generated/prisma";
 
 export const userMiddleware: RequestHandler = asyncHandler(
      async (req: Request, res: Response, next: NextFunction) => {
@@ -17,7 +18,15 @@ export const userMiddleware: RequestHandler = asyncHandler(
           const publicKey = createPublicKey(process.env.ACCESS_PUBLICE_KEY as string)
           await V4.verify(token, publicKey).then(async (payload: any) => {
 
-               const user = await UserModel.findOne({ _id: payload.data.user_id }, { _id: 1 })
+               const user = await prisma.user.findFirst({
+                    where: {
+                         id: payload.data.user_id as number,
+                         status: UserStatus.active
+                    },
+                    select: {
+                         id: true
+                    }
+               })
                if (!user) {
                     next(new AppError("User not found", 404))
                     return
