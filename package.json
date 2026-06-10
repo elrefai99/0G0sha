@@ -95,6 +95,7 @@
     "prom-client": "catalog:tools",
     "redis": "catalog:tools",
     "request-ip": "catalog:runtime",
+    "resend": "^6.12.4",
     "socket.io": "catalog:websocket",
     "supertest": "catalog:testing",
     "ts-node": "catalog:tools",

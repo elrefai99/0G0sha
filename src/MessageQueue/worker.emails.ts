@@ -1,6 +1,6 @@
 import "../config/dotenv"
 import { Worker, Job } from "bullmq";
-import { jobProcessor } from './jobs/job.process.emails';
+import { jobProcessor } from './emails/jobs/job.process.emails';
 
 const worker = new Worker("emailQueue", jobProcessor, {
      connection: {

@@ -7,10 +7,10 @@ export type { UploadOptions } from './Providers/cloudinary.provider';
 export type { ILearnedWeight } from './Module/agent';
 export type { TargetModel, PromptCategory, PromptComplexity, PromptElement, Token, PromptGap, AnalysisResult, TransformRule, LearnedWeight, SimilarPrompt, AgentInput, AgentOutput, ElementDetector } from './agent';
 
-export declare const addJobToQueue: typeof import('./MessageQueue/Queue/queue.email').addJobToQueue;
-export declare const queue: typeof import('./MessageQueue/Queue/queue.email').queue;
-export declare const sendEmail: typeof import('./MessageQueue/jobs/job.process.emails').sendEmail;
-export declare const jobProcessor: typeof import('./MessageQueue/jobs/job.process.emails').jobProcessor;
+export declare const addJobToQueue: typeof import('./MessageQueue/emails/Queue/queue.email').addJobToQueue;
+export declare const queue: typeof import('./MessageQueue/emails/Queue/queue.email').queue;
+export declare const sendEmail: typeof import('./MessageQueue/emails/jobs/job.process.emails').sendEmail;
+export declare const jobProcessor: typeof import('./MessageQueue/emails/jobs/job.process.emails').jobProcessor;
 export declare const loginController: typeof import('./Module/Authentication/Controller/Login.controller').loginController;
 export declare const forgetPasswordController: typeof import('./Module/Authentication/Controller/forgetPassword.controller').forgetPasswordController;
 export declare const googleController: typeof import('./Module/Authentication/Controller/googleCallBack.controller').googleController;
