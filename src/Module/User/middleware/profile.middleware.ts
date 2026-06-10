@@ -1,7 +1,9 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { asyncHandler, AppError, UserModel } from "@/gen-import";
 import { createPublicKey } from "node:crypto";
 import { V4 } from "paseto"
+import { AppError } from "../../../Shared/errors/app-error";
+import { asyncHandler } from "../../../utils/api-requesthandler";
+import { UserModel } from "../Schema/user.schema";
 
 export const profileMiddleware: RequestHandler = asyncHandler(
      async (req: Request, res: Response, next: NextFunction) => {

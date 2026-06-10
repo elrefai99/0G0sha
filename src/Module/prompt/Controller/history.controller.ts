@@ -1,5 +1,7 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler, AppError, getHistory } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { asyncHandler } from '../../../utils/api-requesthandler'
+import { getHistory } from '../Service/based-prompt.service'
 import { HistoryQueryDTO } from '../DTO/index.dto.js'
 
 export const historyController: RequestHandler = asyncHandler(

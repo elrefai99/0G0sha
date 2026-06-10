@@ -1,5 +1,5 @@
-import { createLogger } from '@/gen-import'
 import type { EditProfileDTO } from '../DTO/index.dto'
+import { createLogger } from '../../../utils/logger'
 import { UserModel } from '../Schema/user.schema'
 
 const logger = createLogger('BasedUserService')

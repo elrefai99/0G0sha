@@ -1,5 +1,5 @@
 import { Document, Types } from "mongoose";
-import { PAYMENT_METHOD, PAYMENT_STATUS, PLAN_PROVIDER } from "@/gen-import";
+import { PAYMENT_METHOD, PAYMENT_STATUS, PLAN_PROVIDER } from "../../../Shared/enum";
 
 export interface IPlan extends Document {
      name: string;

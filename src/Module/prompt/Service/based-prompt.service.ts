@@ -1,13 +1,10 @@
-import {
-     AgentEngine,
-     PromptHistoryModel,
-     AppError,
-     cacheGet,
-     cacheSet,
-     hashText,
-     createLogger,
-} from '@/gen-import';
-import type { AgentOutput, TargetModel, PromptCategory } from '@/gen-import';
+import { AgentEngine } from '../../../agent/script/agent-engine';
+import type { AgentOutput, TargetModel, PromptCategory } from '../../../agent/@types';
+import { AppError } from '../../../Shared/errors/app-error';
+import { cacheGet, cacheSet } from '../../../config/cache';
+import { hashText } from '../../../utils/hashText';
+import { createLogger } from '../../../utils/logger';
+import { PromptHistoryModel } from '../Schema/prompt.schema';
 import type { IPromptHistory } from '../@types/index.js';
 
 const logger = createLogger('PromptService');

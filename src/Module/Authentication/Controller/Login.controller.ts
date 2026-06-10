@@ -1,6 +1,8 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import bcrypt from "bcryptjs"
-import { AppError, asyncHandler, BasedAuthService } from "../../../gen-import";
+import { AppError } from "../../../Shared/errors/app-error";
+import { asyncHandler } from "../../../utils/api-requesthandler";
+import { BasedAuthService } from "../Service/based-auth.service";
 import { LoginDTO } from "../DTO/index.dto";
 
 export const loginController: RequestHandler = asyncHandler(
@@ -22,8 +24,8 @@ export const loginController: RequestHandler = asyncHandler(
                return
           }
 
-          const token = await baseAuth.create_token({ _id: check_user._id.toString(), type: "access" })
-          const refresh_token = await baseAuth.create_token({ _id: check_user._id.toString(), type: "refresh" })
+          const token = await baseAuth.create_token({ _id: check_user.id, type: "access" })
+          const refresh_token = await baseAuth.create_token({ _id: check_user.id, type: "refresh" })
 
           res.cookie("access_token", token, { httpOnly: true, secure: true, sameSite: "strict", maxAge: 1000 * 60 * 60 * 2 });
           res.cookie("refresh_token", refresh_token, { httpOnly: true, secure: true, sameSite: "strict", maxAge: 1000 * 60 * 60 * 24 * 30, });

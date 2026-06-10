@@ -1,5 +1,7 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler, AppError, ratePrompt } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { asyncHandler } from '../../../utils/api-requesthandler'
+import { ratePrompt } from '../Service/based-prompt.service'
 import type { RateDTO } from '../DTO/index.dto.js'
 
 export const rateController: RequestHandler = asyncHandler(

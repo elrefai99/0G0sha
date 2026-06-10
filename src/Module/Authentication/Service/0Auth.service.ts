@@ -1,6 +1,7 @@
 import axios from "axios";
 import { randomBytes } from "node:crypto";
-import { BasedAuthService, UserModel } from "@/gen-import";
+import { UserModel } from "../../User/Schema/user.schema";
+import { BasedAuthService } from "./based-auth.service";
 
 export class OauthService extends BasedAuthService {
      private readonly google_url: string = ""

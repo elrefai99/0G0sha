@@ -1,4 +1,6 @@
-import { TemplateModel, AppError, createLogger } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { createLogger } from '../../../utils/logger'
+import { TemplateModel } from '../Schema/template.schema'
 
 const logger = createLogger('TemplateService')
 

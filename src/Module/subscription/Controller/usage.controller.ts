@@ -1,5 +1,6 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler, AppError } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import { getUsage } from '../Service/token.service.js'
 
 export const usageController: RequestHandler = asyncHandler(

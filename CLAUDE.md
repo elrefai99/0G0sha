@@ -14,6 +14,19 @@ pnpm lint             # ESLint check
 pnpm gen:app          # Regenerate src/gen-import.ts from all module exports
 ```
 
+### Prisma (PostgreSQL — migration in progress)
+
+No npm script wrappers exist yet; invoke Prisma directly. Config lives in `prisma.config.ts` (loads `./src/config/dotenv` first, then reads `DATABASE_URL`).
+
+```bash
+npx prisma generate          # Regenerate client into src/generated/prisma (gitignored — run after schema changes / fresh clone)
+npx prisma migrate dev       # Create + apply a migration in development
+npx prisma migrate deploy    # Apply pending migrations (production)
+npx prisma studio            # Browse the database
+```
+
+`package.json` declares `prisma.seed = ts-node prisma/seeds/seed.ts`, but that file does not exist yet — `prisma db seed` will fail until it is created.
+
 ### Testing
 
 Two separate test runners coexist:
@@ -42,7 +55,9 @@ Environment: copy `.env.example` to `.env` and fill in values before running.
 
 ## Architecture
 
-**Gosha** is a pure AI agent engine that optimizes raw user text into structured prompts for LLMs. It runs entirely server-side with no external AI API calls — using a MongoDB-backed rule engine with learned weights.
+**Gosha** is a pure AI agent engine that optimizes raw user text into structured prompts for LLMs. It runs entirely server-side with no external AI API calls — using a rule engine with learned weights persisted in the database.
+
+> **Database migration in progress (branch `v2`).** The project is moving from MongoDB/Mongoose to Prisma + PostgreSQL. **Both stacks currently run side by side:** Mongoose is still imported across ~19 files and `app.ts` even runs a `UserModel.updateMany` (Mongo) right after `prisma.$connect()`. The Prisma schema in `prisma/schema.prisma` so far covers `User`, `Notification`, `Plan`, `TokenLedger`, `PaymentHistory` (with `@@map` to snake_case tables); `PromptHistory` and `Subscription` are explicitly out of scope and left as nullable FK placeholders. When touching DB code, check which layer the surrounding module uses before assuming Mongoose — and do not "fix" the dual connection until the migration is complete.
 
 ### Core 5-Phase Processing Loop
 
@@ -80,7 +95,7 @@ Engine components in `src/agent/script/`:
 |---|---|
 | Runtime/Framework | Node.js + Express v5 |
 | Language | TypeScript (strict, extends `@mohamed-elrefai/tsconfigs`) |
-| Database | MongoDB 6+ (Mongoose), Redis |
+| Database | MongoDB 6+ (Mongoose) → migrating to PostgreSQL (Prisma 7, `@prisma/adapter-pg` over a `pg` Pool), Redis |
 | Auth | PASETO v4 tokens (`paseto` lib), bcryptjs |
 | Validation | Zod (schema-based DTOs) |
 | Logging | Pino (pretty in dev, JSON in prod) |
@@ -210,7 +225,13 @@ Auth and User modules have dedicated `swagger.ts` files co-located with the modu
 
 `/v0/public/*` is served from the `cdn/` directory at the project root via `express.static`.
 
-### Schemas
+### Prisma Client
+
+A single `PrismaClient` is instantiated in `src/config/prisma.ts` using the `PrismaPg` adapter over a `pg` Pool (driven by `DATABASE_URL`) and exported as the default. Import that singleton — never construct a new client. The generated client lives in `src/generated/prisma` (output set in `prisma/schema.prisma`), is gitignored, and must be regenerated with `npx prisma generate` after any schema change or fresh clone. The BullMQ worker (`src/MessageQueue/index.ts`) currently builds its own client/Pool rather than reusing the singleton.
+
+### Mongoose Schemas
+
+These collections are still served by Mongoose (not yet migrated to Prisma):
 
 | Model | Collection | Location |
 |---|---|---|

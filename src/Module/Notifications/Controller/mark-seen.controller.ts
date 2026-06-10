@@ -1,5 +1,5 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler } from '@/gen-import'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import { NotificationHistoryService } from '../Service/notification-history.service'
 
 const service = new NotificationHistoryService()

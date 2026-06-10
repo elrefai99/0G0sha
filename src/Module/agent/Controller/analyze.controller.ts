@@ -1,5 +1,6 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { AgentService, asyncHandler } from '@/gen-import'
+import { asyncHandler } from '../../../utils/api-requesthandler'
+import { AgentService } from '../Service/based-agent.service'
 import { AnalyzeDTO } from '../DTO/index.dto'
 
 export const analyzeController: RequestHandler = asyncHandler(

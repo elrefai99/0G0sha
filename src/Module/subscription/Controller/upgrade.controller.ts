@@ -1,5 +1,6 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler, AppError } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import type { UpgradeDTO } from '../DTO/index.dto.js'
 import { upgrade } from '../Service/based-subscription.service.js'
 

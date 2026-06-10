@@ -1,5 +1,7 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler, AppError, getPromptById } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { asyncHandler } from '../../../utils/api-requesthandler'
+import { getPromptById } from '../Service/based-prompt.service'
 
 export const getByIdController: RequestHandler = asyncHandler(
      async (req: Request, res: Response) => {

@@ -1,4 +1,6 @@
-import { AppError, LearnedWeightModel, PromptHistoryModel } from "@/gen-import";
+import { AppError } from "../../Shared/errors/app-error";
+import { LearnedWeightModel } from "../../Module/agent/Schema/learned.weight.schema";
+import { PromptHistoryModel } from "../../Module/prompt/Schema/prompt.schema";
 import { LearnedWeight, PromptCategory, SimilarPrompt } from "../@types";
 
 const SIMILARITY_THRESHOLD = 0.3;

@@ -1,5 +1,5 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler } from '@/gen-import'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import { getTemplateById } from '../Service/based-template.service.js'
 
 export const templateDetailController: RequestHandler = asyncHandler(

@@ -1,5 +1,5 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler } from '@/gen-import'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import { TemplateQueryDTO } from '../DTO/index.dto.js'
 import { listTemplates } from '../Service/based-template.service.js'
 

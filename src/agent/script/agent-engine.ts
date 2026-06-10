@@ -1,5 +1,10 @@
-import { tokenize, extractKeywords, classify, assessComplexity, extractIntent, detect, calcRawScore, RuleEngine, Merger, createLogger, } from '../../gen-import';
+import { createLogger } from '../../utils/logger';
 import type { AgentInput, AgentOutput, AnalysisResult, PromptCategory, } from '../@types/index.js';
+import { assessComplexity, classify, extractIntent } from './classifier.js';
+import { calcRawScore, detect } from './gap-scorer.js';
+import { Merger } from './merger.js';
+import { RuleEngine } from './rule-engine.js';
+import { extractKeywords, tokenize } from './tokenizer.js';
 import { WeightCache } from './weight-cache.js';
 import { Learner } from './learner.js';
 

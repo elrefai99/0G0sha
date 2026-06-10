@@ -1,5 +1,8 @@
-import { AppError, asyncHandler, OauthService, token_PASETO } from "@/gen-import";
 import { NextFunction, Request, RequestHandler, Response } from "express";
+import { AppError } from "../../../Shared/errors/app-error";
+import { asyncHandler } from "../../../utils/api-requesthandler";
+import { OauthService } from "../Service/0Auth.service";
+import { token_PASETO } from "../utils/paseto.utils";
 
 
 export const googleController: RequestHandler = asyncHandler(

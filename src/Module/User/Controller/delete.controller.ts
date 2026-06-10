@@ -1,5 +1,6 @@
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
-import { asyncHandler, AppError } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import { BasedUserService } from '../Service/based-user.service'
 
 export const deleteAccountController: RequestHandler = asyncHandler(

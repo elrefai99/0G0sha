@@ -1,29 +1,43 @@
-import { AppError, token_PASETO, UserModel } from "@/gen-import"
 import { createPublicKey } from "node:crypto"
 import { V4 } from "paseto"
+import { AppError } from "../../../Shared/errors/app-error"
+import { UserModel } from "../../User/Schema/user.schema"
+import { token_PASETO } from "../utils/paseto.utils"
 import { RegisterDTO } from "../DTO/index.dto"
+import prisma from "../../../config/prisma"
 
 export class BasedAuthService {
      constructor() { }
 
      public async check_account(payload: string) {
-          const user = await UserModel.findOne({ email: payload.toLowerCase() }, { _id: 1, password: 1 })
+          const user = await prisma.user.findFirst({
+               where: {
+                    email: payload.toLowerCase(),
+               },
+               select: {
+                    id: true,
+                    password: true
+               }
+          })
 
           return user
      }
 
      public async create_account(payload: RegisterDTO) {
           const { name, email, password } = payload
-
-          const user = await UserModel.create({
-               fullname: name,
-               email: email.toLowerCase(),
-
-               password: password,
+          const user = await prisma.user.create({
+               data: {
+                    fullname: name,
+                    email: email.toLowerCase(),
+                    password: password,
+               },
+               select: {
+                    id: true
+               }
           })
 
-          const access_token = await this.create_token({ _id: user._id.toString(), type: 'access' })
-          const refresh_token = await this.create_token({ _id: user._id.toString(), type: 'refresh' })
+          const access_token = await this.create_token({ _id: user.id.toString(), type: 'access' })
+          const refresh_token = await this.create_token({ _id: user.id.toString(), type: 'refresh' })
 
           return { success: true, access_token, refresh_token }
      }

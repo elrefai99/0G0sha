@@ -1,5 +1,6 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler, registerClient } from '@/gen-import'
+import { asyncHandler } from '../../../utils/api-requesthandler'
+import { registerClient } from '../Service/register.service'
 
 export const streamController: RequestHandler = asyncHandler(
      async (req: Request, res: Response) => {

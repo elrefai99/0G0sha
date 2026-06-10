@@ -1,6 +1,6 @@
 import cron from 'node-cron'
 import { resetAllTokens } from '../Module/subscription/Service/token.service.js'
-import { createLogger } from '@/gen-import'
+import { createLogger } from '../utils/logger'
 
 const logger = createLogger('TokenResetJob')
 

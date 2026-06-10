@@ -28,10 +28,11 @@ import client from 'prom-client'
 import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
-import { allowedOrigins, initAgent, redisConfig, startTokenResetJob, startWeightDecayJob, UserModel, USER_PLAN } from './gen-import'
+import { allowedOrigins } from './app.config'
 import appConfig from './app.config'
 import appModule from './app.module'
 import prisma from './config/prisma'
+import { redisConfig } from './config/redis'
 const app: Express = express()
 
 // Webhooks need raw body — mount BEFORE json parser (app_config applies json)
@@ -67,12 +68,8 @@ async function startServer() {
     await Promise.all([
       prisma.$connect().then(async () => {
         console.log(`✅ Success connected to ${process.env.NODE_ENV === 'development' ? 'development' : 'production'} Database`)
-        await initAgent()
-        await UserModel.updateMany({ plan: { $ne: USER_PLAN.FREE } }, { $set: { plan: USER_PLAN.FREE } })
-        startTokenResetJob()
-        startWeightDecayJob()
         server.listen(PORT, () => {
-          console.log('🌐 Server is running on:', process.env.API_LINK as string)
+          console.log('🌐 Server is running on:', `http://${process.env.API_LINK as string}:${PORT}`)
         })
       }).catch((error) => {
         console.log(error);

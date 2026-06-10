@@ -1,5 +1,6 @@
 import cron from 'node-cron'
-import { LearnedWeightModel, createLogger } from '@/gen-import'
+import { LearnedWeightModel } from '../Module/agent/Schema/learned.weight.schema'
+import { createLogger } from '../utils/logger'
 
 const logger = createLogger('WeightDecayJob')
 

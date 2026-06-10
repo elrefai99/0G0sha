@@ -1,7 +1,8 @@
 import { Router } from 'express'
-import { profileMiddleware, upload } from '../../gen-import'
+import { upload } from '../../Providers/cloudinary.provider'
 import { EditProfileDTO } from './DTO/index.dto'
 import { editProfileController, deleteAccountController, profileController } from './user.controller'
+import { profileMiddleware } from './middleware/profile.middleware'
 import { validateDTO } from '../../middleware/validateDTO'
 
 const router: Router = Router()

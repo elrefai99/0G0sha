@@ -1,5 +1,5 @@
 import type { Request, RequestHandler, Response } from 'express'
-import { asyncHandler } from '@/gen-import'
+import { asyncHandler } from '../../../utils/api-requesthandler'
 import { listPlans } from '../Service/based-subscription.service.js'
 
 export const plansController: RequestHandler = asyncHandler(

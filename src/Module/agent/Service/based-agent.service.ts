@@ -1,5 +1,7 @@
 import { AnalysisResult } from "@/agent"
-import { assessComplexity, calcRawScore, classify, detect, extractIntent, extractKeywords, tokenize } from "@/gen-import"
+import { assessComplexity, classify, extractIntent } from "../../../agent/script/classifier"
+import { calcRawScore, detect } from "../../../agent/script/gap-scorer"
+import { extractKeywords, tokenize } from "../../../agent/script/tokenizer"
 
 export class AgentService {
      public analyze(text: string): AnalysisResult {

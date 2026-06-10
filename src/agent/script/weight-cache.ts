@@ -1,4 +1,5 @@
-import { cacheGet, cacheSet, cacheDel, createLogger } from '@/gen-import';
+import { cacheDel, cacheGet, cacheSet } from '../../config/cache';
+import { createLogger } from '../../utils/logger';
 import type { PromptCategory, LearnedWeight } from '../@types/index.js';
 import type { Learner } from './learner.js';
 

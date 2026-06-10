@@ -1,4 +1,6 @@
-import { PlanModel, AppError, createLogger } from '@/gen-import'
+import { AppError } from '../../../Shared/errors/app-error'
+import { createLogger } from '../../../utils/logger'
+import { PlanModel } from '../Schema/plans.schema'
 
 const logger = createLogger('SubscriptionService')
 

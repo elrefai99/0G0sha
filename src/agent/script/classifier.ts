@@ -1,4 +1,4 @@
-import { ACTION_KEYWORDS, CATEGORY_KEYWORDS } from '@/gen-import.js';
+import { ACTION_KEYWORDS, CATEGORY_KEYWORDS } from '../data/classifier.data.js';
 import type { Token, PromptCategory, PromptComplexity } from '../@types/index.js';
 
 export function classify(tokens: Token[]): PromptCategory {
