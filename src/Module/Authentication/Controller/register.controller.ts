@@ -21,7 +21,6 @@ export const registerController: RequestHandler = asyncHandler(
 
           if (new_user.success) {
                res.cookie("access_token", new_user.access_token, { httpOnly: true, secure: true, sameSite: "strict", maxAge: 1000 * 60 * 60 * 2 });
-               res.cookie("refresh_token", new_user.refresh_token, { httpOnly: true, secure: true, sameSite: "strict", maxAge: 1000 * 60 * 60 * 24 * 30, });
                res.status(201).json({ code: 201, status: "Created", timestamp: new Date(), success: true, error: false, message: "User created successfully", token: new_user.access_token })
                return
           }

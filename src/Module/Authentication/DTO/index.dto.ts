@@ -18,6 +18,13 @@ export const RegisterDTO = z.object({
           .string({ required_error: 'Email is required' })
           .email('Email must be a valid email address')
           .max(100, 'Email must not exceed 100 characters'),
+     code: z
+          .string({ required_error: 'code is required' })
+          .max(100, 'Email must not exceed 100 characters'),
+     phone: z
+          .string({ required_error: 'phone is required' })
+          .min(10, 'Name must be at least 2 characters')
+          .max(12, 'Email must not exceed 100 characters'),
      password: passwordSchema,
 })
 export type RegisterDTO = z.infer<typeof RegisterDTO>

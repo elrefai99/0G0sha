@@ -49,36 +49,35 @@ enum PaymentMethod {
   wallet
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Models
-// ─────────────────────────────────────────────────────────────────────────────
+enum UserStatus {
+  active
+  pending
+  ban
+  delete
+}
 
 model User {
-  id       Int      @id @unique @default(autoincrement())
-  fullname String
-  username String   @default("")
-  email    String   @unique
-  password String
-  avatar   String   @default("")
-  apiKey   String   @unique @default(cuid())
-  googleId String   @default("")
-  plan     UserPlan @default(free)
-
-  // Daily token ledger (was the embedded `tokens` object in Mongo)
-  tokensUsed        Int      @default(0)
-  tokensLimit       Int      @default(10)
-  tokensLastResetAt DateTime @default(now())
-
-  // Was `subscription` ObjectId ref. The Subscription model is out of scope for
-  // this conversion, so kept as a nullable FK placeholder.
-  subscriptionId String?
-
-  notifications  Notification[]
-  tokenLedgers   TokenLedger[]
-  paymentHistory PaymentHistory[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                Int              @id @unique @default(autoincrement())
+  fullname          String
+  username          String           @default("")
+  email             String           @unique
+  password          String
+  code              String
+  phone             String
+  avatar            String           @default("")
+  status            UserStatus       @default(pending)
+  apiKey            String           @unique @default(cuid())
+  googleId          String           @default("")
+  plan              UserPlan         @default(free)
+  tokensUsed        Int              @default(0)
+  tokensLimit       Int              @default(10)
+  tokensLastResetAt DateTime         @default(now())
+  subscriptionId    String?
+  notifications     Notification[]
+  tokenLedgers      TokenLedger[]
+  paymentHistory    PaymentHistory[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
 
   @@map("users")
 }
