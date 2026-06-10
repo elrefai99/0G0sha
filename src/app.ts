@@ -28,9 +28,10 @@ import client from 'prom-client'
 import * as http from 'http'
 import { Server as SocketIOServer } from 'socket.io'
 import { setupSwagger } from './swagger'
-import { allowedOrigins, initAgent, mongoDBConfig, redisConfig, startTokenResetJob, startWeightDecayJob, UserModel, USER_PLAN } from './gen-import'
+import { allowedOrigins, initAgent, redisConfig, startTokenResetJob, startWeightDecayJob, UserModel, USER_PLAN } from './gen-import'
 import appConfig from './app.config'
 import appModule from './app.module'
+import prisma from './config/prisma'
 const app: Express = express()
 
 // Webhooks need raw body — mount BEFORE json parser (app_config applies json)
@@ -64,17 +65,18 @@ const PORT: number = Number(process.env.PORT) || 9999
 async function startServer() {
   try {
     await Promise.all([
-      mongoDBConfig().then(
-        async () => {
-          await initAgent()
-          await UserModel.updateMany({ plan: { $ne: USER_PLAN.FREE } }, { $set: { plan: USER_PLAN.FREE } })
-          startTokenResetJob()
-          startWeightDecayJob()
-          server.listen(PORT, () => {
-            console.log('🌐 Server is running on:', process.env.API_LINK as string)
-          })
-        },
-      ).catch((err) => {
+      prisma.$connect().then(async () => {
+        console.log(`✅ Success connected to ${process.env.NODE_ENV === 'development' ? 'development' : 'production'} Database`)
+        await initAgent()
+        await UserModel.updateMany({ plan: { $ne: USER_PLAN.FREE } }, { $set: { plan: USER_PLAN.FREE } })
+        startTokenResetJob()
+        startWeightDecayJob()
+        server.listen(PORT, () => {
+          console.log('🌐 Server is running on:', process.env.API_LINK as string)
+        })
+      }).catch((error) => {
+        console.log(error);
+      }).catch((err) => {
         logger.error({
           message: 'MongoDB connection failed',
           error: err.message,

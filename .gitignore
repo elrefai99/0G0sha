@@ -11,3 +11,5 @@ SQL
 *.tsbuildinfo
 logs
 package-lock.json
+
+src/generated

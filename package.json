@@ -1,6 +1,6 @@
 {
   "name": "0gosha",
-  "version": "1.3.0",
+  "version": "2.3.0",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -18,6 +18,9 @@
     "taze:patch": "npx taze patch",
     "compress:ubuntu": "sudo zip -r project.zip .",
     "gen:app": "gen-import --app-config --lazy --map --module-pattern"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seeds/seed.ts"
   },
   "keywords": [],
   "author": "Mohammed Elrefai <elrefai99@gmail.com>",
@@ -38,6 +41,7 @@
     "mongoose": "catalog:runtime",
     "morgan": "catalog:runtime",
     "multer": "catalog:runtime",
+    "pg": "^8.21.0",
     "pino": "catalog:runtime",
     "pino-pretty": "catalog:runtime",
     "sharp": "catalog:runtime",
@@ -49,6 +53,10 @@
   "devDependencies": {
     "@eslint/js": "catalog:tools",
     "@mohamed-elrefai/tsconfigs": "catalog:types",
+    "@prisma/adapter-neon": "catalog:database",
+    "@prisma/adapter-pg": "catalog:database",
+    "@prisma/client": "catalog:database",
+    "@prisma/extension-accelerate": "catalog:database",
     "@types/axios": "catalog:types",
     "@types/bcryptjs": "catalog:types",
     "@types/bull-arena": "catalog:types",
@@ -64,6 +72,7 @@
     "@types/morgan": "catalog:types",
     "@types/multer": "catalog:types",
     "@types/node": "catalog:types",
+    "@types/pg": "^8.20.0",
     "@types/request-ip": "catalog:types",
     "@types/sharp": "catalog:types",
     "@types/streamifier": "catalog:types",
@@ -82,6 +91,7 @@
     "node-cron": "catalog:tools",
     "nodemon": "catalog:tools",
     "paseto": "catalog:tools",
+    "prisma": "catalog:database",
     "prom-client": "catalog:tools",
     "redis": "catalog:tools",
     "request-ip": "catalog:runtime",

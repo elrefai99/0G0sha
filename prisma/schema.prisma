@@ -1,0 +1,169 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Enums (mirrors src/Shared/enum/index.ts)
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum UserPlan {
+  free
+  starter
+  pro
+  enterprise
+}
+
+enum NotificationType {
+  upload
+  comment
+  like
+  system
+}
+
+enum TokenLedgerAction {
+  optimize
+  reset
+  bonus
+  refund
+}
+
+enum PlanProvider {
+  stripe
+  paymob
+}
+
+enum PaymentStatus {
+  succeeded
+  pending
+  failed
+  refunded
+}
+
+enum PaymentMethod {
+  card
+  wallet
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Models
+// ─────────────────────────────────────────────────────────────────────────────
+
+model User {
+  id       String   @id @default(cuid())
+  fullname String
+  username String   @default("")
+  email    String   @unique
+  password String
+  avatar   String   @default("")
+  apiKey   String   @unique @default(cuid())
+  googleId String   @default("")
+  plan     UserPlan @default(free)
+
+  // Daily token ledger (was the embedded `tokens` object in Mongo)
+  tokensUsed        Int      @default(0)
+  tokensLimit       Int      @default(10)
+  tokensLastResetAt DateTime @default(now())
+
+  // Was `subscription` ObjectId ref. The Subscription model is out of scope for
+  // this conversion, so kept as a nullable FK placeholder.
+  subscriptionId String?
+
+  notifications  Notification[]
+  tokenLedgers   TokenLedger[]
+  paymentHistory PaymentHistory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Notification {
+  id      String           @id @default(cuid())
+  userId  String
+  user    User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type    NotificationType
+  title   String           @db.VarChar(200)
+  message String           @db.VarChar(1000)
+  seen    Boolean          @default(false)
+  seenAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([userId, seen])
+  @@map("notifications")
+}
+
+model Plan {
+  id           String   @id @default(cuid())
+  name         String
+  displayName  String
+  price        Float
+  tokensPerDay Int      @default(0)
+  features     String[]
+  // { maxPromptsPerDay, maxKeywordsPerPrompt }
+  limits       Json     @default("{}")
+  isActive     Boolean  @default(true)
+
+  paymentHistory PaymentHistory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("plans")
+}
+
+model TokenLedger {
+  id           String            @id @default(cuid())
+  userId       String
+  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount       Int
+  action       TokenLedgerAction
+  // Was `promptId` ObjectId ref. The PromptHistory model is out of scope for this
+  // conversion, so kept as a nullable FK placeholder.
+  promptId     String?
+  balanceAfter Int
+  metadata     Json              @default("{}")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // NOTE: Mongo had a TTL index (expireAfterSeconds = 90 days) on createdAt.
+  // PostgreSQL has no native TTL — purge old rows via a scheduled job/cron.
+  @@index([createdAt])
+  @@index([userId, action])
+  @@map("token_ledger")
+}
+
+model PaymentHistory {
+  id             String        @id @default(cuid())
+  userId         String
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planId         String
+  plan           Plan          @relation(fields: [planId], references: [id])
+  order_id       String
+  amount         Float
+  currency       String
+  status         PaymentStatus @default(pending)
+  provider       PlanProvider  @default(paymob)
+  method         PaymentMethod @default(card)
+  transaction_id String        @default("")
+  server_message String        @default("")
+  // Mongo defaulted this to now()+30d; set explicitly in the app on creation.
+  expiresAt      DateTime
+  isExpired      Boolean       @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([order_id])
+  @@map("payment_history")
+}
