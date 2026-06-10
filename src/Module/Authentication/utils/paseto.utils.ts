@@ -1,12 +1,31 @@
-import { createPrivateKey } from 'node:crypto'
+import { createPrivateKey, type KeyObject } from 'node:crypto'
 import { V4 } from 'paseto'
 
 type TokenType = 'access' | 'refresh' | 'forget_password'
 
+const normalizePem = (raw: string): string => {
+  const match = raw.match(/-----BEGIN ([A-Z ]+?)-----([\s\S]*?)-----END \1-----/)
+  if (!match) {
+    throw new Error('Invalid PEM: missing BEGIN/END markers')
+  }
+  const label = match[1].trim()
+  const body = match[2].replace(/\\n/g, '').replace(/\s/g, '')
+  const lines = body.match(/.{1,64}/g)?.join('\n') ?? ''
+  return `-----BEGIN ${label}-----\n${lines}\n-----END ${label}-----\n`
+}
+
+const loadPrivateKey = (envKey: string): KeyObject => {
+  const pem = process.env[envKey]
+  if (!pem) {
+    throw new Error(`Missing PASETO key: env var "${envKey}" is not set`)
+  }
+  return createPrivateKey(normalizePem(pem))
+}
+
 export const token_PASETO = async (payload: any, type: TokenType, expiresIn?: string): Promise<string> => {
   switch (type) {
     case 'access':
-      const privateKey = createPrivateKey(process.env.ACCESS_PRIVATE_KEY as string)
+      const privateKey = loadPrivateKey('ACCESS_PRIVATE_KEY')
       const token = await V4.sign(
         {
           data: { user_id: payload.data.user_id },
@@ -19,7 +38,7 @@ export const token_PASETO = async (payload: any, type: TokenType, expiresIn?: st
       )
       return token
     case 'refresh':
-      const privateKeyRefresh = createPrivateKey(process.env.REFRESH_PRIVATE_KEY as string)
+      const privateKeyRefresh = loadPrivateKey('REFRESH_PRIVATE_KEY')
       const tokenRefresh = await V4.sign(
         {
           data: { user_id: payload.data.user_id },
@@ -32,7 +51,7 @@ export const token_PASETO = async (payload: any, type: TokenType, expiresIn?: st
       )
       return tokenRefresh
     case 'forget_password':
-      const privateKeyForgetPassword = createPrivateKey(process.env.PRIVATE_FORGET_PASSWORD_SECRET_KY as string)
+      const privateKeyForgetPassword = loadPrivateKey('PRIVATE_FORGET_PASSWORD_SECRET_KY')
       const tokenForgetPassword = await V4.sign(
         {
           data: { user_id: payload.data.user_id },

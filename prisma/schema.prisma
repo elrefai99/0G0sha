@@ -54,7 +54,7 @@ enum PaymentMethod {
 // ─────────────────────────────────────────────────────────────────────────────
 
 model User {
-  id       String   @id @default(cuid())
+  id       Int      @id @unique @default(autoincrement())
   fullname String
   username String   @default("")
   email    String   @unique
@@ -84,8 +84,8 @@ model User {
 }
 
 model Notification {
-  id      String           @id @default(cuid())
-  userId  String
+  id      Int              @id @unique @default(autoincrement())
+  userId  Int
   user    User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   type    NotificationType
   title   String           @db.VarChar(200)
@@ -102,7 +102,7 @@ model Notification {
 }
 
 model Plan {
-  id           String   @id @default(cuid())
+  id           Int      @id @unique @default(autoincrement())
   name         String
   displayName  String
   price        Float
@@ -121,8 +121,8 @@ model Plan {
 }
 
 model TokenLedger {
-  id           String            @id @default(cuid())
-  userId       String
+  id           Int               @id @unique @default(autoincrement())
+  userId       Int
   user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
   amount       Int
   action       TokenLedgerAction
@@ -143,10 +143,10 @@ model TokenLedger {
 }
 
 model PaymentHistory {
-  id             String        @id @default(cuid())
-  userId         String
+  id             Int           @id @unique @default(autoincrement())
+  userId         Int
   user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  planId         String
+  planId         Int
   plan           Plan          @relation(fields: [planId], references: [id])
   order_id       String
   amount         Float
