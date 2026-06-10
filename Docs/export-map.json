@@ -1,10 +1,10 @@
 {
-  "totalFiles": 116,
-  "totalExports": 705,
-  "totalImportEdges": 84,
+  "totalFiles": 81,
+  "totalExports": 634,
+  "totalImportEdges": 129,
   "files": [
     {
-      "file": "src/MessageQueue/Queue/queue.email.ts",
+      "file": "src/MessageQueue/emails/Queue/queue.email.ts",
       "exports": [
         {
           "name": "addJobToQueue",
@@ -19,7 +19,7 @@
       "importsFrom": []
     },
     {
-      "file": "src/MessageQueue/jobs/job.process.emails.ts",
+      "file": "src/MessageQueue/emails/jobs/job.process.emails.ts",
       "exports": [
         {
           "name": "sendEmail",
@@ -36,6 +36,28 @@
       "importsFrom": []
     },
     {
+      "file": "src/MessageQueue/emails/template/otp.ts",
+      "exports": [
+        {
+          "name": "otpTemp",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
+      "file": "src/MessageQueue/provider/resend.ts",
+      "exports": [
+        {
+          "name": "resendFunction",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [],
+      "importsFrom": []
+    },
+    {
       "file": "src/Module/Authentication/Controller/Login.controller.ts",
       "exports": [
         {
@@ -47,7 +69,9 @@
         "src/Module/Authentication/auth.module.ts"
       ],
       "importsFrom": [
-        "src/gen-import.ts",
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts",
         "src/Module/Authentication/DTO/index.dto.ts"
       ]
     },
@@ -62,7 +86,10 @@
       "importedBy": [
         "src/Module/Authentication/auth.module.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/Controller/googleCallBack.controller.ts",
@@ -75,7 +102,12 @@
       "importedBy": [
         "src/Module/Authentication/auth.module.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Authentication/Service/0Auth.service.ts",
+        "src/Module/Authentication/utils/paseto.utils.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/Controller/logout.controller.ts",
@@ -88,7 +120,9 @@
       "importedBy": [
         "src/Module/Authentication/auth.module.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/utils/api-requesthandler.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/Controller/refresh.controller.ts",
@@ -101,7 +135,12 @@
       "importedBy": [
         "src/Module/Authentication/auth.module.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/Module/User/Schema/user.schema.ts",
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Authentication/utils/paseto.utils.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/Controller/register.controller.ts",
@@ -115,6 +154,9 @@
         "src/Module/Authentication/auth.module.ts"
       ],
       "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts",
         "src/Module/Authentication/DTO/index.dto.ts"
       ]
     },
@@ -129,7 +171,10 @@
       "importedBy": [
         "src/Module/Authentication/auth.module.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/DTO/index.dto.ts",
@@ -159,8 +204,13 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
-      "importsFrom": []
+      "importedBy": [
+        "src/Module/Authentication/Controller/googleCallBack.controller.ts"
+      ],
+      "importsFrom": [
+        "src/Module/User/Schema/user.schema.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts"
+      ]
     },
     {
       "file": "src/Module/Authentication/Service/based-auth.service.ts",
@@ -170,9 +220,19 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/Authentication/Controller/Login.controller.ts",
+        "src/Module/Authentication/Controller/forgetPassword.controller.ts",
+        "src/Module/Authentication/Controller/register.controller.ts",
+        "src/Module/Authentication/Controller/resetPassword.controller.ts",
+        "src/Module/Authentication/Service/0Auth.service.ts"
+      ],
       "importsFrom": [
-        "src/Module/Authentication/DTO/index.dto.ts"
+        "src/Shared/errors/app-error.ts",
+        "src/Module/User/Schema/user.schema.ts",
+        "src/Module/Authentication/utils/paseto.utils.ts",
+        "src/Module/Authentication/DTO/index.dto.ts",
+        "src/config/prisma.ts"
       ]
     },
     {
@@ -229,11 +289,19 @@
       "file": "src/Module/Authentication/utils/paseto.utils.ts",
       "exports": [
         {
+          "name": "TokenType",
+          "kind": "type"
+        },
+        {
           "name": "token_PASETO",
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/Authentication/Controller/googleCallBack.controller.ts",
+        "src/Module/Authentication/Controller/refresh.controller.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -246,6 +314,7 @@
       ],
       "importedBy": [],
       "importsFrom": [
+        "src/utils/api-requesthandler.ts",
         "src/Module/Notifications/Service/notification-history.service.ts",
         "src/Module/Notifications/DTO/index.dto.ts"
       ]
@@ -264,6 +333,7 @@
       ],
       "importedBy": [],
       "importsFrom": [
+        "src/utils/api-requesthandler.ts",
         "src/Module/Notifications/Service/notification-history.service.ts"
       ]
     },
@@ -277,6 +347,8 @@
       ],
       "importedBy": [],
       "importsFrom": [
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Notifications/Service/public.service.ts",
         "src/Module/Notifications/DTO/index.dto.ts"
       ]
     },
@@ -289,7 +361,10 @@
         }
       ],
       "importedBy": [],
-      "importsFrom": []
+      "importsFrom": [
+        "src/utils/api-requesthandler.ts",
+        "src/Module/Notifications/Service/register.service.ts"
+      ]
     },
     {
       "file": "src/Module/Notifications/DTO/index.dto.ts",
@@ -318,7 +393,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/Notifications/Service/notification-history.service.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -333,7 +410,11 @@
         "src/Module/Notifications/Controller/get-notifications.controller.ts",
         "src/Module/Notifications/Controller/mark-seen.controller.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/logger.ts",
+        "src/Module/Notifications/Schema/notification.schema.ts"
+      ]
     },
     {
       "file": "src/Module/Notifications/Service/public.service.ts",
@@ -343,7 +424,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/Notifications/Controller/publish.controller.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -358,7 +441,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/Notifications/Controller/stream.controller.ts"
+      ],
       "importsFrom": [
         "src/Module/Notifications/Utils/sseFormat.ts"
       ]
@@ -419,6 +504,8 @@
       ],
       "importedBy": [],
       "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
         "src/Module/User/Service/based-user.service.ts"
       ]
     },
@@ -432,6 +519,9 @@
       ],
       "importedBy": [],
       "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/Providers/cloudinary.provider.ts",
+        "src/utils/api-requesthandler.ts",
         "src/Module/User/DTO/index.dto.ts",
         "src/Module/User/Service/based-user.service.ts"
       ]
@@ -445,7 +535,9 @@
         }
       ],
       "importedBy": [],
-      "importsFrom": []
+      "importsFrom": [
+        "src/utils/api-requesthandler.ts"
+      ]
     },
     {
       "file": "src/Module/User/DTO/index.dto.ts",
@@ -471,9 +563,16 @@
         }
       ],
       "importedBy": [
-        "src/Module/User/Service/based-user.service.ts"
+        "src/Module/Authentication/Controller/refresh.controller.ts",
+        "src/Module/Authentication/Service/0Auth.service.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts",
+        "src/Module/User/Service/based-user.service.ts",
+        "src/Module/User/middleware/profile.middleware.ts",
+        "src/Module/subscription/Service/token.service.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/enum/index.ts"
+      ]
     },
     {
       "file": "src/Module/User/Service/based-user.service.ts",
@@ -489,6 +588,7 @@
       ],
       "importsFrom": [
         "src/Module/User/DTO/index.dto.ts",
+        "src/utils/logger.ts",
         "src/Module/User/Schema/user.schema.ts"
       ]
     },
@@ -511,8 +611,14 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
-      "importsFrom": []
+      "importedBy": [
+        "src/Module/User/user.module.ts"
+      ],
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
+        "src/Module/User/Schema/user.schema.ts"
+      ]
     },
     {
       "file": "src/Module/User/user.controller.ts",
@@ -536,238 +642,6 @@
       "importsFrom": []
     },
     {
-      "file": "src/Module/agent/Controller/analyze.controller.ts",
-      "exports": [
-        {
-          "name": "analyzeController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/agent/agent.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/agent/DTO/index.dto.ts"
-      ]
-    },
-    {
-      "file": "src/Module/agent/DTO/index.dto.ts",
-      "exports": [
-        {
-          "name": "AnalyzeDTO",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/agent/Controller/analyze.controller.ts",
-        "src/Module/agent/agent.module.ts"
-      ],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/agent/Schema/learned.weight.schema.ts",
-      "exports": [
-        {
-          "name": "LearnedWeightModel",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/agent/Service/based-agent.service.ts",
-      "exports": [
-        {
-          "name": "AgentService",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/agent/agent.controller.ts",
-      "exports": [
-        {
-          "name": "analyzeController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/agent/index.ts",
-      "exports": [
-        {
-          "name": "ILearnedWeight",
-          "kind": "type"
-        },
-        {
-          "name": "LearnedWeightModel",
-          "kind": "value"
-        },
-        {
-          "name": "AnalyzeDTO",
-          "kind": "value"
-        },
-        {
-          "name": "AgentService",
-          "kind": "value"
-        },
-        {
-          "name": "analyzeController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/prompt/Controller/getById.controller.ts",
-      "exports": [
-        {
-          "name": "getByIdController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/prompt/prompt.module.ts"
-      ],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/prompt/Controller/history.controller.ts",
-      "exports": [
-        {
-          "name": "historyController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/prompt/prompt.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/prompt/DTO/index.dto.ts"
-      ]
-    },
-    {
-      "file": "src/Module/prompt/Controller/optimize.controller.ts",
-      "exports": [
-        {
-          "name": "optimizeController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/prompt/prompt.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/prompt/DTO/index.dto.ts"
-      ]
-    },
-    {
-      "file": "src/Module/prompt/Controller/rate.controller.ts",
-      "exports": [
-        {
-          "name": "rateController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/prompt/prompt.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/prompt/DTO/index.dto.ts"
-      ]
-    },
-    {
-      "file": "src/Module/prompt/DTO/index.dto.ts",
-      "exports": [
-        {
-          "name": "OptimizeDTO",
-          "kind": "value"
-        },
-        {
-          "name": "RateDTO",
-          "kind": "value"
-        },
-        {
-          "name": "HistoryQueryDTO",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/prompt/Controller/history.controller.ts",
-        "src/Module/prompt/Controller/optimize.controller.ts",
-        "src/Module/prompt/Controller/rate.controller.ts",
-        "src/Module/prompt/prompt.module.ts"
-      ],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/prompt/Schema/prompt.schema.ts",
-      "exports": [
-        {
-          "name": "PromptHistoryModel",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/prompt/Service/based-prompt.service.ts",
-      "exports": [
-        {
-          "name": "initAgent",
-          "kind": "value"
-        },
-        {
-          "name": "optimizePrompt",
-          "kind": "value"
-        },
-        {
-          "name": "getHistory",
-          "kind": "value"
-        },
-        {
-          "name": "getPromptById",
-          "kind": "value"
-        },
-        {
-          "name": "ratePrompt",
-          "kind": "value"
-        },
-        {
-          "name": "estimateTokenCost",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/prompt/index.ts",
-      "exports": [
-        {
-          "name": "PromptHistoryModel",
-          "kind": "value"
-        },
-        {
-          "name": "initAgent",
-          "kind": "value"
-        },
-        {
-          "name": "prompt_module",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
       "file": "src/Module/subscription/Controller/cancel.controller.ts",
       "exports": [
         {
@@ -779,6 +653,8 @@
         "src/Module/subscription/subscription.module.ts"
       ],
       "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
         "src/Module/subscription/Service/based-subscription.service.ts"
       ]
     },
@@ -794,6 +670,7 @@
         "src/Module/subscription/subscription.module.ts"
       ],
       "importsFrom": [
+        "src/utils/api-requesthandler.ts",
         "src/Module/subscription/Service/based-subscription.service.ts"
       ]
     },
@@ -809,6 +686,8 @@
         "src/Module/subscription/subscription.module.ts"
       ],
       "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
         "src/Module/subscription/DTO/index.dto.ts",
         "src/Module/subscription/Service/based-subscription.service.ts"
       ]
@@ -825,6 +704,8 @@
         "src/Module/subscription/subscription.module.ts"
       ],
       "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts",
         "src/Module/subscription/Service/token.service.ts"
       ]
     },
@@ -854,7 +735,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/subscription/Service/token.service.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -866,7 +749,9 @@
         }
       ],
       "importedBy": [],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/enum/index.ts"
+      ]
     },
     {
       "file": "src/Module/subscription/Schema/plans.schema.ts",
@@ -876,7 +761,9 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/subscription/Service/based-subscription.service.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -900,7 +787,11 @@
         "src/Module/subscription/Controller/plans.controller.ts",
         "src/Module/subscription/Controller/upgrade.controller.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/logger.ts",
+        "src/Module/subscription/Schema/plans.schema.ts"
+      ]
     },
     {
       "file": "src/Module/subscription/Service/token.service.ts",
@@ -924,10 +815,14 @@
       ],
       "importedBy": [
         "src/Module/subscription/Controller/usage.controller.ts",
-        "src/jobs/resetTokens.job.ts",
-        "src/middleware/tokenGuard.ts"
+        "src/jobs/resetTokens.job.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/Module/User/Schema/user.schema.ts",
+        "src/utils/logger.ts",
+        "src/Module/subscription/Schema/TokenLedger.schema.ts"
+      ]
     },
     {
       "file": "src/Module/subscription/index.ts",
@@ -957,94 +852,6 @@
       "importsFrom": []
     },
     {
-      "file": "src/Module/template/Controller/detail.controller.ts",
-      "exports": [
-        {
-          "name": "templateDetailController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/template/template.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/template/Service/based-template.service.ts"
-      ]
-    },
-    {
-      "file": "src/Module/template/Controller/list.controller.ts",
-      "exports": [
-        {
-          "name": "listController",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/template/template.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/template/DTO/index.dto.ts",
-        "src/Module/template/Service/based-template.service.ts"
-      ]
-    },
-    {
-      "file": "src/Module/template/DTO/index.dto.ts",
-      "exports": [
-        {
-          "name": "TemplateQueryDTO",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/template/Controller/list.controller.ts"
-      ],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/template/Schema/template.schema.ts",
-      "exports": [
-        {
-          "name": "TemplateModel",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/template/Service/based-template.service.ts",
-      "exports": [
-        {
-          "name": "listTemplates",
-          "kind": "value"
-        },
-        {
-          "name": "getTemplateById",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/template/Controller/detail.controller.ts",
-        "src/Module/template/Controller/list.controller.ts"
-      ],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/template/index.ts",
-      "exports": [
-        {
-          "name": "TemplateModel",
-          "kind": "value"
-        },
-        {
-          "name": "template_module",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
       "file": "src/Providers/cloudinary.provider.ts",
       "exports": [
         {
@@ -1060,8 +867,13 @@
           "kind": "type"
         }
       ],
-      "importedBy": [],
-      "importsFrom": []
+      "importedBy": [
+        "src/Module/User/Controller/edit.controller.ts",
+        "src/Module/User/user.module.ts"
+      ],
+      "importsFrom": [
+        "src/config/cloudinary.ts"
+      ]
     },
     {
       "file": "src/Shared/enum/index.ts",
@@ -1087,7 +899,10 @@
           "kind": "value"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Module/User/Schema/user.schema.ts",
+        "src/Module/subscription/Schema/payment.history.schema.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -1099,7 +914,22 @@
         }
       ],
       "importedBy": [
+        "src/Module/Authentication/Controller/Login.controller.ts",
+        "src/Module/Authentication/Controller/googleCallBack.controller.ts",
+        "src/Module/Authentication/Controller/refresh.controller.ts",
+        "src/Module/Authentication/Controller/register.controller.ts",
+        "src/Module/Authentication/Service/based-auth.service.ts",
+        "src/Module/Notifications/Service/notification-history.service.ts",
+        "src/Module/User/Controller/delete.controller.ts",
+        "src/Module/User/Controller/edit.controller.ts",
+        "src/Module/User/middleware/profile.middleware.ts",
+        "src/Module/subscription/Controller/cancel.controller.ts",
+        "src/Module/subscription/Controller/upgrade.controller.ts",
+        "src/Module/subscription/Controller/usage.controller.ts",
+        "src/Module/subscription/Service/based-subscription.service.ts",
+        "src/Module/subscription/Service/token.service.ts",
         "src/Shared/errors/errorHandler.ts",
+        "src/middleware/user.middleware.ts",
         "src/middleware/validateDTO.ts"
       ],
       "importsFrom": []
@@ -1114,277 +944,8 @@
       ],
       "importedBy": [],
       "importsFrom": [
-        "src/Shared/errors/app-error.ts"
-      ]
-    },
-    {
-      "file": "src/agent/data/classifier.data.ts",
-      "exports": [
-        {
-          "name": "CATEGORY_KEYWORDS",
-          "kind": "value"
-        },
-        {
-          "name": "ACTION_KEYWORDS",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/data/rules-template.ts",
-      "exports": [
-        {
-          "name": "ROLE_TEMPLATES",
-          "kind": "value"
-        },
-        {
-          "name": "BASE_CONSTRAINTS",
-          "kind": "value"
-        },
-        {
-          "name": "CATEGORY_CONSTRAINTS",
-          "kind": "value"
-        },
-        {
-          "name": "OUTPUT_FORMATS",
-          "kind": "value"
-        },
-        {
-          "name": "MODEL_FORMAT_SUFFIX",
-          "kind": "value"
-        },
-        {
-          "name": "SPECIFICITY_MAP",
-          "kind": "value"
-        },
-        {
-          "name": "QUALITY_MARKERS",
-          "kind": "value"
-        },
-        {
-          "name": "CONTEXT_TEMPLATES",
-          "kind": "value"
-        },
-        {
-          "name": "TASK_STRUCTURE_TEMPLATES",
-          "kind": "value"
-        },
-        {
-          "name": "COMPLEXITY_MODIFIERS",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/data/tokenizer.data.ts",
-      "exports": [
-        {
-          "name": "STOP_WORDS",
-          "kind": "value"
-        },
-        {
-          "name": "ACTION_VERBS",
-          "kind": "value"
-        },
-        {
-          "name": "DOMAIN_KEYWORDS",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/index.ts",
-      "exports": [
-        {
-          "name": "AgentEngine",
-          "kind": "value"
-        },
-        {
-          "name": "TargetModel",
-          "kind": "type"
-        },
-        {
-          "name": "PromptCategory",
-          "kind": "type"
-        },
-        {
-          "name": "PromptComplexity",
-          "kind": "type"
-        },
-        {
-          "name": "PromptElement",
-          "kind": "type"
-        },
-        {
-          "name": "Token",
-          "kind": "type"
-        },
-        {
-          "name": "PromptGap",
-          "kind": "type"
-        },
-        {
-          "name": "AnalysisResult",
-          "kind": "type"
-        },
-        {
-          "name": "TransformRule",
-          "kind": "type"
-        },
-        {
-          "name": "LearnedWeight",
-          "kind": "type"
-        },
-        {
-          "name": "SimilarPrompt",
-          "kind": "type"
-        },
-        {
-          "name": "AgentInput",
-          "kind": "type"
-        },
-        {
-          "name": "AgentOutput",
-          "kind": "type"
-        },
-        {
-          "name": "ElementDetector",
-          "kind": "type"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/agent-engine.ts",
-      "exports": [
-        {
-          "name": "AgentEngine",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": [
-        "src/gen-import.ts",
-        "src/agent/script/weight-cache.ts",
-        "src/agent/script/learner.ts"
-      ]
-    },
-    {
-      "file": "src/agent/script/classifier.ts",
-      "exports": [
-        {
-          "name": "classify",
-          "kind": "value"
-        },
-        {
-          "name": "assessComplexity",
-          "kind": "value"
-        },
-        {
-          "name": "extractIntent",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/gap-scorer.ts",
-      "exports": [
-        {
-          "name": "detect",
-          "kind": "value"
-        },
-        {
-          "name": "calcRawScore",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/learner.ts",
-      "exports": [
-        {
-          "name": "Learner",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/agent/script/agent-engine.ts",
-        "src/agent/script/weight-cache.ts"
-      ],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/merger.ts",
-      "exports": [
-        {
-          "name": "Merger",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/modelAdapter.ts",
-      "exports": [
-        {
-          "name": "wrapSection",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/rule-engine.ts",
-      "exports": [
-        {
-          "name": "RuleEngine",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/tokenizer.ts",
-      "exports": [
-        {
-          "name": "tokenize",
-          "kind": "value"
-        },
-        {
-          "name": "extractKeywords",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/agent/script/weight-cache.ts",
-      "exports": [
-        {
-          "name": "WeightCache",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/agent/script/agent-engine.ts"
-      ],
-      "importsFrom": [
-        "src/agent/script/learner.ts"
+        "src/Shared/errors/app-error.ts",
+        "src/utils/logger.ts"
       ]
     },
     {
@@ -1425,10 +986,10 @@
         "src/config/dotenv.ts",
         "src/utils/logger.ts",
         "src/swagger.ts",
-        "src/gen-import.ts",
         "src/app.config.ts",
         "src/app.module.ts",
-        "src/config/prisma.ts"
+        "src/config/prisma.ts",
+        "src/config/redis.ts"
       ]
     },
     {
@@ -1460,7 +1021,9 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/Providers/cloudinary.provider.ts"
+      ],
       "importsFrom": []
     },
     {
@@ -1521,6 +1084,20 @@
       "importsFrom": []
     },
     {
+      "file": "src/config/postgres-url.ts",
+      "exports": [
+        {
+          "name": "getPostgresConnectionString",
+          "kind": "value"
+        }
+      ],
+      "importedBy": [
+        "src/MessageQueue/index.ts",
+        "src/config/prisma.ts"
+      ],
+      "importsFrom": []
+    },
+    {
       "file": "src/config/prisma.ts",
       "exports": [
         {
@@ -1529,9 +1106,12 @@
         }
       ],
       "importedBy": [
+        "src/Module/Authentication/Service/based-auth.service.ts",
         "src/app.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/config/postgres-url.ts"
+      ]
     },
     {
       "file": "src/config/redis.ts",
@@ -1546,6 +1126,7 @@
         }
       ],
       "importedBy": [
+        "src/app.ts",
         "src/config/cache.ts"
       ],
       "importsFrom": []
@@ -1554,7 +1135,323 @@
       "file": "src/gen-app-config.ts",
       "exports": [
         {
+          "name": "addJobToQueue",
+          "kind": "value"
+        },
+        {
+          "name": "queue",
+          "kind": "value"
+        },
+        {
+          "name": "sendEmail",
+          "kind": "value"
+        },
+        {
+          "name": "jobProcessor",
+          "kind": "value"
+        },
+        {
+          "name": "otpTemp",
+          "kind": "value"
+        },
+        {
+          "name": "resendFunction",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
+          "kind": "value"
+        },
+        {
+          "name": "forgetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "googleController",
+          "kind": "value"
+        },
+        {
+          "name": "logoutController",
+          "kind": "value"
+        },
+        {
+          "name": "refreshController",
+          "kind": "value"
+        },
+        {
+          "name": "registerController",
+          "kind": "value"
+        },
+        {
+          "name": "resetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "RegisterDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LoginDTO",
+          "kind": "value"
+        },
+        {
+          "name": "OauthService",
+          "kind": "value"
+        },
+        {
+          "name": "BasedAuthService",
+          "kind": "value"
+        },
+        {
+          "name": "TokenType",
+          "kind": "value"
+        },
+        {
+          "name": "token_PASETO",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "streamController",
+          "kind": "value"
+        },
+        {
+          "name": "PublishNotificationDTO",
+          "kind": "value"
+        },
+        {
+          "name": "GetNotificationsDTO",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationModel",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationHistoryService",
+          "kind": "value"
+        },
+        {
+          "name": "publishNotification",
+          "kind": "value"
+        },
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        },
+        {
+          "name": "formatSSEEvent",
+          "kind": "value"
+        },
+        {
+          "name": "formatHeartbeat",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "profileController",
+          "kind": "value"
+        },
+        {
+          "name": "EditProfileDTO",
+          "kind": "value"
+        },
+        {
+          "name": "UserModel",
+          "kind": "value"
+        },
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        },
+        {
+          "name": "profileMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
+          "kind": "value"
+        },
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        },
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        },
+        {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        },
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
           "name": "UploadOptions",
+          "kind": "value"
+        },
+        {
+          "name": "uploadToCloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "upload",
+          "kind": "value"
+        },
+        {
+          "name": "USER_PLAN",
+          "kind": "value"
+        },
+        {
+          "name": "TOKEN_LEDGER_ACTION",
+          "kind": "value"
+        },
+        {
+          "name": "PLAN_PROVIDER",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_STATUS",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_METHOD",
+          "kind": "value"
+        },
+        {
+          "name": "AppError",
+          "kind": "value"
+        },
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        },
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        },
+        {
+          "name": "cloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "dotenv",
+          "kind": "value"
+        },
+        {
+          "name": "mongoDBConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redisConfig",
+          "kind": "value"
+        },
+        {
+          "name": "getPostgresConnectionString",
+          "kind": "value"
+        },
+        {
+          "name": "prisma",
+          "kind": "value"
+        },
+        {
+          "name": "redis",
           "kind": "value"
         },
         {
@@ -1614,103 +1511,7 @@
           "kind": "value"
         },
         {
-          "name": "addJobToQueue",
-          "kind": "value"
-        },
-        {
-          "name": "queue",
-          "kind": "value"
-        },
-        {
-          "name": "sendEmail",
-          "kind": "value"
-        },
-        {
-          "name": "jobProcessor",
-          "kind": "value"
-        },
-        {
-          "name": "forgetPasswordController",
-          "kind": "value"
-        },
-        {
-          "name": "googleController",
-          "kind": "value"
-        },
-        {
-          "name": "logoutController",
-          "kind": "value"
-        },
-        {
-          "name": "refreshController",
-          "kind": "value"
-        },
-        {
-          "name": "resetPasswordController",
-          "kind": "value"
-        },
-        {
-          "name": "RegisterDTO",
-          "kind": "value"
-        },
-        {
-          "name": "LoginDTO",
-          "kind": "value"
-        },
-        {
-          "name": "OauthService",
-          "kind": "value"
-        },
-        {
-          "name": "token_PASETO",
-          "kind": "value"
-        },
-        {
-          "name": "streamController",
-          "kind": "value"
-        },
-        {
-          "name": "PublishNotificationDTO",
-          "kind": "value"
-        },
-        {
-          "name": "GetNotificationsDTO",
-          "kind": "value"
-        },
-        {
-          "name": "NotificationModel",
-          "kind": "value"
-        },
-        {
-          "name": "NotificationHistoryService",
-          "kind": "value"
-        },
-        {
-          "name": "publishNotification",
-          "kind": "value"
-        },
-        {
-          "name": "formatSSEEvent",
-          "kind": "value"
-        },
-        {
-          "name": "formatHeartbeat",
-          "kind": "value"
-        },
-        {
-          "name": "profileController",
-          "kind": "value"
-        },
-        {
-          "name": "EditProfileDTO",
-          "kind": "value"
-        },
-        {
-          "name": "UserModel",
-          "kind": "value"
-        },
-        {
-          "name": "profileMiddleware",
+          "name": "analyzeController",
           "kind": "value"
         },
         {
@@ -1770,54 +1571,6 @@
           "kind": "value"
         },
         {
-          "name": "UpgradeDTO",
-          "kind": "value"
-        },
-        {
-          "name": "CancelDTO",
-          "kind": "value"
-        },
-        {
-          "name": "TokenLedgerModel",
-          "kind": "value"
-        },
-        {
-          "name": "PaymentHistoryModel",
-          "kind": "value"
-        },
-        {
-          "name": "PlanModel",
-          "kind": "value"
-        },
-        {
-          "name": "listPlans",
-          "kind": "value"
-        },
-        {
-          "name": "upgrade",
-          "kind": "value"
-        },
-        {
-          "name": "cancel",
-          "kind": "value"
-        },
-        {
-          "name": "checkBudget",
-          "kind": "value"
-        },
-        {
-          "name": "consume",
-          "kind": "value"
-        },
-        {
-          "name": "getUsage",
-          "kind": "value"
-        },
-        {
-          "name": "resetAllTokens",
-          "kind": "value"
-        },
-        {
           "name": "TemplateQueryDTO",
           "kind": "value"
         },
@@ -1831,38 +1584,6 @@
         },
         {
           "name": "getTemplateById",
-          "kind": "value"
-        },
-        {
-          "name": "uploadToCloudinary",
-          "kind": "value"
-        },
-        {
-          "name": "upload",
-          "kind": "value"
-        },
-        {
-          "name": "USER_PLAN",
-          "kind": "value"
-        },
-        {
-          "name": "TOKEN_LEDGER_ACTION",
-          "kind": "value"
-        },
-        {
-          "name": "PLAN_PROVIDER",
-          "kind": "value"
-        },
-        {
-          "name": "PAYMENT_STATUS",
-          "kind": "value"
-        },
-        {
-          "name": "PAYMENT_METHOD",
-          "kind": "value"
-        },
-        {
-          "name": "AppError",
           "kind": "value"
         },
         {
@@ -1970,35 +1691,15 @@
           "kind": "value"
         },
         {
-          "name": "cloudinary",
-          "kind": "value"
-        },
-        {
-          "name": "dotenv",
-          "kind": "value"
-        },
-        {
-          "name": "mongoDBConfig",
-          "kind": "value"
-        },
-        {
-          "name": "prisma",
-          "kind": "value"
-        },
-        {
-          "name": "redisConfig",
-          "kind": "value"
-        },
-        {
-          "name": "redis",
-          "kind": "value"
-        },
-        {
           "name": "startWeightDecayJob",
           "kind": "value"
         },
         {
           "name": "userMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "validateDTO",
           "kind": "value"
         },
         {
@@ -2046,55 +1747,15 @@
           "kind": "value"
         },
         {
-          "name": "webhook_module",
+          "name": "auth_module",
+          "kind": "value"
+        },
+        {
+          "name": "agent_module",
           "kind": "value"
         },
         {
           "name": "app_module",
-          "kind": "value"
-        },
-        {
-          "name": "loginController",
-          "kind": "value"
-        },
-        {
-          "name": "registerController",
-          "kind": "value"
-        },
-        {
-          "name": "BasedAuthService",
-          "kind": "value"
-        },
-        {
-          "name": "publishController",
-          "kind": "value"
-        },
-        {
-          "name": "getNotificationsController",
-          "kind": "value"
-        },
-        {
-          "name": "markSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "markAllSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "registerClient",
-          "kind": "value"
-        },
-        {
-          "name": "getActiveClients",
-          "kind": "value"
-        },
-        {
-          "name": "BasedUserService",
-          "kind": "value"
-        },
-        {
-          "name": "analyzeController",
           "kind": "value"
         },
         {
@@ -2107,22 +1768,6 @@
         },
         {
           "name": "rateController",
-          "kind": "value"
-        },
-        {
-          "name": "cancelController",
-          "kind": "value"
-        },
-        {
-          "name": "plansController",
-          "kind": "value"
-        },
-        {
-          "name": "upgradeController",
-          "kind": "value"
-        },
-        {
-          "name": "usageController",
           "kind": "value"
         },
         {
@@ -2146,43 +1791,11 @@
           "kind": "value"
         },
         {
-          "name": "errorHandler",
-          "kind": "value"
-        },
-        {
           "name": "WeightCache",
           "kind": "value"
         },
         {
-          "name": "cacheGet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheSet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheDel",
-          "kind": "value"
-        },
-        {
-          "name": "validateDTO",
-          "kind": "value"
-        },
-        {
-          "name": "allowedOrigins",
-          "kind": "value"
-        },
-        {
-          "name": "app_config",
-          "kind": "value"
-        },
-        {
-          "name": "deleteAccountController",
-          "kind": "value"
-        },
-        {
-          "name": "editProfileController",
+          "name": "prompt_module",
           "kind": "value"
         },
         {
@@ -2191,22 +1804,6 @@
         },
         {
           "name": "AgentEngine",
-          "kind": "value"
-        },
-        {
-          "name": "auth_module",
-          "kind": "value"
-        },
-        {
-          "name": "agent_module",
-          "kind": "value"
-        },
-        {
-          "name": "prompt_module",
-          "kind": "value"
-        },
-        {
-          "name": "subscription_module",
           "kind": "value"
         },
         {
@@ -2225,7 +1822,323 @@
       "file": "src/gen-import.ts",
       "exports": [
         {
+          "name": "addJobToQueue",
+          "kind": "value"
+        },
+        {
+          "name": "queue",
+          "kind": "value"
+        },
+        {
+          "name": "sendEmail",
+          "kind": "value"
+        },
+        {
+          "name": "jobProcessor",
+          "kind": "value"
+        },
+        {
+          "name": "otpTemp",
+          "kind": "value"
+        },
+        {
+          "name": "resendFunction",
+          "kind": "value"
+        },
+        {
+          "name": "loginController",
+          "kind": "value"
+        },
+        {
+          "name": "forgetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "googleController",
+          "kind": "value"
+        },
+        {
+          "name": "logoutController",
+          "kind": "value"
+        },
+        {
+          "name": "refreshController",
+          "kind": "value"
+        },
+        {
+          "name": "registerController",
+          "kind": "value"
+        },
+        {
+          "name": "resetPasswordController",
+          "kind": "value"
+        },
+        {
+          "name": "RegisterDTO",
+          "kind": "value"
+        },
+        {
+          "name": "LoginDTO",
+          "kind": "value"
+        },
+        {
+          "name": "OauthService",
+          "kind": "value"
+        },
+        {
+          "name": "BasedAuthService",
+          "kind": "value"
+        },
+        {
+          "name": "TokenType",
+          "kind": "value"
+        },
+        {
+          "name": "token_PASETO",
+          "kind": "value"
+        },
+        {
+          "name": "getNotificationsController",
+          "kind": "value"
+        },
+        {
+          "name": "markSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "markAllSeenController",
+          "kind": "value"
+        },
+        {
+          "name": "publishController",
+          "kind": "value"
+        },
+        {
+          "name": "streamController",
+          "kind": "value"
+        },
+        {
+          "name": "PublishNotificationDTO",
+          "kind": "value"
+        },
+        {
+          "name": "GetNotificationsDTO",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationModel",
+          "kind": "value"
+        },
+        {
+          "name": "NotificationHistoryService",
+          "kind": "value"
+        },
+        {
+          "name": "publishNotification",
+          "kind": "value"
+        },
+        {
+          "name": "registerClient",
+          "kind": "value"
+        },
+        {
+          "name": "getActiveClients",
+          "kind": "value"
+        },
+        {
+          "name": "formatSSEEvent",
+          "kind": "value"
+        },
+        {
+          "name": "formatHeartbeat",
+          "kind": "value"
+        },
+        {
+          "name": "deleteAccountController",
+          "kind": "value"
+        },
+        {
+          "name": "editProfileController",
+          "kind": "value"
+        },
+        {
+          "name": "profileController",
+          "kind": "value"
+        },
+        {
+          "name": "EditProfileDTO",
+          "kind": "value"
+        },
+        {
+          "name": "UserModel",
+          "kind": "value"
+        },
+        {
+          "name": "BasedUserService",
+          "kind": "value"
+        },
+        {
+          "name": "profileMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "cancelController",
+          "kind": "value"
+        },
+        {
+          "name": "plansController",
+          "kind": "value"
+        },
+        {
+          "name": "upgradeController",
+          "kind": "value"
+        },
+        {
+          "name": "usageController",
+          "kind": "value"
+        },
+        {
+          "name": "UpgradeDTO",
+          "kind": "value"
+        },
+        {
+          "name": "CancelDTO",
+          "kind": "value"
+        },
+        {
+          "name": "TokenLedgerModel",
+          "kind": "value"
+        },
+        {
+          "name": "PaymentHistoryModel",
+          "kind": "value"
+        },
+        {
+          "name": "PlanModel",
+          "kind": "value"
+        },
+        {
+          "name": "listPlans",
+          "kind": "value"
+        },
+        {
+          "name": "upgrade",
+          "kind": "value"
+        },
+        {
+          "name": "cancel",
+          "kind": "value"
+        },
+        {
+          "name": "checkBudget",
+          "kind": "value"
+        },
+        {
+          "name": "consume",
+          "kind": "value"
+        },
+        {
+          "name": "getUsage",
+          "kind": "value"
+        },
+        {
+          "name": "resetAllTokens",
+          "kind": "value"
+        },
+        {
+          "name": "subscription_module",
+          "kind": "value"
+        },
+        {
+          "name": "webhook_module",
+          "kind": "value"
+        },
+        {
           "name": "UploadOptions",
+          "kind": "value"
+        },
+        {
+          "name": "uploadToCloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "upload",
+          "kind": "value"
+        },
+        {
+          "name": "USER_PLAN",
+          "kind": "value"
+        },
+        {
+          "name": "TOKEN_LEDGER_ACTION",
+          "kind": "value"
+        },
+        {
+          "name": "PLAN_PROVIDER",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_STATUS",
+          "kind": "value"
+        },
+        {
+          "name": "PAYMENT_METHOD",
+          "kind": "value"
+        },
+        {
+          "name": "AppError",
+          "kind": "value"
+        },
+        {
+          "name": "errorHandler",
+          "kind": "value"
+        },
+        {
+          "name": "allowedOrigins",
+          "kind": "value"
+        },
+        {
+          "name": "app_config",
+          "kind": "value"
+        },
+        {
+          "name": "cacheGet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheSet",
+          "kind": "value"
+        },
+        {
+          "name": "cacheDel",
+          "kind": "value"
+        },
+        {
+          "name": "cloudinary",
+          "kind": "value"
+        },
+        {
+          "name": "dotenv",
+          "kind": "value"
+        },
+        {
+          "name": "mongoDBConfig",
+          "kind": "value"
+        },
+        {
+          "name": "redisConfig",
+          "kind": "value"
+        },
+        {
+          "name": "getPostgresConnectionString",
+          "kind": "value"
+        },
+        {
+          "name": "prisma",
+          "kind": "value"
+        },
+        {
+          "name": "redis",
           "kind": "value"
         },
         {
@@ -2285,103 +2198,7 @@
           "kind": "value"
         },
         {
-          "name": "addJobToQueue",
-          "kind": "value"
-        },
-        {
-          "name": "queue",
-          "kind": "value"
-        },
-        {
-          "name": "sendEmail",
-          "kind": "value"
-        },
-        {
-          "name": "jobProcessor",
-          "kind": "value"
-        },
-        {
-          "name": "forgetPasswordController",
-          "kind": "value"
-        },
-        {
-          "name": "googleController",
-          "kind": "value"
-        },
-        {
-          "name": "logoutController",
-          "kind": "value"
-        },
-        {
-          "name": "refreshController",
-          "kind": "value"
-        },
-        {
-          "name": "resetPasswordController",
-          "kind": "value"
-        },
-        {
-          "name": "RegisterDTO",
-          "kind": "value"
-        },
-        {
-          "name": "LoginDTO",
-          "kind": "value"
-        },
-        {
-          "name": "OauthService",
-          "kind": "value"
-        },
-        {
-          "name": "token_PASETO",
-          "kind": "value"
-        },
-        {
-          "name": "streamController",
-          "kind": "value"
-        },
-        {
-          "name": "PublishNotificationDTO",
-          "kind": "value"
-        },
-        {
-          "name": "GetNotificationsDTO",
-          "kind": "value"
-        },
-        {
-          "name": "NotificationModel",
-          "kind": "value"
-        },
-        {
-          "name": "NotificationHistoryService",
-          "kind": "value"
-        },
-        {
-          "name": "publishNotification",
-          "kind": "value"
-        },
-        {
-          "name": "formatSSEEvent",
-          "kind": "value"
-        },
-        {
-          "name": "formatHeartbeat",
-          "kind": "value"
-        },
-        {
-          "name": "profileController",
-          "kind": "value"
-        },
-        {
-          "name": "EditProfileDTO",
-          "kind": "value"
-        },
-        {
-          "name": "UserModel",
-          "kind": "value"
-        },
-        {
-          "name": "profileMiddleware",
+          "name": "analyzeController",
           "kind": "value"
         },
         {
@@ -2441,54 +2258,6 @@
           "kind": "value"
         },
         {
-          "name": "UpgradeDTO",
-          "kind": "value"
-        },
-        {
-          "name": "CancelDTO",
-          "kind": "value"
-        },
-        {
-          "name": "TokenLedgerModel",
-          "kind": "value"
-        },
-        {
-          "name": "PaymentHistoryModel",
-          "kind": "value"
-        },
-        {
-          "name": "PlanModel",
-          "kind": "value"
-        },
-        {
-          "name": "listPlans",
-          "kind": "value"
-        },
-        {
-          "name": "upgrade",
-          "kind": "value"
-        },
-        {
-          "name": "cancel",
-          "kind": "value"
-        },
-        {
-          "name": "checkBudget",
-          "kind": "value"
-        },
-        {
-          "name": "consume",
-          "kind": "value"
-        },
-        {
-          "name": "getUsage",
-          "kind": "value"
-        },
-        {
-          "name": "resetAllTokens",
-          "kind": "value"
-        },
-        {
           "name": "TemplateQueryDTO",
           "kind": "value"
         },
@@ -2502,38 +2271,6 @@
         },
         {
           "name": "getTemplateById",
-          "kind": "value"
-        },
-        {
-          "name": "uploadToCloudinary",
-          "kind": "value"
-        },
-        {
-          "name": "upload",
-          "kind": "value"
-        },
-        {
-          "name": "USER_PLAN",
-          "kind": "value"
-        },
-        {
-          "name": "TOKEN_LEDGER_ACTION",
-          "kind": "value"
-        },
-        {
-          "name": "PLAN_PROVIDER",
-          "kind": "value"
-        },
-        {
-          "name": "PAYMENT_STATUS",
-          "kind": "value"
-        },
-        {
-          "name": "PAYMENT_METHOD",
-          "kind": "value"
-        },
-        {
-          "name": "AppError",
           "kind": "value"
         },
         {
@@ -2641,35 +2378,15 @@
           "kind": "value"
         },
         {
-          "name": "cloudinary",
-          "kind": "value"
-        },
-        {
-          "name": "dotenv",
-          "kind": "value"
-        },
-        {
-          "name": "mongoDBConfig",
-          "kind": "value"
-        },
-        {
-          "name": "prisma",
-          "kind": "value"
-        },
-        {
-          "name": "redisConfig",
-          "kind": "value"
-        },
-        {
-          "name": "redis",
-          "kind": "value"
-        },
-        {
           "name": "startWeightDecayJob",
           "kind": "value"
         },
         {
           "name": "userMiddleware",
+          "kind": "value"
+        },
+        {
+          "name": "validateDTO",
           "kind": "value"
         },
         {
@@ -2717,55 +2434,15 @@
           "kind": "value"
         },
         {
-          "name": "webhook_module",
+          "name": "auth_module",
+          "kind": "value"
+        },
+        {
+          "name": "agent_module",
           "kind": "value"
         },
         {
           "name": "app_module",
-          "kind": "value"
-        },
-        {
-          "name": "loginController",
-          "kind": "value"
-        },
-        {
-          "name": "registerController",
-          "kind": "value"
-        },
-        {
-          "name": "BasedAuthService",
-          "kind": "value"
-        },
-        {
-          "name": "publishController",
-          "kind": "value"
-        },
-        {
-          "name": "getNotificationsController",
-          "kind": "value"
-        },
-        {
-          "name": "markSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "markAllSeenController",
-          "kind": "value"
-        },
-        {
-          "name": "registerClient",
-          "kind": "value"
-        },
-        {
-          "name": "getActiveClients",
-          "kind": "value"
-        },
-        {
-          "name": "BasedUserService",
-          "kind": "value"
-        },
-        {
-          "name": "analyzeController",
           "kind": "value"
         },
         {
@@ -2778,22 +2455,6 @@
         },
         {
           "name": "rateController",
-          "kind": "value"
-        },
-        {
-          "name": "cancelController",
-          "kind": "value"
-        },
-        {
-          "name": "plansController",
-          "kind": "value"
-        },
-        {
-          "name": "upgradeController",
-          "kind": "value"
-        },
-        {
-          "name": "usageController",
           "kind": "value"
         },
         {
@@ -2817,43 +2478,11 @@
           "kind": "value"
         },
         {
-          "name": "errorHandler",
-          "kind": "value"
-        },
-        {
           "name": "WeightCache",
           "kind": "value"
         },
         {
-          "name": "cacheGet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheSet",
-          "kind": "value"
-        },
-        {
-          "name": "cacheDel",
-          "kind": "value"
-        },
-        {
-          "name": "validateDTO",
-          "kind": "value"
-        },
-        {
-          "name": "allowedOrigins",
-          "kind": "value"
-        },
-        {
-          "name": "app_config",
-          "kind": "value"
-        },
-        {
-          "name": "deleteAccountController",
-          "kind": "value"
-        },
-        {
-          "name": "editProfileController",
+          "name": "prompt_module",
           "kind": "value"
         },
         {
@@ -2865,22 +2494,6 @@
           "kind": "value"
         },
         {
-          "name": "auth_module",
-          "kind": "value"
-        },
-        {
-          "name": "agent_module",
-          "kind": "value"
-        },
-        {
-          "name": "prompt_module",
-          "kind": "value"
-        },
-        {
-          "name": "subscription_module",
-          "kind": "value"
-        },
-        {
           "name": "notification_module",
           "kind": "value"
         },
@@ -2889,13 +2502,7 @@
           "kind": "value"
         }
       ],
-      "importedBy": [
-        "src/Module/Authentication/Controller/Login.controller.ts",
-        "src/agent/script/agent-engine.ts",
-        "src/app.ts",
-        "src/Module/User/user.module.ts",
-        "src/app.module.ts"
-      ],
+      "importedBy": [],
       "importsFrom": []
     },
     {
@@ -3566,17 +3173,6 @@
       "importsFrom": []
     },
     {
-      "file": "src/jobs/decayWeights.job.ts",
-      "exports": [
-        {
-          "name": "startWeightDecayJob",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
       "file": "src/jobs/resetTokens.job.ts",
       "exports": [
         {
@@ -3586,26 +3182,8 @@
       ],
       "importedBy": [],
       "importsFrom": [
-        "src/Module/subscription/Service/token.service.ts"
-      ]
-    },
-    {
-      "file": "src/middleware/tokenGuard.ts",
-      "exports": [
-        {
-          "name": "tokenGuard",
-          "kind": "value"
-        },
-        {
-          "name": "tokenConsume",
-          "kind": "value"
-        }
-      ],
-      "importedBy": [
-        "src/Module/prompt/prompt.module.ts"
-      ],
-      "importsFrom": [
-        "src/Module/subscription/Service/token.service.ts"
+        "src/Module/subscription/Service/token.service.ts",
+        "src/utils/logger.ts"
       ]
     },
     {
@@ -3618,10 +3196,12 @@
       ],
       "importedBy": [
         "src/Module/Notifications/notification.module.ts",
-        "src/Module/prompt/prompt.module.ts",
         "src/Module/subscription/subscription.module.ts"
       ],
-      "importsFrom": []
+      "importsFrom": [
+        "src/Shared/errors/app-error.ts",
+        "src/utils/api-requesthandler.ts"
+      ]
     },
     {
       "file": "src/middleware/validateDTO.ts",
@@ -3635,8 +3215,6 @@
         "src/Module/Authentication/auth.module.ts",
         "src/Module/Notifications/notification.module.ts",
         "src/Module/User/user.module.ts",
-        "src/Module/agent/agent.module.ts",
-        "src/Module/prompt/prompt.module.ts",
         "src/Module/subscription/subscription.module.ts"
       ],
       "importsFrom": [
@@ -3683,6 +3261,26 @@
         }
       ],
       "importedBy": [
+        "src/Module/Authentication/Controller/Login.controller.ts",
+        "src/Module/Authentication/Controller/forgetPassword.controller.ts",
+        "src/Module/Authentication/Controller/googleCallBack.controller.ts",
+        "src/Module/Authentication/Controller/logout.controller.ts",
+        "src/Module/Authentication/Controller/refresh.controller.ts",
+        "src/Module/Authentication/Controller/register.controller.ts",
+        "src/Module/Authentication/Controller/resetPassword.controller.ts",
+        "src/Module/Notifications/Controller/get-notifications.controller.ts",
+        "src/Module/Notifications/Controller/mark-seen.controller.ts",
+        "src/Module/Notifications/Controller/publish.controller.ts",
+        "src/Module/Notifications/Controller/stream.controller.ts",
+        "src/Module/User/Controller/delete.controller.ts",
+        "src/Module/User/Controller/edit.controller.ts",
+        "src/Module/User/Controller/profile.controller.ts",
+        "src/Module/User/middleware/profile.middleware.ts",
+        "src/Module/subscription/Controller/cancel.controller.ts",
+        "src/Module/subscription/Controller/plans.controller.ts",
+        "src/Module/subscription/Controller/upgrade.controller.ts",
+        "src/Module/subscription/Controller/usage.controller.ts",
+        "src/middleware/user.middleware.ts",
         "src/middleware/validateDTO.ts"
       ],
       "importsFrom": []
@@ -3729,7 +3327,13 @@
         }
       ],
       "importedBy": [
-        "src/app.ts"
+        "src/Module/Notifications/Service/notification-history.service.ts",
+        "src/Module/User/Service/based-user.service.ts",
+        "src/Module/subscription/Service/based-subscription.service.ts",
+        "src/Module/subscription/Service/token.service.ts",
+        "src/Shared/errors/errorHandler.ts",
+        "src/app.ts",
+        "src/jobs/resetTokens.job.ts"
       ],
       "importsFrom": []
     },
@@ -3756,7 +3360,9 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
       "importsFrom": [
         "src/utils/limit-request.ts",
         "src/middleware/validateDTO.ts",
@@ -3778,7 +3384,9 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
       "importsFrom": [
         "src/middleware/validateDTO.ts",
         "src/Module/Notifications/DTO/index.dto.ts",
@@ -3794,47 +3402,15 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
       "importsFrom": [
-        "src/gen-import.ts",
+        "src/Providers/cloudinary.provider.ts",
         "src/Module/User/DTO/index.dto.ts",
         "src/Module/User/user.controller.ts",
+        "src/Module/User/middleware/profile.middleware.ts",
         "src/middleware/validateDTO.ts"
-      ]
-    },
-    {
-      "file": "src/Module/agent/agent.module.ts",
-      "exports": [
-        {
-          "name": "default",
-          "kind": "default"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": [
-        "src/middleware/validateDTO.ts",
-        "src/Module/agent/DTO/index.dto.ts",
-        "src/Module/agent/Controller/analyze.controller.ts"
-      ]
-    },
-    {
-      "file": "src/Module/prompt/prompt.module.ts",
-      "exports": [
-        {
-          "name": "default",
-          "kind": "default"
-        }
-      ],
-      "importedBy": [],
-      "importsFrom": [
-        "src/middleware/user.middleware.ts",
-        "src/middleware/validateDTO.ts",
-        "src/middleware/tokenGuard.ts",
-        "src/Module/prompt/DTO/index.dto.ts",
-        "src/Module/prompt/Controller/optimize.controller.ts",
-        "src/Module/prompt/Controller/history.controller.ts",
-        "src/Module/prompt/Controller/getById.controller.ts",
-        "src/Module/prompt/Controller/rate.controller.ts"
       ]
     },
     {
@@ -3845,7 +3421,9 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
+      "importedBy": [
+        "src/app.module.ts"
+      ],
       "importsFrom": [
         "src/middleware/user.middleware.ts",
         "src/middleware/validateDTO.ts",
@@ -3864,22 +3442,10 @@
           "kind": "default"
         }
       ],
-      "importedBy": [],
-      "importsFrom": []
-    },
-    {
-      "file": "src/Module/template/template.module.ts",
-      "exports": [
-        {
-          "name": "default",
-          "kind": "default"
-        }
+      "importedBy": [
+        "src/app.module.ts"
       ],
-      "importedBy": [],
-      "importsFrom": [
-        "src/Module/template/Controller/list.controller.ts",
-        "src/Module/template/Controller/detail.controller.ts"
-      ]
+      "importsFrom": []
     },
     {
       "file": "src/app.module.ts",
@@ -3893,7 +3459,11 @@
         "src/app.ts"
       ],
       "importsFrom": [
-        "src/gen-import.ts"
+        "src/Module/Authentication/auth.module.ts",
+        "src/Module/User/user.module.ts",
+        "src/Module/Notifications/notification.module.ts",
+        "src/Module/subscription/subscription.module.ts",
+        "src/Module/subscription/webhook.module.ts"
       ]
     }
   ]
