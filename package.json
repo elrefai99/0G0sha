@@ -24,6 +24,7 @@
   },
   "keywords": [],
   "author": "Mohammed Elrefai <elrefai99@gmail.com>",
+  "homepage": "https://elrefai.me",
   "license": "MIT",
   "description": "Pure AI agent engine that optimizes prompts — learns from user feedback.",
   "dependencies": {
