@@ -86,6 +86,35 @@ export class BasedAuthService {
           })
      }
 
+     public async refresh_token(payload: { token: string }) {
+          const publicKey = createPublicKey(process.env.REFRESH_PUBLIC_KEY as string)
+          await V4.verify(payload.token, publicKey).then(async (payload: any) => {
+               const user = await prisma.user.findFirst({
+                    where: {
+                         id: payload.data.user_id,
+                         status: UserStatus.active
+                    },
+                    select: {
+                         id: true,
+                    }
+               })
+               if (!user) {
+                    throw AppError.notFound("User not found")
+               }
+
+               // calculate remaining time for the refresh token
+               const expireDate: Date = new Date(payload.exp)
+               const remainingMs: number = expireDate.getTime() - Date.now()
+               const remainingDays: number = Math.floor(remainingMs / (1000 * 60 * 60 * 24))
+
+               const token: string = await token_PASETO({ data: { user_id: user._id } }, "access")
+               const tokenRefresh: string = await token_PASETO({ data: { user_id: user._id } }, "refresh", `${remainingDays}d`)
+               return { success: true, token, tokenRefresh }
+          }).catch((err) => {
+               throw AppError.unauthorized(`Invalid refresh token: ${err}`)
+          })
+     }
+
      public async create_token(payload: { _id: number; type: TokenType; access_device?: string }): Promise<string> {
           const tokenPayload = {
                data: { user_id: payload._id },
