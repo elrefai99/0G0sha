@@ -1,7 +1,6 @@
 import { createPublicKey } from "node:crypto"
 import { V4 } from "paseto"
 import { AppError } from "../../../Shared/errors/app-error"
-import { UserModel } from "../../User/Schema/user.schema"
 import { token_PASETO, TokenType } from "../utils/paseto.utils"
 import { RegisterDTO } from "../DTO/index.dto"
 import prisma from "../../../config/prisma"
@@ -68,7 +67,15 @@ export class BasedAuthService {
           const { token, password } = payload
           const publicKey = createPublicKey(process.env.PUBLIC_REFRESH_TOKEN_SECRET as string)
           await V4.verify(token, publicKey).then(async (payload: any) => {
-               const user = await UserModel.findOne({ _id: payload.data.user_id }, { _id: 1 })
+               const user = await prisma.user.findFirst({
+                    where: {
+                         id: payload.data.user_id,
+                         status: UserStatus.active
+                    },
+                    select: {
+                         id: true,
+                    }
+               })
                if (!user) {
                     throw AppError.badRequest("User not found")
                }
@@ -78,6 +85,7 @@ export class BasedAuthService {
                throw AppError.badRequest(`Invalid refresh token: ${err}`)
           })
      }
+
      public async create_token(payload: { _id: number; type: TokenType; access_device?: string }): Promise<string> {
           const tokenPayload = {
                data: { user_id: payload._id },
